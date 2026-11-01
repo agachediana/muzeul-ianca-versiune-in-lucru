@@ -50,9 +50,11 @@
 
 <a class="skip-link" href="#main">Sari la conținut</a>
 
+<!-- bara cu programul, adresa si telefonul ramane sus impreuna cu antetul, pe orice pagina -->
+<div class="site-top">
 <div class="topbar">
 	<div class="wrap">
-		<div class="topbar__info">
+		<div class="topbar__info" aria-label="Program, adresă și telefon">
 			<span><svg><use href="#i-clock"/></svg>Marți – Duminică 10:00 – 14:00 · Luni închis</span>
 			<span><svg><use href="#i-pin"/></svg>Str. Gării nr. 9, Ianca, jud. Brăila</span>
 			<span><svg><use href="#i-phone"/></svg><a href="tel:+40723609033">0723 609 033</a></span>
@@ -109,6 +111,7 @@
 			<div class="nav-scrim"></div>
 			</div>
 </header>
+</div>
 
 <main id="main">
 	<div id="system-message-container" aria-live="polite"></div>
@@ -320,13 +323,10 @@
 				<a class="btn" href="https://muzeul-ianca.booktes.com/" target="_blank" rel="noopener">Cumpără bilete <svg><use href="#i-arrow"/></svg></a>			</div>
 									<div class="visit__map reveal" style="--d:1" data-map="https://www.google.com/maps?q=Muzeul%20Ianca%2C%20Strada%20G%C4%83rii%209%2C%20Ianca&amp;output=embed">
 				<div class="map-gate">
-					<svg class="map-gate__pin" aria-hidden="true"><use href="#i-pin"/></svg>
-					<p class="map-gate__title">Harta Google Maps</p>
-					<p class="map-gate__text">Harta se încarcă doar dacă o ceri. Atunci Google primește adresa IP a dispozitivului tău.</p>
-					<div class="map-gate__btns">
-						<button type="button" class="btn" data-map-load>Încarcă harta</button>
-						<a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Muzeul%20Ianca%2C%20Strada%20G%C4%83rii%209%2C%20Ianca" target="_blank" rel="noopener">Deschide în Google Maps <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-					</div>
+					<span class="map-gate__pin" aria-hidden="true"><svg><use href="#i-pin"/></svg></span>
+					<p class="map-gate__title">Te așteptăm la muzeu</p>
+					<p class="map-gate__addr">Str. Gării nr. 9, Ianca, jud. Brăila</p>					<button type="button" class="btn map-gate__btn" data-map-load><span data-map-label>Vreau să văd locația</span> <svg><use href="#i-arrow"/></svg></button>
+					<p class="map-gate__note">Harta Google apare doar după ce apeși butonul. Poți să o deschizi și direct în <a href="https://www.google.com/maps/search/?api=1&amp;query=Muzeul%20Ianca%2C%20Strada%20G%C4%83rii%209%2C%20Ianca" target="_blank" rel="noopener">Google Maps</a>.</p>
 				</div>
 			</div>
 		</div>

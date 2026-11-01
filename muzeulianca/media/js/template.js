@@ -104,6 +104,68 @@
   }
 
   /*
+     Bara de sus ramane lipita sus cu antetul.
+     --topbar-h e cat se vede din ea dupa ce derulezi (toata pe calculator,
+     doar randul cu informatii pe telefon), --topbar-full e inaltimea intreaga.
+     Pe telefon, daca programul, adresa si telefonul nu incap pe un rand,
+     apar pe rand, la cateva secunde (se opreste cand atingi sau treci cu mouse-ul).
+  */
+  function initTopbar() {
+    var top = document.querySelector('.site-top');
+    var bar = top && top.querySelector('.topbar');
+    var info = bar && bar.querySelector('.topbar__info');
+    if (!bar) return;
+    var root = document.documentElement;
+    var items = info ? [].slice.call(info.children) : [];
+    var cur = 0, timer = null, paused = false;
+
+    var show = function (i) {
+      items.forEach(function (s, k) {
+        s.classList.toggle('is-on', k === i);
+        s.classList.toggle('is-off', k === cur && k !== i);
+      });
+      cur = i;
+    };
+    var stop = function () { clearInterval(timer); timer = null; };
+    var start = function () {
+      stop();
+      if (!info.classList.contains('is-ticker')) return;
+      timer = setInterval(function () {
+        if (!paused && !document.hidden) show((cur + 1) % items.length);
+      }, reduceMotion() ? 6000 : 3500);
+    };
+
+    var measure = function () {
+      var offset = parseFloat(getComputedStyle(top).top) || 0;
+      root.style.setProperty('--topbar-full', bar.offsetHeight + 'px');
+      root.style.setProperty('--topbar-h', (bar.offsetHeight + Math.min(0, offset)) + 'px');
+      if (!info || items.length < 2) return;
+      info.classList.remove('is-ticker');
+      items.forEach(function (s) { s.classList.remove('is-on', 'is-off'); });
+      if (window.matchMedia('(max-width: 1080px)').matches && info.scrollWidth > info.clientWidth + 1) {
+        info.classList.add('is-ticker');
+        show(cur);
+      }
+      start();
+    };
+
+    if (info) {
+      info.addEventListener('pointerenter', function () { paused = true; });
+      info.addEventListener('pointerleave', function () { paused = false; });
+      // cu tastatura, linkul telefonului apare cand ajungi pe el
+      info.addEventListener('focusin', function (ev) {
+        var i = items.indexOf(ev.target.closest('span'));
+        paused = true;
+        if (i > -1 && info.classList.contains('is-ticker')) show(i);
+      });
+      info.addEventListener('focusout', function () { paused = false; });
+    }
+    measure();
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(measure);
+    window.addEventListener('resize', measure);
+  }
+
+  /*
      Meniul
      pe calculator se deschide in jos la hover, cu o mica intarziere ca sa nu
      se deschida cand doar treci pe langa, si la click. Pe telefon e acordeon.
@@ -545,6 +607,10 @@
     };
     var pressed = function () { return filter.querySelector('[aria-pressed="true"]'); };
     var barSize = function () { page.style.setProperty('--bar-h', bar.offsetHeight + 'px'); };
+    // unde se lipeste bara de filtre: sub antetul micsorat (67px) si sub bara de sus
+    var stickTop = function () {
+      return 67 + (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--topbar-h')) || 0);
+    };
 
     var apply = function (btn) {
       var f = btn.getAttribute('data-filter');
@@ -563,7 +629,7 @@
       };
 
       // daca bara e lipita sus, ne intoarcem la inceputul listei
-      var top = wrap.getBoundingClientRect().top + window.scrollY - 67 - bar.offsetHeight;
+      var top = wrap.getBoundingClientRect().top + window.scrollY - stickTop() - bar.offsetHeight;
       if (window.scrollY > top + 4) window.scrollTo({ top: top, behavior: reduceMotion() ? 'auto' : 'smooth' });
 
       if (!gsap || !Flip) { swap(); return; }
@@ -596,7 +662,7 @@
 
     // bara de filtre primeste o umbra cand ramane lipita sus
     ST.create({
-      trigger: bar, start: 'top 68px', endTrigger: page, end: 'bottom top',
+      trigger: bar, start: function () { return 'top ' + (stickTop() + 1) + 'px'; }, endTrigger: page, end: 'bottom top',
       toggleClass: { targets: bar, className: 'is-stuck' }
     });
 
@@ -630,21 +696,34 @@
   }
 
   /*
-     Harta de pe Acasa se incarca doar cand vizitatorul apasa "Incarca harta",
-     ca pana atunci sa nu plece nicio cerere spre Google
+     Harta de pe Acasa se incarca doar cand vizitatorul apasa "Vreau sa vad locatia",
+     ca pana atunci sa nu plece nicio cerere spre Google.
+     Panoul ramane pana se incarca harta, apoi harta apare incet peste el.
   */
   function initMapGate() {
     document.querySelectorAll('[data-map]').forEach(function (box) {
       var btn = box.querySelector('[data-map-load]');
       if (!btn) return;
       btn.addEventListener('click', function () {
+        var gate = box.querySelector('.map-gate');
+        var label = btn.querySelector('[data-map-label]');
         var frame = document.createElement('iframe');
+        var done = false;
+        var reveal = function () {
+          if (done) return;
+          done = true;
+          box.classList.add('is-loaded');
+          frame.focus({ preventScroll: true });
+          setTimeout(function () { if (gate) gate.remove(); }, 600);
+        };
+        btn.disabled = true;
+        if (label) label.textContent = 'Se încarcă harta…';
         frame.title = 'Harta: Muzeul Ianca';
-        frame.src = box.getAttribute('data-map');
         frame.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-        box.innerHTML = '';
-        box.appendChild(frame);
-        frame.focus();
+        frame.addEventListener('load', reveal);
+        setTimeout(reveal, 6000); // daca nu vine raspuns, harta se arata oricum
+        frame.src = box.getAttribute('data-map');
+        box.insertBefore(frame, gate);
       });
     });
   }
@@ -824,6 +903,7 @@
     initA11y();
     introHero();
     initHeader();
+    initTopbar();
     initNav();
     initHero();
     initScrollScenes();

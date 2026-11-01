@@ -18,7 +18,7 @@ Copia este o versiune de lucru, nu site-ul oficial al muzeului: fiecare pagină 
 | `baza_de_date_vederi.sql` | Vederi cu nume românești care fac baza de date ușor de citit |
 | `limba/en-GB.override.ini` | Textele Joomla afișate vizitatorilor, traduse în română |
 | `iconite/` | Logo-ul și felinarul ca PNG |
-| `unelte/` | Scripturile pentru poze, fonturi și copia statică |
+| `unelte/` | Scripturile folosite: importul evenimentelor, meniul, iconițele, pozele, fonturile și copia statică |
 
 Nu sunt incluse, intenționat: `configuration.php` din Joomla (parola bazei de date și cheia secretă), exportul bazei de date (conține contul de administrator) și copiile de siguranță.
 
@@ -40,7 +40,7 @@ Template pentru noul site al Muzeului Ianca: paletă burgundy și crem, hero alb
 | `limba/en-GB.override.ini` | Textele Joomla afișate vizitatorilor, traduse în română (vezi „Limba site-ului”) |
 | `baza_de_date_vederi.sql` | Vederile cu nume românești care fac baza de date ușor de citit (vezi „Baza de date”) |
 | `iconite/` | Logo-ul și felinarul ca PNG (vezi „Iconițe”) |
-| `unelte/` | Scripturile folosite la poze, fonturi și copia statică (vezi „Unelte”) |
+| `unelte/` | Scripturile folosite: importul evenimentelor, meniul, iconițele, pozele, fonturile și copia statică (vezi „Unelte”) |
 
 ## Instalare
 
@@ -140,7 +140,7 @@ Paginile din meniu (Istoric, Contact, Etnografie...) folosesc layout-ul `html/co
 
 ## Harta de pe Acasă
 
-Harta Google nu se mai încarcă singură. În locul ei e un panou cu adresa și două butoane: **Încarcă harta** (abia atunci se cere harta de la Google) și **Deschide în Google Maps**. Așa, la deschiderea site-ului nu pleacă nicio cerere spre alte servere.
+Harta Google nu se mai încarcă singură. În locul ei e un panou „Te așteptăm la muzeu”, cu adresa, un pin care pulsează și butonul **Vreau să văd locația**. Abia după apăsare se cere harta de la Google; până se încarcă, butonul arată „Se încarcă harta…”, apoi harta apare încet peste panou. Sub buton e și un link direct spre Google Maps. Așa, la deschiderea site-ului nu pleacă nicio cerere spre alte servere.
 
 ## Limba site-ului
 
@@ -198,7 +198,9 @@ Textele fixe ale secțiunilor și reperele cronologice se editează în `partial
 
 ## Accesibilitate și animații
 
-Bara din antet oferă: mărire și micșorare text (trei trepte în fiecare sens), contrast ridicat și linkuri subliniate. Alegerile se rețin în browser.
+**Bara de sus** (programul, adresa, telefonul, butoanele de accesibilitate și „Bilete online”) stă lipită sus, împreună cu antetul, pe orice pagină, ca informațiile muzeului să se vadă mereu. Pe telefon are două rânduri: butoanele urcă atunci când derulezi, iar rândul cu informații rămâne sub antet. Dacă programul, adresa și telefonul nu încap pe un rând, apar pe rând, la câteva secunde (se oprește când atingi rândul sau ajungi pe el cu tastatura).
+
+Butoanele de accesibilitate: mărire și micșorare text (trei trepte în fiecare sens), contrast ridicat și linkuri subliniate. Alegerile se rețin în browser.
 
 Când în sistem e pornită „mișcarea redusă” (în Windows: **Setări → Accesibilitate → Efecte vizuale → Efecte de animație**), dispar paralaxa și scenele legate de derulare. Rămân lumina felinarului, aparițiile prin estompare și filtrele animate.
 
@@ -217,6 +219,13 @@ Scripturile din `unelte/`, fiecare cu modul de folosire scris la început:
 | `copie-statica.js` | Face copia statică a site-ului pentru GitHub Pages (`noindex` și bandă „Versiune de lucru”) |
 | `ascunde-poze.ps1` | Blurează în copia statică pozele din `poze-ascunse.txt` și scrie pe ele „Poză blurată temporar” |
 | `poze-ascunse.txt` | Pozele cu copii, ascunse până există acordul părinților |
+| `meniu-nou.php` | A făcut structura nouă a meniului (Despre, Muzeul în imagini, meniul ascuns) |
+| `pagina-confidentialitate.php` | A creat pagina Politica de confidențialitate, doar cu structura |
+| `deseneaza-iconite.js` | Face iconițele PNG (logo, felinar, favicon) din desenele SVG ale temei |
+| `genereaza-vederi-sql.js` | Scrie `baza_de_date_vederi.sql` (vederile și ghidul tabelelor) |
+| `repara-permisiuni.sql` | Reparația tabelei de permisiuni după căderea MySQL din 22.10.2026 (păstrată doar ca exemplu, nu se mai rulează) |
+
+Folderul `unelte/evenimente/` are importul celor 30 de evenimente de pe site-ul vechi, în ordine: `extrage-evenimente.js` (textele din pagina veche), `cauta-poze.js` (adresele pozelor), `pregateste-evenimente.js` (lista finală, cu titluri și date corectate), `descarca-poze.ps1` (pozele, micșorate) și `importa-evenimente.php` (articolele și câmpurile din Joomla). Datele intermediare sunt în `unelte/evenimente/date/`. Scripturile PHP rulează cu PHP-ul din XAMPP și folosesc Joomla direct, fără parole.
 
 ## Încă de făcut
 

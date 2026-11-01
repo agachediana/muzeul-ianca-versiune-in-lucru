@@ -75,9 +75,11 @@ $ownHead = !$isHome && $app->get('muzeulianca.ownHead', false);
 
 <a class="skip-link" href="#main">Sari la conținut</a>
 
+<!-- bara cu programul, adresa si telefonul ramane sus impreuna cu antetul, pe orice pagina -->
+<div class="site-top">
 <div class="topbar">
 	<div class="wrap">
-		<div class="topbar__info">
+		<div class="topbar__info" aria-label="Program, adresă și telefon">
 			<span><svg><use href="#i-clock"/></svg><?php echo $e($params->get('program')); ?></span>
 			<span><svg><use href="#i-pin"/></svg><?php echo $e($params->get('adresa')); ?></span>
 			<span><svg><use href="#i-phone"/></svg><a href="<?php echo $e($telLink); ?>"><?php echo $e($telefon); ?></a></span>
@@ -115,6 +117,7 @@ $ownHead = !$isHome && $app->get('muzeulianca.ownHead', false);
 		<?php endif; ?>
 	</div>
 </header>
+</div>
 
 <main id="main">
 	<jdoc:include type="message" />
