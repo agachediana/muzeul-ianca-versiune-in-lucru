@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "muzeulianca",
+  "version": "2.0.0",
+  "description": "Template Muzeul Ianca",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "template.muzeulianca.fonts",
+      "type": "style",
+      "uri": "fonts.css",
+      "version": "2.0.0"
+    },
+    {
+      "name": "template.muzeulianca.gsap",
+      "type": "script",
+      "uri": "vendor/gsap.min.js",
+      "version": "3.12.5",
+      "attributes": { "defer": true }
+    },
+    {
+      "name": "template.muzeulianca.scrolltrigger",
+      "type": "script",
+      "uri": "vendor/ScrollTrigger.min.js",
+      "version": "3.12.5",
+      "attributes": { "defer": true },
+      "dependencies": ["template.muzeulianca.gsap"]
+    },
+    {
+      "name": "template.muzeulianca.flip",
+      "type": "script",
+      "uri": "vendor/Flip.min.js",
+      "version": "3.12.5",
+      "attributes": { "defer": true },
+      "dependencies": ["template.muzeulianca.gsap"]
+    },
+    {
+      "name": "template.muzeulianca",
+      "type": "style",
+      "uri": "template.css",
+      "version": "2.0.1",
+      "dependencies": ["template.muzeulianca.fonts"]
+    },
+    {
+      "name": "template.muzeulianca",
+      "type": "script",
+      "uri": "template.js",
+      "version": "2.0.0",
+      "attributes": { "defer": true },
+      "dependencies": ["template.muzeulianca.gsap", "template.muzeulianca.scrolltrigger"]
+    },
+    {
+      "name": "template.muzeulianca",
+      "type": "preset",
+      "dependencies": ["template.muzeulianca#style", "template.muzeulianca#script"]
+    }
+  ]
+}

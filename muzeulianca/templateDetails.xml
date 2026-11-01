@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Descrierea temei Muzeul Ianca pentru Joomla
+  numele si versiunea, fisierele si folderele temei, pozitiile pentru module
+  si setarile care apar in administrare (program, adresa, telefon, poza din
+  banner, titlul, butoanele, categoriile pentru evenimente si anunturi).
+-->
+<extension type="template" client="site" method="upgrade">
+	<name>muzeulianca</name>
+	<version>1.0.0</version>
+	<creationDate>2026-10</creationDate>
+	<author>Muzeul Ianca</author>
+	<copyright>(C) 2026 Asociația cultural-istorică „Muzeul” Ianca</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<description>Template Muzeul Ianca: paletă burgundy și crem, hero alb-negru care devine color sub cursor, animații la scroll, bară de accesibilitate.</description>
+	<inheritable>1</inheritable>
+
+	<files>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>joomla.asset.json</filename>
+		<folder>html</folder>
+		<folder>partials</folder>
+	</files>
+
+	<media destination="templates/site/muzeulianca" folder="media">
+		<folder>css</folder>
+		<folder>fonts</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+	</media>
+
+	<positions>
+		<position>menu</position>
+		<position>home-anunturi</position>
+		<position>home-prezentare</position>
+		<position>home-sectiuni</position>
+		<position>home-evenimente</position>
+		<position>home-istoric</position>
+		<position>home-vizita</position>
+		<position>sidebar</position>
+		<position>footer-1</position>
+		<position>footer-2</position>
+		<position>footer-3</position>
+	</positions>
+
+	<config>
+		<fields name="params">
+			<fieldset name="advanced" label="Muzeu">
+				<field name="logo" type="media" label="Logo (opțional, în locul monogramei MI)" />
+				<field name="siteTagline" type="text" default="Câmpia Brăilei · din 1999" label="Text sub nume" />
+				<field name="program" type="text" default="Marți – Duminică 10:00 – 14:00 · Luni închis" label="Program" />
+				<field name="adresa" type="text" default="Str. Gării nr. 9, Ianca, jud. Brăila" label="Adresă" />
+				<field name="telefon" type="text" default="0723 609 033" label="Telefon" />
+				<field name="bileteUrl" type="url" default="https://muzeul-ianca.booktes.com/" label="Link bilete online" />
+				<field name="facebook" type="url" default="https://www.facebook.com/muzeuliancadinjudetulbraila/" label="Facebook" />
+				<field name="youtube" type="url" default="https://www.youtube.com/channel/UCLBgqLUfyg9zFQsDvL5UjUA" label="YouTube" />
+				<field name="mapQuery" type="text" default="Muzeul Ianca, Strada Gării 9, Ianca" label="Adresă pentru hartă (Google Maps)" />
+			</fieldset>
+			<fieldset name="identitate" label="Date de identificare" description="Apar in subsolul fiecarei pagini (Legea 365/2002, art. 5). Campurile goale nu se afiseaza.">
+				<field name="denumireOficiala" type="text" default="Asociația cultural-istorică „Muzeul” Ianca" label="Denumirea exactă a asociației" />
+				<field name="sediu" type="text" default="" label="Sediul (adresa oficială)" />
+				<field name="email" type="email" default="" label="E-mail" />
+				<field name="registru" type="text" default="" label="Nr. din Registrul asociațiilor și fundațiilor" />
+				<field name="cif" type="text" default="" label="CIF (cod de identificare fiscală)" />
+			</fieldset>
+			<fieldset name="hero" label="Pagina de acasă">
+				<field name="heroImage" type="media" default="images/muzeu/hero-muzeu.jpg" label="Fotografia principală (hero)" description="Fotografie color; template-ul o afișează alb-negru și o colorează sub cursor." />
+				<field name="heroName" type="text" default="Muzeul Ianca" label="Titlul mare (primul cuvânt pe primul rând)" />
+				<field name="heroSub" type="text" default="Câmpia Brăilei · din 1999" label="Rândul de sub titlu" />
+				<field name="heroCta1Text" type="text" default="Planifică vizita" label="Buton 1: text" />
+				<field name="heroCta1Url" type="text" default="#vizita" label="Buton 1: link" />
+				<field name="heroCta2Text" type="text" default="Tur virtual" label="Buton 2: text" />
+				<field name="heroCta2Url" type="text" default="" label="Buton 2: link" description="Gol = pagina Tur virtual de pe site. Merge si un link intern de forma index.php?Itemid=..." />
+				<field name="evenimenteCategorie" type="text" default="evenimente" label="Alias categorie evenimente" />
+				<field name="anunturiCategorie" type="text" default="anunturi" label="Alias categorie anunțuri" />
+				<field name="evenimenteUrl" type="text" default="" label="Link „Toate evenimentele”" />
+				<field name="homeShowComponent" type="radio" default="0" label="Afișează și conținutul paginii de acasă (articole)" layout="joomla.form.field.radio.switcher">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

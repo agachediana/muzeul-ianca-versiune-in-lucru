@@ -1,0 +1,7 @@
+# fisiere care nu trebuie sa ajunga pe GitHub
+configuration.php
+*.bak*
+backup*.sql
+data_backup*/
+aria_logs_old*/
+.claude/
