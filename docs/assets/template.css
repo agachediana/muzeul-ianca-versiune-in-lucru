@@ -1617,15 +1617,22 @@ a.gal-chip, span.gal-chip { padding-right: 16px; }
   mai scund: poza nu e mai inalta decat ecranul, iar textul e mai strans.
 */
 .about-section .intro { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
-.about-section .intro__media img { aspect-ratio: auto; height: clamp(320px, calc(100vh - 300px), 560px); }
-.about-section h2 { margin-bottom: 0; }
-.about-section .hand-note { font-size: calc(1.4rem * var(--fs-scale)); margin: 4px 0 8px; }
-.about-section .stitch-sm { margin-bottom: 16px; }
-.about-section .lead { margin: 0; font-size: calc(1.08rem * var(--fs-scale)); line-height: 1.6; }
-.about-figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 24px 0 16px; border-top: 1px solid var(--line-strong); }
-.figure { display: flex; flex-direction: column; gap: 4px; padding: 12px 24px 12px 0; border-bottom: 1px solid var(--line); }
-.figure:nth-child(2n) { padding-left: 24px; border-left: 1px solid var(--line); }
-.figure dd { order: -1; margin: 0; font: italic 800 clamp(2rem, 3.2vw, 2.8rem)/1 var(--font-title); color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+.about-section { padding-block: clamp(48px, 6vw, 80px); }
+.about-section .intro__media img { aspect-ratio: auto; height: clamp(280px, calc(100vh - 400px), 460px); }
+.about-section h2 { margin-bottom: 0; font-size: calc(clamp(1.8rem, 3vw, 2.4rem) * var(--fs-scale)); }
+.about-section .hand-note { font-size: calc(1.25rem * var(--fs-scale)); margin: 4px 0 8px; }
+.about-section .stitch-sm { margin-bottom: 12px; }
+.about-section .lead { margin: 0; font-size: calc(1rem * var(--fs-scale)); line-height: 1.6; }
+/* cele patru cifre pe un singur rand, ca sectiunea sa fie scunda */
+.about-figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 24px 0 16px; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); }
+.figure { display: flex; flex-direction: column; gap: 4px; padding: 12px 12px 12px 16px; border-left: 1px solid var(--line); }
+.figure:first-child { padding-left: 0; border-left: 0; }
+.figure dd { order: -1; margin: 0; font: italic 800 clamp(1.8rem, 2.6vw, 2.4rem)/1 var(--font-title); color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+@media (max-width: 1100px) and (min-width: 901px) {
+  .about-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figure:nth-child(3) { padding-left: 0; border-left: 0; }
+  .figure:nth-child(n + 3) { border-top: 1px solid var(--line); }
+}
 @media (max-width: 900px) {
   .about-section .intro { grid-template-columns: 1fr; }
   .about-section .intro__media img { height: auto; aspect-ratio: 4 / 3; }
@@ -1643,11 +1650,12 @@ a.gal-chip, span.gal-chip { padding-right: 16px; }
 @media (prefers-reduced-motion: reduce) { .intro__seal text:first-of-type, .intro__media.is-in .intro__seal { animation: none; } }
 html[data-motion="reduce"] .intro__seal text:first-of-type { animation: none; }
 @media (max-width: 900px) { .intro__seal { right: -12px; bottom: -20px; } }
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .about-figs { grid-template-columns: 1fr 1fr; }
-  .figure { padding-right: 12px; }
-  .figure:nth-child(2n) { padding-left: 12px; }
+  .figure:nth-child(3) { padding-left: 0; border-left: 0; }
+  .figure:nth-child(n + 3) { border-top: 1px solid var(--line); }
 }
+.figure dt { font-size: calc(.7rem * var(--fs-scale)); line-height: 1.35; }
 
 /* colectiile: carduri care se inclina dupa mouse, cu o lumina calda pe ele */
 .collections .section__head { align-items: flex-end; flex-wrap: wrap; gap: 8px 24px; }
@@ -1940,6 +1948,8 @@ html[data-gray] :is(.site-top, main, .footer, .radio, .ai-fab) { filter: graysca
 .corps-toc__link:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-3px); }
 .corps { display: grid; gap: clamp(64px, 9vw, 120px); padding-bottom: clamp(72px, 10vw, 128px); }
 .corp { position: relative; scroll-margin-top: calc(var(--header-h) + var(--topbar-h, 40px) + 20px); }
+/* titlul fiecarui corp, cursiv, ca titlurile mari ale paginilor */
+.corp .tour__title, .tour .tour__title { font: italic 700 calc(clamp(1.9rem, 3.2vw, 2.8rem) * var(--fs-scale))/1.1 var(--font-title); color: var(--accent); letter-spacing: -.01em; }
 .corp__letter { position: absolute; right: 0; top: -.4em; font: italic 800 clamp(8rem, 20vw, 16rem)/1 var(--font-title); color: var(--accent); opacity: .07; pointer-events: none; }
 .corp__grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
 .corp:nth-child(even) .corp__grid .corp__media { order: 2; }
@@ -1951,9 +1961,10 @@ html[data-gray] :is(.site-top, main, .footer, .radio, .ai-fab) { filter: graysca
 .corp__strip a { display: block; aspect-ratio: 4 / 3; overflow: hidden; }
 .corp__strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease-out), filter 1.8s var(--ease-out) .2s; }
 .corp__strip a:hover img { transform: scale(1.08); }
-.corp__strip-more a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; height: 100%; padding: 12px; background: var(--burgundy-900); color: var(--cream-100); text-align: center; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: background var(--dur); }
+/* ultimul patrat: numarul de fotografii mare, cursiv, iar textul mic incape mereu in patrat */
+.corp__strip-more a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; height: 100%; min-width: 0; padding: 8px; background: var(--burgundy-900); color: var(--cream-100); text-align: center; font: italic 400 calc(.9rem * var(--fs-scale))/1.2 var(--font-title); transition: background var(--dur); overflow: hidden; }
 .corp__strip-more a:hover { background: var(--burgundy-700); color: var(--cream-50); }
-.corp__strip-more strong { font: italic 800 2rem/1 var(--font-title); letter-spacing: 0; color: #e3b866; text-transform: none; }
+.corp__strip-more strong { display: block; font: italic 800 clamp(1.6rem, 2.4vw, 2.2rem)/1 var(--font-title); color: #e3b866; }
 .corp__strip-more svg { width: 18px; height: 18px; transition: transform var(--dur) var(--ease-out); }
 .corp__strip-more a:hover svg { transform: translateX(4px); }
 @media (max-width: 900px) {
