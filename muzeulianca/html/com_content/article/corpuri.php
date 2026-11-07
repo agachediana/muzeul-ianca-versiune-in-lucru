@@ -116,7 +116,7 @@ if (!trim((string) $item->metadesc)) {
 								<?php foreach ($poze as $k => $p) : ?>
 									<li class="reveal" style="--d:<?php echo $k + 1; ?>"><a class="develop" href="<?php echo $e($p); ?>" data-lightbox data-caption="<?php echo $e($s['titlu']); ?>"><img src="<?php echo $e($p); ?>"<?php echo $size($p); ?> alt="<?php echo $e($s['titlu'] . ', fotografia ' . ($k + 1)); ?>" loading="lazy"></a></li>
 								<?php endforeach; ?>
-								<?php if ($galLink) : ?><li class="corp__strip-more reveal" style="--d:6"><a href="<?php echo $e($galLink); ?>#gal-corp-<?php echo $e($s['corp']); ?>"><strong><?php echo $e($nrPoze($s['corp'])); ?></strong>fotografii în galerie <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li><?php endif; ?>
+								<?php if ($galLink) : ?><li class="corp__strip-more reveal" style="--d:6"><a href="<?php echo $e($galLink); ?>#gal-corp-<?php echo $e($s['corp']); ?>"><strong><?php echo $e($nrPoze($s['corp'])); ?></strong><span>fotografii<br>în galerie</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li><?php endif; ?>
 							</ul>
 						<?php endif; ?>
 					</div>

@@ -89,7 +89,9 @@ const pages = [];
         return `${attr}="${pageFile(rel)}${hash ? '#' + hash : ''}"`;
       }
       if (/\.(css|js|png|jpe?g|gif|webp|svg|ico|woff2?|ttf|mp4|pdf)$/i.test(rel)) {
-        return `${attr}="assets/${assetName(rel)}"`;
+        // css si js isi pastreaza versiunea (?2.5.2), ca browserul sa ia varianta noua dupa fiecare actualizare
+        const ver = /\.(css|js)$/i.test(rel) && /^\?[\w.-]+$/.test(query) ? query : '';
+        return `${attr}="assets/${assetName(rel)}${ver}"`;
       }
       return m;
     });

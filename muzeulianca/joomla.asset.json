@@ -38,14 +38,14 @@
       "name": "template.muzeulianca",
       "type": "style",
       "uri": "template.css",
-      "version": "2.5.2",
+      "version": "2.5.3",
       "dependencies": ["template.muzeulianca.fonts"]
     },
     {
       "name": "template.muzeulianca",
       "type": "script",
       "uri": "template.js",
-      "version": "2.5.2",
+      "version": "2.5.3",
       "attributes": { "defer": true },
       "dependencies": ["template.muzeulianca.gsap", "template.muzeulianca.scrolltrigger"]
     },

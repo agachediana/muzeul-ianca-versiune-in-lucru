@@ -184,11 +184,14 @@ $poza = static function (array $p, string $galerie, int $k, bool $rama = false, 
 			<?php endif; ?>
 
 			<?php if ($inventar) : ?>
-				<!-- inventarul: toate obiectele colectiei, si cele fara fotografie -->
+				<!--
+				  inventarul: obiectele din catalogul selectiv, si cele fara fotografie.
+				  Nu scriem ca sunt toate obiectele muzeului (lista nu e inca verificata).
+				-->
 				<section class="gal-inv" aria-labelledby="gal-inv-title">
 					<div class="stitch-sm" aria-hidden="true"></div>
 					<h2 id="gal-inv-title" class="split">Inventarul colecției</h2>
-					<p class="hand-note">toate cele <?php echo count($inventar); ?> de obiecte, ca în registrul muzeului</p>
+					<p class="hand-note"><?php echo count($inventar); ?> de obiecte din catalogul selectiv</p>
 					<ol class="gal-inv__list">
 						<?php foreach ($inventar as $k => $o) : ?>
 							<li class="reveal" style="--d:<?php echo $k % 6; ?>"><span><?php echo str_pad((string) ($k + 1), 3, '0', STR_PAD_LEFT); ?></span><?php echo $e($o); ?></li>
