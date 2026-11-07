@@ -1,0 +1,2918 @@
+{
+ "albume": [
+  {
+   "titlu": "Secția Etnografie",
+   "alias": "sectia-etnografie",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_9676.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9552.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9665.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9667.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9675.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/05.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9654.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/06.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9670.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/07.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9653.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/08.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9668.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/09.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9672.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/10.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9617.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/11.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9603.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/12.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9669.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/13.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9554.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/14.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9607.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/15.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9652.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/16.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9605.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-etnografie/17.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Expoziție",
+   "alias": "expozitie",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_9614.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9594.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9602.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9593.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9530.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/05.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9538.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/06.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9600.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/07.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9534.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/08.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9523.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/09.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9532.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/10.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9539.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/11.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9529.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/12.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9536.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/13.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9528.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/14.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9533.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/15.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9518.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/16.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9531.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/17.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9517.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/18.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9527.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/19.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9514.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/20.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9516.jpg",
+     "alt": "",
+     "fisier": "albume/expozitie/21.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Expoziția \"Biserica strămoșească\"",
+   "alias": "expozitia-biserica-stramoseasca",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_9619.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9620.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9631.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9629.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9627.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/05.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9625.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/06.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9626.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/07.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9624_01.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/08.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9622.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/09.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9613.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/10.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9614.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-biserica-stramoseasca/11.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Expoziția \" Școala de altădată\"",
+   "alias": "expozitia-scoala-de-altadata",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_9636.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9632.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9638.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9635.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9644.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/05.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9646.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/06.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9641.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/07.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9649.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/08.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9639.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/09.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9648.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/10.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9651.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/11.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9656.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/12.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9658.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/13.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9659.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/14.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9660.jpg",
+     "alt": "",
+     "fisier": "albume/expozitia-scoala-de-altadata/15.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Secția Aviație",
+   "alias": "sectia-aviatie",
+   "poze": [
+    {
+     "url": "/Resources/images/159961240_725401318162998_5355996385155800137_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/01.jpg"
+    },
+    {
+     "url": "/Resources/images/159867379_725401258163004_9195993196404451762_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/02.jpg"
+    },
+    {
+     "url": "/Resources/images/160070078_725401394829657_6645780398234325532_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/03.jpg"
+    },
+    {
+     "url": "/Resources/images/159709319_725401321496331_7821231509250875816_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/04.jpg"
+    },
+    {
+     "url": "/Resources/images/160049856_725401404829656_4391688399766805061_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/05.jpg"
+    },
+    {
+     "url": "/Resources/images/159709413_725401261496337_3090637552770781672_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/06.jpg"
+    },
+    {
+     "url": "/Resources/images/160496126_725401328162997_6931029356897240161_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/07.jpg"
+    },
+    {
+     "url": "/Resources/images/159652851_725401398162990_4692998730842090555_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/08.jpg"
+    },
+    {
+     "url": "/Resources/images/160184756_725401268163003_2862191470821828769_o.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/09.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9689.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/10.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9694.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/11.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9697.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/12.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9691.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/13.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9695.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/14.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9692.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/15.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9698.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/16.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9690.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/17.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9700.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/18.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9686.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/19.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9696.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/20.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9703.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/21.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9705.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/22.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9713.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/23.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9704.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/24.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9709.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/25.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9722.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/26.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9714.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/27.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9724.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/28.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9706.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/29.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9718.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/30.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9712.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/31.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9726.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/32.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9716.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/33.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9735.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/34.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9717.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/35.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9734.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/36.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9725.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/37.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9737.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/38.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9730.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/39.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9736.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/40.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9731.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-aviatie/41.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Curtea interioar ă",
+   "alias": "curtea-interioar-a",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_8254-min.JPG",
+     "alt": "",
+     "fisier": "albume/curtea-interioar-a/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9798.jpg",
+     "alt": "",
+     "fisier": "albume/curtea-interioar-a/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_8251-min.JPG",
+     "alt": "",
+     "fisier": "albume/curtea-interioar-a/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_8250-min.JPG",
+     "alt": "",
+     "fisier": "albume/curtea-interioar-a/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9792.jpg",
+     "alt": "",
+     "fisier": "albume/curtea-interioar-a/05.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9742.jpg",
+     "alt": "",
+     "fisier": "albume/curtea-interioar-a/06.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9492.jpg",
+     "alt": "",
+     "fisier": "albume/curtea-interioar-a/07.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Secția de Artă - tablouri de Geogeta Crainic",
+   "alias": "sectia-de-arta-tablouri-de-geogeta-crainic",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_9831.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-de-arta-tablouri-de-geogeta-crainic/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9830.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-de-arta-tablouri-de-geogeta-crainic/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9829.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-de-arta-tablouri-de-geogeta-crainic/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9828.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-de-arta-tablouri-de-geogeta-crainic/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9826.jpg",
+     "alt": "",
+     "fisier": "albume/sectia-de-arta-tablouri-de-geogeta-crainic/05.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Expozi ția Marii Uniri și Centenarului",
+   "alias": "expozi-tia-marii-uniri-si-centenarului",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_9817.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9818.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9822.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9824.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9825.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/05.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9821.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/06.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9813.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/07.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9832.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/08.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9823.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/09.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9819.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/10.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9816.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/11.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9810.jpg",
+     "alt": "",
+     "fisier": "albume/expozi-tia-marii-uniri-si-centenarului/12.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Casa țărănească – strămutată în curtea muzeului din satul Oprișenești",
+   "alias": "casa-taraneasca-stramutata-in-curtea-muzeului-din",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_9802.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9779.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9778.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9772.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9783.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/05.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9775.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/06.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9784.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/07.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9770.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/08.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9769.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/09.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9763.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/10.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9767.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/11.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9757.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/12.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9766.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/13.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9764.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/14.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9768.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/15.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9761.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/16.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9755.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/17.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9750.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/18.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9759.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/19.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9756.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/20.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9753.jpg",
+     "alt": "",
+     "fisier": "albume/casa-taraneasca-stramutata-in-curtea-muzeului-din/21.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Depozitul de unelte din zona de câmpie a Brăilei l a Muzeul Ianca",
+   "alias": "depozitul-de-unelte-din-zona-de-campie-a-brailei-l",
+   "poze": [
+    {
+     "url": "/Resources/images/DSC_9476.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/01.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9795.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/02.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9472.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/03.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9437.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/04.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9795_01.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/05.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9788.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/06.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9475.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/07.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9479.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/08.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9790.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/09.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9466.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/10.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9463.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/11.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9446.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/12.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9469.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/13.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9430.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/14.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9457.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/15.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9435.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/16.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9458.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/17.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9439.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/18.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9453.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/19.jpg"
+    },
+    {
+     "url": "/Resources/images/DSC_9434.jpg",
+     "alt": "",
+     "fisier": "albume/depozitul-de-unelte-din-zona-de-campie-a-brailei-l/20.jpg"
+    }
+   ]
+  },
+  {
+   "titlu": "Evenimente organizate de Muzeul Ianca",
+   "alias": "evenimente-organizate-de-muzeul-ianca",
+   "poze": [
+    {
+     "url": "/Resources/images/ianca-ccf19333.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/01.jpg"
+    },
+    {
+     "url": "/Resources/images/ianca-eroica-06fac92e.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/02.jpg"
+    },
+    {
+     "url": "/Resources/images/ianca-flori.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/03.jpg"
+    },
+    {
+     "url": "/Resources/images/ianca-flori2.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/04.jpg"
+    },
+    {
+     "url": "/Resources/images/FB_IMG_1613658952469.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/05.jpg"
+    },
+    {
+     "url": "/Resources/images/FB_IMG_1613658994324.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/06.jpg"
+    },
+    {
+     "url": "/Resources/images/FB_IMG_1613658977045.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/07.jpg"
+    },
+    {
+     "url": "/Resources/images/ianca-bunica.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/08.jpg"
+    },
+    {
+     "url": "/Resources/images/ianca-delegatie%20soroca.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/09.jpg"
+    },
+    {
+     "url": "/Resources/images/ianca-soroca.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/10.jpg"
+    },
+    {
+     "url": "/Resources/images/12muzeu-ianca.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/11.jpg"
+    },
+    {
+     "url": "/Resources/images/12muzeu-ianca1.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/12.jpg"
+    },
+    {
+     "url": "/Resources/images/12muzeu-ianca2.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/13.jpg"
+    },
+    {
+     "url": "/Resources/images/12muzeu-ianca4.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/14.jpg"
+    },
+    {
+     "url": "/Resources/images/24muzeu-ianca.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/15.jpg"
+    },
+    {
+     "url": "/Resources/images/08ianca3.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/16.jpg"
+    },
+    {
+     "url": "/Resources/images/23muzeu-ianca2.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/17.jpg"
+    },
+    {
+     "url": "/Resources/images/23muzeu-ianca.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/18.jpg"
+    },
+    {
+     "url": "/Resources/images/15expozitie.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/19.jpg"
+    },
+    {
+     "url": "/Resources/images/02ianca.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/20.jpg"
+    },
+    {
+     "url": "/Resources/images/ianca-20.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/21.jpg"
+    },
+    {
+     "url": "/Resources/images/22muzeu-ianca_0-7b6db909.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/22.jpg"
+    },
+    {
+     "url": "/Resources/images/FB_IMG_1613661084938.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/23.jpg"
+    },
+    {
+     "url": "/Resources/images/79251254_2582277228522038_2882522358172614656_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/24.jpg"
+    },
+    {
+     "url": "/Resources/images/78406678_2582277845188643_4535530965459533824_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/25.jpg"
+    },
+    {
+     "url": "/Resources/images/79085385_2582277908521970_3581353317218910208_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/26.jpg"
+    },
+    {
+     "url": "/Resources/images/77308865_2582278335188594_1336957601950203904_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/27.jpg"
+    },
+    {
+     "url": "/Resources/images/78344734_2582281051854989_7896445614492221440_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/28.jpg"
+    },
+    {
+     "url": "/Resources/images/78245903_2582280015188426_7985798930161991680_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/29.jpg"
+    },
+    {
+     "url": "/Resources/images/78148707_2582283151854779_2680741466006880256_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/30.jpg"
+    },
+    {
+     "url": "/Resources/images/78910021_2582279111855183_7109639049320595456_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/31.jpg"
+    },
+    {
+     "url": "/Resources/images/72217397_2582278831855211_3588051494810681344_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/32.jpg"
+    },
+    {
+     "url": "/Resources/images/79312289_2582281008521660_7230152498751733760_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/33.jpg"
+    },
+    {
+     "url": "/Resources/images/74449214_2582283561854738_7487005394322063360_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/34.jpg"
+    },
+    {
+     "url": "/Resources/images/74701700_2582281451854949_3312762701230374912_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/35.jpg"
+    },
+    {
+     "url": "/Resources/images/79137530_2582282698521491_6328026508359106560_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/36.jpg"
+    },
+    {
+     "url": "/Resources/images/78758878_2582283551854739_8706365773800538112_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/37.jpg"
+    },
+    {
+     "url": "/Resources/images/78122936_2582284788521282_6565858797661716480_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/38.jpg"
+    },
+    {
+     "url": "/Resources/images/83818916_2696962860386807_426424913155325952_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/39.jpg"
+    },
+    {
+     "url": "/Resources/images/82643904_2696963330386760_1620563376360914944_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/40.jpg"
+    },
+    {
+     "url": "/Resources/images/62195380_2236928949723536_4035183738085179392_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/41.jpg"
+    },
+    {
+     "url": "/Resources/images/62337312_2236928419723589_6740844728897503232_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/42.jpg"
+    },
+    {
+     "url": "/Resources/images/60643764_2208497912566640_1159366210408677376_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/43.jpg"
+    },
+    {
+     "url": "/Resources/images/60908295_2208497609233337_725352824480727040_o.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/44.jpg"
+    },
+    {
+     "url": "/Resources/images/evocarea-satului-romanesc-in-campia-brailei-123316.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/45.jpg"
+    },
+    {
+     "url": "/Resources/images/evocarea-satului-romanesc-in-campia-brailei-123318.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/46.jpg"
+    },
+    {
+     "url": "/Resources/images/evocarea-satului-romanesc-in-campia-brailei-123317.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/47.jpg"
+    },
+    {
+     "url": "/Resources/images/Razvan-Muzeul-Ianca-1-3645e8fd.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/48.jpg"
+    },
+    {
+     "url": "/Resources/images/Screenshot%202020-12-30%20at%2021.21.47.png",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/49.jpg"
+    },
+    {
+     "url": "/Resources/images/67066160_2383595341915883_2200398207727435776_n.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/50.jpg"
+    },
+    {
+     "url": "/Resources/images/67221461_2383595391915878_7438580247945019392_n.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/51.jpg"
+    },
+    {
+     "url": "/Resources/images/67609484_2383595565249194_1278566297495404544_n.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/52.jpg"
+    },
+    {
+     "url": "/Resources/images/67103598_2383595481915869_3998196489049341952_n.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/53.jpg"
+    },
+    {
+     "url": "/Resources/images/66792280_2383595445249206_2583822827438211072_n.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/54.jpg"
+    },
+    {
+     "url": "/Resources/images/67356358_2383595625249188_5948015747698524160_n.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/55.jpg"
+    },
+    {
+     "url": "/Resources/images/Razvan-Muzeul-Ianca-1.jpg",
+     "alt": "",
+     "fisier": "albume/evenimente-organizate-de-muzeul-ianca/56.jpg"
+    }
+   ]
+  }
+ ],
+ "catalog": {
+  "etnografie": [
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": "/Resources/images/jhl7ILJPQ0S8WdoYK9II.jpg",
+    "fisier": "galerii/etnografie/01-stergar.jpg"
+   },
+   {
+    "titlu": "Vârtelniță",
+    "descriere": "",
+    "url": "/Resources/images/NNYDgTuTOCbsfEbBGYSw.jpg",
+    "fisier": "galerii/etnografie/02-vartelnita.jpg"
+   },
+   {
+    "titlu": "Strachină",
+    "descriere": "",
+    "url": "/Resources/images/trAIFgCmSfyBnEJuZam6.jpg",
+    "fisier": "galerii/etnografie/03-strachina.jpg"
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": "/Resources/images/Ai6MPwGTT6Smu7n6gYEM.jpg",
+    "fisier": "galerii/etnografie/04-stergar.jpg"
+   },
+   {
+    "titlu": "Borcan",
+    "descriere": "",
+    "url": "/Resources/images/b98z1EXTKWH9ZcQPZKwD.jpg",
+    "fisier": "galerii/etnografie/05-borcan.jpg"
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": "/Resources/images/nwCrVNamTIOXUTvL29ZG.jpg",
+    "fisier": "galerii/etnografie/06-stergar.jpg"
+   },
+   {
+    "titlu": "Spată",
+    "descriere": "",
+    "url": "/Resources/images/KPB9rZoNSraCzjA8egah.jpg",
+    "fisier": "galerii/etnografie/07-spata.jpg"
+   },
+   {
+    "titlu": "Fus",
+    "descriere": "",
+    "url": "/Resources/images/yD7J2xxWTC2XwWerUARM.jpg",
+    "fisier": "galerii/etnografie/08-fus.jpg"
+   },
+   {
+    "titlu": "Scoarță",
+    "descriere": "",
+    "url": "/Resources/images/A2wTUb0vTTyn06Pe2AEa.jpg",
+    "fisier": "galerii/etnografie/09-scoarta.jpg"
+   },
+   {
+    "titlu": "Vioară",
+    "descriere": "",
+    "url": "/Resources/images/vJvfzEpuQomAnOXpexQp.jpg",
+    "fisier": "galerii/etnografie/10-vioara.jpg"
+   },
+   {
+    "titlu": "Vas tip moșoaică",
+    "descriere": "",
+    "url": "/Resources/images/Y8bELcGjQf2pVXnED40F.jpg",
+    "fisier": "galerii/etnografie/11-vas-tip-mosoaica.jpg"
+   },
+   {
+    "titlu": "Tablou ”Ieșirea la semănat”",
+    "descriere": "",
+    "url": "/Resources/images/tWKjnpJ9SZST93wOETGQ.jpg",
+    "fisier": "galerii/etnografie/12-tablou-iesirea-la-semanat.jpg"
+   },
+   {
+    "titlu": "Car țărănesc",
+    "descriere": "",
+    "url": "/Resources/images/e0b0bqo4SaCy81V3Oo9b.jpg",
+    "fisier": "galerii/etnografie/13-car-taranesc.jpg"
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": "/Resources/images/uV0a9JgfShSy0TEiNVpK.jpg",
+    "fisier": "galerii/etnografie/14-stergar.jpg"
+   },
+   {
+    "titlu": "Borcan cu motive decorative",
+    "descriere": "",
+    "url": "/Resources/images/a6ZLb1UpTyeRbIukX4Br.jpg",
+    "fisier": "galerii/etnografie/15-borcan-cu-motive-decorative.jpg"
+   },
+   {
+    "titlu": "Ulcior cu motive decorative",
+    "descriere": "",
+    "url": "/Resources/images/FJPckFIpSXaOiDrxeqSc.jpg",
+    "fisier": "galerii/etnografie/16-ulcior-cu-motive-decorative.jpg"
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": "/Resources/images/6jIx6ZjaSkGQH8Ej3kNj.jpg",
+    "fisier": "galerii/etnografie/17-stergar.jpg"
+   },
+   {
+    "titlu": "Balanță",
+    "descriere": "",
+    "url": "/Resources/images/kJIuZnvJTCYFV9mqb3Mh.jpg",
+    "fisier": "galerii/etnografie/18-balanta.jpg"
+   },
+   {
+    "titlu": "Tocilă",
+    "descriere": "",
+    "url": "/Resources/images/e4Lb08wnQlmWVttg6pwH.jpg",
+    "fisier": "galerii/etnografie/19-tocila.jpg"
+   },
+   {
+    "titlu": "Strung de lemne",
+    "descriere": "",
+    "url": "/Resources/images/h3HU6erYSGaC60VmYJbk.jpg",
+    "fisier": "galerii/etnografie/20-strung-de-lemne.jpg"
+   },
+   {
+    "titlu": "Jug",
+    "descriere": "",
+    "url": "/Resources/images/HuNnBL9gTESYcRgPsQfD.jpg",
+    "fisier": "galerii/etnografie/21-jug.jpg"
+   },
+   {
+    "titlu": "Furcă cu colți de lemn",
+    "descriere": "",
+    "url": "/Resources/images/uCfp1zyTSOabVEgCF9Wr.jpg",
+    "fisier": "galerii/etnografie/22-furca-cu-colti-de-lemn.jpg"
+   },
+   {
+    "titlu": "Plug",
+    "descriere": "",
+    "url": "/Resources/images/B2o04BK6TUCmjdaPAyCP.jpg",
+    "fisier": "galerii/etnografie/23-plug.jpg"
+   },
+   {
+    "titlu": "Mașină manuală de bătut porumb",
+    "descriere": "",
+    "url": "/Resources/images/VBxRKtfpQ3WsIlvrrMtK.jpg",
+    "fisier": "galerii/etnografie/24-masina-manuala-de-batut-porumb.jpg"
+   },
+   {
+    "titlu": "Pietroi mic pentru treierat cereale",
+    "descriere": "",
+    "url": "/Resources/images/VhD0G6y8SoyyAY0jIgN8.jpg",
+    "fisier": "galerii/etnografie/25-pietroi-mic-pentru-treierat-cereale.jpg"
+   },
+   {
+    "titlu": "Pietroi mare pentru treierat",
+    "descriere": "",
+    "url": "/Resources/images/9Y20KRgUTXeUxlvGwciQ.jpg",
+    "fisier": "galerii/etnografie/26-pietroi-mare-pentru-treierat.jpg"
+   },
+   {
+    "titlu": "Plug din fier cu o brazdă",
+    "descriere": "",
+    "url": "/Resources/images/zsyNeAQaRnW6be4onISC.jpg",
+    "fisier": "galerii/etnografie/27-plug-din-fier-cu-o-brazda.jpg"
+   },
+   {
+    "titlu": "Prășitoare",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Tocilă mijlocie",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Piatra de tocilă mică",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cană",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Strachină",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Roată din lemn cu șină din fier pentru căruță",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Bidon mic de apă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Scoarță",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Lanț pentru măsurat pământul",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Râșniță din piatră",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cheie pentru roți căruță",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Căruță cu scoarțe cu ornamente pictate",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Roată de făcut mosoare",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Fierăstrău",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cobiliță",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ciocan de bătut fierul",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Echer",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rindea GIALĂU",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Joagăr",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Fierăstrău",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Furcă pentru scos găleți din fântână",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Furcă pentru scos sfecla",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Icoană de lemn mică ”Maica Domnului”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Icoană de lemn mică ”Maica Domnului cu Pruncul”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Icoană de lemn mică ”Sf Nicolae”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Reverendă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Dulap din lemn",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Dulap cu două uși",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Armonică",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Contrabas",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ploscă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Lampă de perete",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Pat din lemn cu tăblii",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Covată mică",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Putinei",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Vîrtelniță",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Stativ pentru mosoare",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Război de țesut",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ladă de zestre",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Mașină de cusut cu manivelă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Dispozitiv de scos semințele de bumbac",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Mașină de cusut cu pedală Singer",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cămașă de noapte bărbătească",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ie cusătură roșie",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Botă pentru apă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Roata de tors",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Brici",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Fier de călcat",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cruce de hotar din piatră",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ventuze",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Foișor",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Uluc de piatră",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Coteț păsări",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cuptor de cărămidă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Mașină de gătit",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Pompă pentru incendiu",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cască pompieri",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Porumbar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Casetă largabilă pentru bombe",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Casa țărănească",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Bancă școlară pentru 3 elevi",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Bancă școlară pentru 2 elevi",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ampermetru",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Geantă școlară",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Lampă de iluminat pe petrol",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Condică școlară 1929",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Abac",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Bete femeiești",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Bete",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ventuze",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Curea pentru acuțit",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Mașină de tuns manuală",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Corn de vânătoare pentru pază câmp",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Fus",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ciorap de lână",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Darac pieptene",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rășchitor",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Coș de răchită",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ie copil",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Maramă deteriorată",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cămașă de noapte bărbătească",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Fustă copil",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cămașă femeiască",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ștergar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cămașă copil",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cămașă bărbătească",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Bete copii",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Bete copii",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Țiglă BUZEU Simileasca",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Icoană de lemn mare_Maica Domnului cu Pruncul",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Icoană de lemn mare_Iisus Pantocrator",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Găleată mică apă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Baniță pentru cereale - dublă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Butoiaș pentru vin",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Scăunel rotund",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cartușe de tun",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Tuburi de cartușe",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Râșniță de piper",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Râșniță de cafea",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Marcă de înfierat vitele MI",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rindea",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rindea",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rindea",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rindea",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rindea",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rindea de cant",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Clește potcoave",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Mojar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Certificat cartografie 1938",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Targă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Piua de aluminiu",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Aparat DONDER",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Rindea foarte mare",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ciocan de îndoit tablă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cămașă spic grâu liber",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cămașă femeiască",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cămașă motive geometrice",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ceas de masă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ceas de masă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ceas de masă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ceas de masă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ceas de masă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cască pompier",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Felinar AIDA 233N",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Felinar CFR lumina galbenă 1974",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Felinar Metaloglobus 104",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Felinar Metaloglobus 107",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Felinar Metaloglobus 101",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Țap de bere",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Titlu definitv de proprietate_Regalitate",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Titlu definitiv de proprietar_Comunism",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cizme cu șanuri",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Diplomă 1943",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Țambal",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Căruță brăileană",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Pat cu tăblii",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Lampă gaz mică",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ladă zestre",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cicarag vertical",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Satâr",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cuvertură în călcătură",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cuvertură cu ițe multe",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cuvertură în fulgi",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Scoarță 1926",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Crintă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Dispozitiv pentru prepararea untului",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Dispozitiv pentru prăjit cafea",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Blidar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ventuze",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Lampă mică gaz",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Capsator metal borcane",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Botă mare",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Botă mică",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Piuă grâu fără băț",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Hârdău pentru apă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Fier jar",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Foarfecă tuns oile",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ceaun pirostrii",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ceaun alamă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Șa de cavalerie Marin",
+    "descriere": "",
+    "url": ""
+   }
+  ],
+  "arta": [
+   {
+    "titlu": "”Gânduri de pasăre călătoare”",
+    "descriere": "",
+    "url": "/Resources/images/U478KcGZQnumYC7BN1Ho.jpg",
+    "fisier": "galerii/arta/01-ganduri-de-pasare-calatoare.jpg"
+   },
+   {
+    "titlu": "”Mărturii ale trecutului - Arhipelagul Mignon”",
+    "descriere": "",
+    "url": "/Resources/images/QYbTBq2yRwOltrNXXUQh.jpg",
+    "fisier": "galerii/arta/02-marturii-ale-trecutului-arhipelagul-mignon.jpg"
+   },
+   {
+    "titlu": "”Omagiu natură cu stânci”",
+    "descriere": "",
+    "url": "/Resources/images/dOcr4BKJQFiQpAqqARcT.jpg",
+    "fisier": "galerii/arta/03-omagiu-natura-cu-stanci.jpg"
+   },
+   {
+    "titlu": "”A venit un zburător”",
+    "descriere": "",
+    "url": "/Resources/images/33sILQIwSXqzqbfhBQtq.jpg",
+    "fisier": "galerii/arta/04-a-venit-un-zburator.jpg"
+   },
+   {
+    "titlu": "”Basm românesc”",
+    "descriere": "",
+    "url": "/Resources/images/IhlGav1XTpPJcvujqmdk.jpg",
+    "fisier": "galerii/arta/05-basm-romanesc.jpg"
+   },
+   {
+    "titlu": "”Profiluri în stâncă”",
+    "descriere": "",
+    "url": "/Resources/images/dgww1G3fRqeYqmMX2gLr.jpg",
+    "fisier": "galerii/arta/06-profiluri-in-stanca.jpg"
+   },
+   {
+    "titlu": "”Omagiu florilor ce au plecat”",
+    "descriere": "",
+    "url": "/Resources/images/kF6FBDCRNuehX6EjUypB.jpg",
+    "fisier": "galerii/arta/07-omagiu-florilor-ce-au-plecat.jpg"
+   },
+   {
+    "titlu": "”Fiecare cu destinul lui”",
+    "descriere": "",
+    "url": "/Resources/images/X4Z1TuLdTQTTsnZ5Ha7B.jpg",
+    "fisier": "galerii/arta/08-fiecare-cu-destinul-lui.jpg"
+   },
+   {
+    "titlu": "”Culoar în insula Niapisca”",
+    "descriere": "",
+    "url": "/Resources/images/O7T3T7a5QVqifvx8aFo5.jpg",
+    "fisier": "galerii/arta/09-culoar-in-insula-niapisca.jpg"
+   },
+   {
+    "titlu": "”Întâlniri în afara timpului”",
+    "descriere": "",
+    "url": "/Resources/images/uhJJt7n1QTyQxggaPe0l.jpg",
+    "fisier": "galerii/arta/10-intalniri-in-afara-timpului.jpg"
+   },
+   {
+    "titlu": "”Briza matinală”",
+    "descriere": "",
+    "url": "/Resources/images/MmaHP472TwSmmPonos0y.jpg",
+    "fisier": "galerii/arta/11-briza-matinala.jpg"
+   },
+   {
+    "titlu": "”Stânci în Bucegi - Babele”",
+    "descriere": "",
+    "url": "/Resources/images/wbocwaSPTmimkWF1Ew49.jpg",
+    "fisier": "galerii/arta/12-stanci-in-bucegi-babele.jpg"
+   },
+   {
+    "titlu": "”Cloșca și steagul dacic”",
+    "descriere": "",
+    "url": "/Resources/images/jJy8nVSTjE482xmmr1RQ.jpg",
+    "fisier": "galerii/arta/13-closca-si-steagul-dacic.jpg"
+   },
+   {
+    "titlu": "”Nesiguranța”",
+    "descriere": "",
+    "url": "/Resources/images/M5NzDGidS1CrYMo41yRV.jpg",
+    "fisier": "galerii/arta/14-nesiguranta.jpg"
+   },
+   {
+    "titlu": "”Fiica stelelor”",
+    "descriere": "",
+    "url": "/Resources/images/uC94W1VUTFImvjsn6Vnc.jpg",
+    "fisier": "galerii/arta/15-fiica-stelelor.jpg"
+   },
+   {
+    "titlu": "”Speranța care doarme”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "”Libertatea legendei”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "”Message de l'Averr”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "”Luceafărul”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "”Stânci în Carpați - Sfinxul”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "”Timpul care zboară”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "”Unde este ascuns bărbatul clovn”",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Vestigii seculare",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Diploma GC",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Cutie metal cu creioane",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Pensulă",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Șevalet",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Ochelari",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Etui",
+    "descriere": "",
+    "url": ""
+   },
+   {
+    "titlu": "Portretul Georgetei CRAINIC",
+    "descriere": "",
+    "url": ""
+   }
+  ]
+ },
+ "scanari": [
+  {
+   "titlu": "Ie cusătură neagră",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.11-640w.png",
+   "fisier": "scanari-3d/01-ie-cusatura-neagra.jpg"
+  },
+  {
+   "titlu": "Cămașă de noapte bărbătească",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.20-640w.png",
+   "fisier": "scanari-3d/02-camasa-de-noapte-barbateasca.jpg"
+  },
+  {
+   "titlu": "Tun demilitarizat",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.11-f87516ea-640w.png",
+   "fisier": "scanari-3d/03-tun-demilitarizat.jpg"
+  },
+  {
+   "titlu": "Telefon militar",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.11-eb7d01ee-640w.png",
+   "fisier": "scanari-3d/04-telefon-militar.jpg"
+  },
+  {
+   "titlu": "Vioară",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.20-b70a5a5e-640w.png",
+   "fisier": "scanari-3d/05-vioara.jpg"
+  },
+  {
+   "titlu": "Uniformă militară de aviație albastră de ofițer",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.20-34274a61-640w.png",
+   "fisier": "scanari-3d/06-uniforma-militara-de-aviatie-albastra-de-ofiter.jpg"
+  },
+  {
+   "titlu": "Cuvă de mălai",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.28-640w.png",
+   "fisier": "scanari-3d/07-cuva-de-malai.jpg"
+  },
+  {
+   "titlu": "Darac pieptene",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.28-b344829a-640w.png",
+   "fisier": "scanari-3d/08-darac-pieptene.jpg"
+  },
+  {
+   "titlu": "Rindea GIALĂU",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.28-12c6709b-640w.png",
+   "fisier": "scanari-3d/09-rindea-gialau.jpg"
+  },
+  {
+   "titlu": "Rindea de cant",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.28-009576cf-640w.png",
+   "fisier": "scanari-3d/10-rindea-de-cant.jpg"
+  },
+  {
+   "titlu": "Găleată mică apă",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.28-f3238456-640w.png",
+   "fisier": "scanari-3d/11-galeata-mica-apa.jpg"
+  },
+  {
+   "titlu": "Telefon campanie Wilka",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.28-523e13e0-640w.png",
+   "fisier": "scanari-3d/12-telefon-campanie-wilka.jpg"
+  },
+  {
+   "titlu": "Armonică",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.35-640w.png",
+   "fisier": "scanari-3d/13-armonica.jpg"
+  },
+  {
+   "titlu": "Bancă școlară pentru 3 elevi",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.35-fdd4d638-640w.png",
+   "fisier": "scanari-3d/14-banca-scolara-pentru-3-elevi.jpg"
+  },
+  {
+   "titlu": "Stativ pentru mosoare",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.35-6aeb16fe-640w.png",
+   "fisier": "scanari-3d/15-stativ-pentru-mosoare.jpg"
+  },
+  {
+   "titlu": "Icoană de lemn mare - Maica Domnului cu Pruncul",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.35-3c1f61b6-640w.png",
+   "fisier": "scanari-3d/16-icoana-de-lemn-mare-maica-domnului-cu-pruncul.jpg"
+  },
+  {
+   "titlu": "Icoană de lemn mică ”Sf Nicolae”",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.35-9d750b02-640w.png",
+   "fisier": "scanari-3d/17-icoana-de-lemn-mica-sf-nicolae.jpg"
+  },
+  {
+   "titlu": "Icoană de lemn mică ”Maica Domnului cu Pruncul”",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.35-72ce3fd2-640w.png",
+   "fisier": "scanari-3d/18-icoana-de-lemn-mica-maica-domnului-cu-pruncul.jpg"
+  },
+  {
+   "titlu": "Căruță brăileană",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.42-640w.png",
+   "fisier": "scanari-3d/19-caruta-braileana.jpg"
+  },
+  {
+   "titlu": "Car țărănesc",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.42-ce6ca725-640w.png",
+   "fisier": "scanari-3d/20-car-taranesc.jpg"
+  },
+  {
+   "titlu": "Prășitoare",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.42-2a8c75fc-640w.png",
+   "fisier": "scanari-3d/21-prasitoare.jpg"
+  },
+  {
+   "titlu": "Plug din fier cu două brazde",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.42-8e8d77a2-640w.png",
+   "fisier": "scanari-3d/22-plug-din-fier-cu-doua-brazde.jpg"
+  },
+  {
+   "titlu": "Râșniță din piatră",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.42-1f651586-640w.png",
+   "fisier": "scanari-3d/23-rasnita-din-piatra.jpg"
+  },
+  {
+   "titlu": "Ladă de zestre",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.42-18f40e55-640w.png",
+   "fisier": "scanari-3d/24-lada-de-zestre.jpg"
+  },
+  {
+   "titlu": "Plug",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.48-640w.png",
+   "fisier": "scanari-3d/25-plug.jpg"
+  },
+  {
+   "titlu": "Cască 1938 - Carol II",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.48-81c5e7dc-640w.png",
+   "fisier": "scanari-3d/26-casca-1938-carol-ii.jpg"
+  },
+  {
+   "titlu": "Vârtelniță",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.48-e6cf9540-640w.png",
+   "fisier": "scanari-3d/27-vartelnita.jpg"
+  },
+  {
+   "titlu": "Borcan din ceramică",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.48-08a7c222-640w.png",
+   "fisier": "scanari-3d/28-borcan-din-ceramica.jpg"
+  },
+  {
+   "titlu": "Ploscă",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.48-ef201d9c-640w.png",
+   "fisier": "scanari-3d/29-plosca.jpg"
+  },
+  {
+   "titlu": "Centrală telefonică semiautomată",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.48-9bd6a32d-640w.png",
+   "fisier": "scanari-3d/30-centrala-telefonica-semiautomata.jpg"
+  },
+  {
+   "titlu": "Borcan",
+   "url": "/Resources/images/Screenshot-2022-12-11-at-16.45.54-640w.png",
+   "fisier": "scanari-3d/31-borcan.jpg"
+  }
+ ],
+ "pagini": {
+  "despre-muzeu": [
+   {
+    "tip": "li",
+    "t": "Muzeul Ianca - promotor al culturii locale\nPROGRAM: Marți - Duminică: 10:00 - 14:00 / Luni: închis | str. Gării, nr. 09, Ianca, Jud. Brăila | 0723 609 033\nBILETE ONLINE\nDESPRE\nDESPRE MUZEUL IANCA\nAsociația cultural-istorică ,,Muzeul\" Ianca\nAsociația cultural-istorică ,,Muzeul\" Ianca este un O.N.G. de utilitate publică ce are în subordine Muzeul din orașul Ianca, județul Brăila. Conform statutului, Asociația noastră militează pentru valorificarea prin muzeu a traditiilor locale din zona. Președintele de onoare al Asociației este prof.univ.dr. Ionel Cândea, managerul Muzeului Brăilei „Carol I”, membru corespondent al Academiei Române. Asociația a fost constituită juridic la jumătatea anului 2000, când Guvernul României anulează prevederile Legii nr.21/1924 și emite Ordonanța nr.26/2000.\nAsociația își propune sa atingă următoarele obiective:\n01\nCercetarea în vederea valorificării știintifice, educative și culturale a zonei de câmpie a Brăilei, reflectată in patrimoniul muzeului.\n02\nCercetare pe domenii cât și interdisciplinar pentru identificarea, conservarea si valorificarea muzeală a patrimoniului cultural si natural.\n03\nImplicarea în activitățile legale menite să contribuie la ocrotirea mediului înconjurător și a patrimoniului cultural național.\nMembrii Asociației cultural-istorice ,,Muzeul\" Ianca\nMuzeul din orașul Ianca, județul Brăila este găzduit într-o casă construită înainte de ultimul război mondial și donată autorităților de către proprietar celor din Ianca. Fondatorul acestui muzeu este profesor Ion Bărbuceanu, sufletul acestei instituții. Muzeul are în componență mai multe încăperi în care sunt prezentate obiectele colectionate cu multă pasiune de către profesorul Ion Bărbuceanu, fondatorul și directorul acestei instituții de cultură din Ianca.\nMuzeul ilustrează existența Satului românesc, a Școlii de altă dată, a Bisericii strămoșești și a aviației militare din cadrul Aerodromului Ianca. Înca de la intrare, te surprinde atmosfera de școală, cu pupitrele celebre, cu colțul cojilor de nuci, învatatori celebri prezenți în fotografii îngălbenite, cu manuale și caiete de pe vremea de mult apusă. “Straja” stă chiar Fănuș Neagu, învățător de profesie , cel care a copt și rumenit cuvinte ce stau și acum exemplu în literatură.\nȘi tu poți susține Muzeul Ianca\nIstoria și cultura orașului Ianca trăiesc și sunt susținute prin activitatea Muzeului Ianca. Sponsorizările și mecanismul de redirecționare a 3,5% din impozitul pe venit ajută muzeul nostru să-și continue activitatea. Descarcă și completează formularul 230 sau adaugă online la Declarația Unică Asociația \"Muzeul\" Ianca ca beneficiar al celor 3,5% din impozitul pe venit.\nVezi detalii\nButton\nButton\nUn profesor, un muzeu, un eveniment zonal\nSursa:\nButton\nButton\nButton\nButton\n\"Ianca eroică\" - o prezentare a uniformelor și însemnelor unităților militare brăilene din timpul \"Marelui război\" - a fost pentru elevi o emoționantă lecție de istorie vie, desfășurată în curtea Muzeului Ianca, județul Brăila. Un veritabilul spectacol la care au participat vineri, 20 octombrie, \"prefațând\" apropiata Zi a Armatei Române, și membri ai ARPIA și ai Asociației \"Tradiția Militară\".\nEra ultima fază a unui proiect inițiat și condus de un profesor inimos, care a reușit să convingă autoritățile că se poate. Cu finanțarea Consiliului Județean Brăila, cu sprijinul logistic al Muzeului Brăilei \"Carol I\", piesele rare, adunate o viață de către profesorul pensionar de istorie Ion M. Bărbuceanu, au de câțiva ani un sediu încăpător, ba și o casă țărănească, donată și transmutată în curte. În interior, mult suflet local și național: în documente, vechi fotografii și piese rare, istoria școlilor și a bisericilor, cea a eroilor brăileni și, bineînțeles, cea a aviației, a fostului aerodrom Ianca. Nu degeaba a fost prezent, alături de președintele Consiliului Județean (CJ) și o deputată, și fostul comandant al aerodromului militar.\nLângă primarul din Ianca, Fănel Chiriță, au mai pășit oaspeți precum generalul cu patru stele Constantin Gheorghe, fost șef de Stat Major al Forțelor Aeriene până în 2003, alături de reprezentanți al filialelor Asociației Romane pentru Propaganda Aeronauticii (ARPIA) din București, Brăila, Galați. *Președintele CJ, Iulian Chiriac, declara că vedem unui \"proiecțel mic\", desigur, pentru bugetul total al Consiliului, însă o bogată lecție de istorie în aer liber pentru copii.\nDe remarcat însă cum un singur \"popa Tanda\", profesorul Bărbuceanu, a reușit să promoveze la Ianca un proiect pentru care prin alte locuri se cheltuie prea mult banul public sau nu se face nimic. Respectabil, omul a reușit să atragă alături autoritățile și oamenii de suflet, astfel că, din 1999, a înființat și administrează un muzeu bogat și în piese rare. Profesorul lucrează pro bono la muzeu, iar pentru două zile din săptămână îi asigură din pensia sa o mică indemnizație ghidei. Cu finanțarea C.J., dascălul a scos și o revistă istorică cuprinzătoare: \"Ianca eroică\"..\nCiteste intreg articolul:\nht\ntps://www.viata-libera.ro/vlg-cultura/97867-un-profesor-un-muzeu-un-eveniment-zonal\nProf. Ion M. Ion Bărbuceanu: Muzeograf\nProfesor de istorie pensionar, pasionat de artă și literatură, a pus bazele muzeului din orașul brăilean Ianca, mergând din casă în casă pentru a aduna exponate. Pentru profesorul Ion Bărbuceanu nimic nu este prea mult atunci când vine vorba despre zona în care s-a născut și trăiește. O zonă eminamente rurală a dat țării oameni de cultură și eroi care ar cădea definitiv în uitare dacă nu ar exista persoane care să readucă în mintea contemporanilor faptele lor din trecut. Sursa: Adevarul:\nwww.adevarul.ro/locale/braila/ion-barbuceanuomul-descopera-piese-muzeul-ianca-1_50aca9497c42d5a66387d90b/index.html\nGala Premiilor Culturale Brailene - 27 ianuarie 2012\nDiploma de excelență și trofeul au fost obținute de Muzeul din Ianca prin prof. Ion Bărbuceanu pentru salvgardarea și promovarea mărturiilor tradiționale ale locuirii sătești specifice zonei Brăilei.\nProf. Ion Bărbuceanu\nNăscut: 15 decembrie 1946, Oprișănești, Brăila\nStudii: Facultatea de Istorie și Filozofie București\nOcupație: Pensionar\nFamilie: Căsătorit, un copil\nButton\nButton\nButton\nButton\nButton\nButton\nButton\nButton\nButton\nButton\nButton\nVizualizați mai mult\nVezi prezentarea Muzeului Ianca făcută de Prof. Ion Bărbuceanu, în cadrul emisiunii \"Cântec și Poveste\" la TVR 3\nEVENIMENTE\nIstoria orașului Ianca este strâns legată de istoria Aviației române.\nRedresarea ar putea începe cu un miting aviatic ce va fi găzduit de fosta Bază Aeriană 49 de la Ianca, unitate acum deființat. Mitingul va avea loc la aniversarea a 60 de ani de la efectuarea primului zbor reactiv din armata română, zbor realizat la Ianca în 1951. La eveniment sunt invitați oameni de afaceri pasionați de aviație..\nEroii satelor noastre - Povestiri de război\nAniversarea Centenarului Primului Război Mondial a fost marcată, marți, 29 noiembrie, de la ora 9:30, și la Muzeul din Ianca. Manifestarea a fost organizată în parteneriat cu Asociația cadrelor militare în rezervă și în retragere Brăila și Liceul Tehnologic ,,Nicolae Oncescu” Ianca.\nȘcoala de vară la Muzeul Ianca: “Tradiția la Ianca - Lucruri vechi la vremuri noi”\nÎn perioada 19-31 august, la Muzeul Ianca s-a desfășurat Școala de vară. Tema aleasă pentru această ediție din 2019 a fost “Tradiția la Ianca - Lucruri vechi la vremuri noi”. În prima zi a acelei săptămâni, a avut loc deschiderea Școlii. Prima oră a fost dedicată educației rutiere și prevenirii și stingerii incendiilor, astfel că au fost invitați reprezentanți ai Poliției Orașului Ianca și ai Serviciului Protecției Civile și Situații de Urgență Ianca.\nMuzeul Ianca - promotor al tradiției locale: Evocarea satului românesc\nManifestarea cultural-artistică și educativă a fost organizată de Muzeul Ianca, în parteneriat cu Parohia „Sfântul Ioan Botezătorul”-Ianca 1, Liceul Teoretic „Constantin Angelescu”, biblioteca din comuna Mircea Vodă și Muzeul Brăilei „Carol I”, în cadrul proiectului „Muzeul Ianca - promotor al tradiției locale”.\nMICA UNIRE, MARCATĂ LA MUZEUL IANCA DE CĂTRE ELEVII DE LA «ANGELESCU»\nMomentul Unirii Principatelor a fost marcat la Ianca, în avans. Miercuri dimineață, la sediul Asociației Cultural-Istorică “Muzeul” Ianca a avut loc un eveniment ce a încălzit sufletele celor prezenți cu ocazia sărbătoririi a 160 de ani de la înfăptuirea Micii Uniri.\nIanca - Centenar – Unire și Recunoștință\nMuzeul din Ianca a găzduit un nou eveniment dedicat Centenarului Marii Uniri, în cadrul proiectului “Ianca-Centenar – Unire și Recunoștință”.\nSala de festivități a instituției a devenit neîncăpătoare pentru participanți, printre care s-au numărat reprezentanți ai Consiliului Județean Brăila, Serviciului Arhivelor Naționale Brăila și Asociației “RoMilitaria”.\nLECȚIE LA MUZEUL IANCA DESPRE EROUL BRĂILEAN DIN PRIMUL RĂZBOI MONDIAL, STAN POETAȘ\nO frumoasă lecție de istorie despre eroul brăilean Stan Poetaș, general în timpul Primului Război Mondial, a fost ținută în cadrul Muzeului Ianca, atât de fondatorul muzeului, prof. Ion Bărbuceanu, cât și de cei aflați la conducerea Filialelor Județene a Cadrelor Militare în Rezervă și Retragere și a Cultului Eroilor.\nDetalii despre evenimentele noastre\nMembrii Asociației cultural-istorice ,,Muzeul\" Ianca\nMuzeul nu este bugetat, se autofinanțează prin cotizații ale membrilor Asociației, sponsorizări, donații și accesări, prin concurs, de proiecte cu finanțare nerambursabilă. Muzeul Ianca a primit un sprijin valoros din partea Consiliul Județean Brăila, a Consiliului Local și Primăriei Ianca (primari Oprișan Tudor si Fănel George Chiriță), Muzeului Brăilei „Carol I”, prin prof.univ.dr. Ionel Cândea și dr. Brîndușa Ilie, cât și din partea unor persoane fizice din zonă; dintre acestea, amintim pe domnii: comandant aviație civilă Marin Ștefan, manager Nae Moise, manager Stanciu Niță, manager Mitache Gicu si profesor Dragomir Ștefănuț.\nProf.univ.dr. Ionel CANDEA\nManagerul Muzeului Brailei \"Carol I\""
+   },
+   {
+    "tip": "li",
+    "t": "Membru Corespondent al Academiei Romane"
+   },
+   {
+    "tip": "li",
+    "t": "Presedinte de Onoare"
+   },
+   {
+    "tip": "h",
+    "t": "Dr. Marcel ISAC"
+   },
+   {
+    "tip": "p",
+    "t": "Chestor- general(r)"
+   },
+   {
+    "tip": "h",
+    "t": "Ion MOTOC"
+   },
+   {
+    "tip": "p",
+    "t": "Chestor- general(r)"
+   },
+   {
+    "tip": "h",
+    "t": "Stefan MARIN"
+   },
+   {
+    "tip": "p",
+    "t": "Comandant aviatie civila"
+   },
+   {
+    "tip": "h",
+    "t": "Nicolae IONASCU"
+   },
+   {
+    "tip": "p",
+    "t": "Comandor(r) aviator"
+   },
+   {
+    "tip": "h",
+    "t": "Dorin ILIE"
+   },
+   {
+    "tip": "p",
+    "t": "Comandor(r) aviator"
+   },
+   {
+    "tip": "h",
+    "t": "Profesor Ion M.Barbuceanu"
+   },
+   {
+    "tip": "p",
+    "t": "Presedinte"
+   },
+   {
+    "tip": "h",
+    "t": "Ecaterina Barbuceanu"
+   },
+   {
+    "tip": "p",
+    "t": "Educatoare"
+   },
+   {
+    "tip": "h",
+    "t": "Marius Diaconu"
+   },
+   {
+    "tip": "p",
+    "t": "Manager"
+   },
+   {
+    "tip": "h",
+    "t": "DESPRE MUZEU"
+   },
+   {
+    "tip": "h",
+    "t": "DE INTERES PUBLIC"
+   },
+   {
+    "tip": "h",
+    "t": "VIZITEAZĂ"
+   },
+   {
+    "tip": "h",
+    "t": "Accesibilitate"
+   }
+  ],
+  "repere-cronologice": [
+   {
+    "tip": "p",
+    "t": "BILETE ONLINE"
+   },
+   {
+    "tip": "h",
+    "t": "Repere cronologice"
+   },
+   {
+    "tip": "img",
+    "t": "/Resources/images/VECHI%20CARTURAR%20BRATU%20GROSSU%20Ianca.jpg"
+   },
+   {
+    "tip": "h",
+    "t": "DESPRE MUZEU"
+   },
+   {
+    "tip": "h",
+    "t": "DE INTERES PUBLIC"
+   },
+   {
+    "tip": "h",
+    "t": "VIZITEAZĂ"
+   },
+   {
+    "tip": "h",
+    "t": "Accesibilitate"
+   }
+  ],
+  "corpurile-muzeului": [
+   {
+    "tip": "li",
+    "t": "Muzeul Ianca\nPROGRAM: Marți - Duminică: 10:00 - 14:00 / Luni: închis | str. Gării, nr. 09, Ianca, Jud. Brăila | 0723 609 033\nBILETE ONLINE\nCorpurile muzeului\nMUZEUL IANCA\nSecția Artă și Expoziții Temporare\nClădire construită la jumătatea secolului al XX-lea si donată de proprietar, pâna la intrarea României în al Doilea Război Mondial, Administrației Plasei Ianca.\nA fost, pe rând: Circă fiscală a Plasei Ianca, iar în timpul războiului, atât pentru nemți cât și pentru ruși, sediu al comandamentului militar zonal. După încheierea războiului, sediu al PCR Ianca, al Casei Pionierului și, după Revoluția decembristă, sediu al Bibliotecii orășenești.\nÎn anul 1998 Consiliul Local al orașului Ianca, la solicitarea profesorului Ion M. Bărbuceanu, acordă această clădire pentru înființarea, de către acesta, a unui muzeu în orașul Ianca.\nÎn acest Corp de clădire este amenajată și funcționează:\nSecția Artă - donația Gerogeta Crainic, fiică a orașului, stabilită în Canada (o colecție valoroasă de 25 de tablouri pictate de aceasta)"
+   },
+   {
+    "tip": "li",
+    "t": "Biblioteca muzeului și biroul directorului"
+   },
+   {
+    "tip": "li",
+    "t": "Expoziția foto permanent dedicată Marii Uniri și Centenarului–„Regele Ferdinand - Întregitorul de țară și - Regina Maria - soldat, diplomat si scriitor\""
+   },
+   {
+    "tip": "li",
+    "t": "Depozitul de material muzeistice."
+   },
+   {
+    "tip": "iframe",
+    "t": "https://my.matterport.com/show/?m=MsCiWRTRJDS"
+   },
+   {
+    "tip": "h",
+    "t": "Biserica, Armata, Școala și"
+   },
+   {
+    "tip": "h",
+    "t": "Viața Satului"
+   },
+   {
+    "tip": "p",
+    "t": "Clădire construită în timpul regimului comunist, anexă a Corpului A, spațiu pentru Casa Pionierului. Începând cu anul 1990 aici funcționează mai multe servicii ale Primariei Ianca (social, urbanism, agricol etc), instituiție vecină acestui așezământ."
+   },
+   {
+    "tip": "p",
+    "t": "După mutarea sediului Primăriei orasului Ianca în noul Corp de clădire de pe Calea Brăilei (construcție nouă), parțial acest corp de clădire a fost dat în folosință gratuită muzeului. Cu sprjinul Consiliului Județean Brăila si Primăriei Ianca (primar Fănel George Chiriță) s-a reușit realizarea unui acoperiș nou pentru acest spațiu. Pentru interior, Muzeul a beneficiat de sprijinul financiar al domnilor Marin Ștefan și Ionuț. Toate aceste încăperi au fost reabilitate, cu sprijinul domniilor lor, spre a fi folosite în scop muzeal."
+   },
+   {
+    "tip": "p",
+    "t": "În acest corp de clădire avem:"
+   },
+   {
+    "tip": "li",
+    "t": "Sala de Conferințe a muzeului"
+   },
+   {
+    "tip": "li",
+    "t": "Săli cu expoziții permanente intitulate: „Tradiția locală\", „Școala de altădată\" (colecție de mobilier școlar, materiale didactice, cărti școlare -toate din perioada interbelică), „Biserica strămoșească\" (istoric al bisericilor din Ianca, obiecte de cult religios, icoane de patrimoniu, fotografii cu preoți slujitori)"
+   },
+   {
+    "tip": "li",
+    "t": "Secția Aviație-legată de istoria recentă a fostului Aerodrom militar de la Ianca."
+   },
+   {
+    "tip": "p",
+    "t": "În holul clădirii se află o expoziție de costume naționale, piese din cultura țărănească și unelte agricole."
+   },
+   {
+    "tip": "iframe",
+    "t": "https://my.matterport.com/show/?m=LQnJN92meHi"
+   },
+   {
+    "tip": "h",
+    "t": "Casa țărănească - Muzeul Ianca"
+   },
+   {
+    "tip": "p",
+    "t": "Casa țărănească – strămutată în curtea muzeului din satul Oprișenești. A fost construită de Stan Mortu în perioada 1909-1910. Moștenitorii acestuia o vând familiei Mitrea Stan și Radian, care construiește pe acest teren un complex comercial."
+   },
+   {
+    "tip": "p",
+    "t": "Profesorul Ion M.Bărbuceanu, în înțelegere cu această familie, în baza bunelor relații dintre vecini (profesorul a fost născut în acest sat și este vecin cu această familie), primește gratuit casa pentru a o aduce în curtea muzeului."
+   },
+   {
+    "tip": "p",
+    "t": "În colaborare cu Muzeul Brăilei „Carol I”, cu sprijinul prof.univ.dr. Ionel Cândea, managerul muzeului, membru corespondent al Academiei Române, se acordă sprijinul de specialitate în valorificarea știintifică a acestei case. Este desemnată în acest scop doamna dr. Brîndușa Ilie, muzeograf la Secția Etnografie, iar profesorul Ion M. Bărbuceanu se ocupă de strângerea de fonduri în vederea realizării acestui proiect. Munca susținută în perioada 2011-2012 a maistrului Radu Nenu și a nepotului dumnealui din satul Plopu, din vecinătatea orașului Ianca, a făcut posibilă aducerea casei țărănești în muzeu. Transportul materialelor a fost asigurat de Primaria orașului Ianca (primar Fănel George Chiriță si viceprimar Ionel Epureanu)."
+   },
+   {
+    "tip": "p",
+    "t": "Interiorul casei reproduce habitatul cotidian a unei familii de țărani din Câmpia Brăilei din urmă cu 100 de ani, piesele expuse aparținând fondului personal al familiei Ion si Ecaterina Bărbuceanu, strânse din generație în generație de la bunici, părinți, socri și rude apropiate."
+   },
+   {
+    "tip": "iframe",
+    "t": "https://my.matterport.com/show/?m=V82a4vGAiRQ"
+   },
+   {
+    "tip": "h",
+    "t": "Depozitul de unelte"
+   },
+   {
+    "tip": "p",
+    "t": "Depozitul de unelte - în care sunt expuse unelte din zona de câmpie a Brăilei (un car, mai multe căruțe, diferite pluguri, unelte care reliefează civilizația agricolă specifică acestei zone etnografice)."
+   },
+   {
+    "tip": "p",
+    "t": "În curtea interioară a muzeului este amenajată un model de Gospodărie țărănească din zonă, unde regăsim: bucătăria de vară, umbrarul, fântâna cu cumpănă și ulucul din piatră pentru animale, porumbarul și cotețul pentru păsări. Acest proiect a fost realizat cu fonduri AFCN, manager proiect prof.Ion M. Bărbuceanu ."
+   },
+   {
+    "tip": "iframe",
+    "t": "https://my.matterport.com/show/?m=giVm2vmARDA"
+   },
+   {
+    "tip": "h",
+    "t": "DESPRE MUZEU"
+   },
+   {
+    "tip": "h",
+    "t": "DE INTERES PUBLIC"
+   },
+   {
+    "tip": "h",
+    "t": "VIZITEAZĂ"
+   },
+   {
+    "tip": "h",
+    "t": "Accesibilitate"
+   }
+  ],
+  "contact": [
+   {
+    "tip": "p",
+    "t": "BILETE ONLINE"
+   },
+   {
+    "tip": "img",
+    "t": "/Resources/images/dsc_8261_optimized.jpg"
+   },
+   {
+    "tip": "h",
+    "t": "Corpul A"
+   },
+   {
+    "tip": "img",
+    "t": "/Resources/images/dsc_8249_optimized.jpg"
+   },
+   {
+    "tip": "h",
+    "t": "Corpul B"
+   },
+   {
+    "tip": "img",
+    "t": "/Resources/images/dsc_8256_optimized.jpg"
+   },
+   {
+    "tip": "h",
+    "t": "Corpul C"
+   },
+   {
+    "tip": "img",
+    "t": "/Resources/images/dsc_8247_optimized.jpg"
+   },
+   {
+    "tip": "h",
+    "t": "Corpul D"
+   },
+   {
+    "tip": "h",
+    "t": "Muzeul din orașul Ianca, județul Brăila este găzduit într-o casă construită înainte de ultimul război mondial și donată autorităților de către proprietar celor din Ianca. Fondatorul acestui muzeu este profesor Ion Bărbuceanu, sufletul acestei instituții. Muzeul are în componență mai multe încăperi în care sunt prezentate obiectele colecționate cu multă pasiune de către profesorul Ion Bărbuceanu, fondatorul și directorul acestei instituții de cultură din Ianca."
+   },
+   {
+    "tip": "iframe",
+    "t": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2814.6627300653354!2d27.47896281545431!3d45.13316986349155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b13a812b8600a3%3A0x5a4debfeadc4a126!2sMuzeul%20Ianca!5e0!3m2!1sro!2sro!4v1608751361905!5m2!1sro!2sro"
+   },
+   {
+    "tip": "h",
+    "t": "CONTACT"
+   },
+   {
+    "tip": "h",
+    "t": "Trimite-ne un mesaj si iti vom raspunde in cel mai scurt timp"
+   },
+   {
+    "tip": "h",
+    "t": "Contact Us"
+   },
+   {
+    "tip": "p",
+    "t": "Va multumim pentru mesaj. Acesta a fost trimis cu succes, va vom raspunde in cel mai scurt timp."
+   },
+   {
+    "tip": "p",
+    "t": "Muzeul Ianca"
+   },
+   {
+    "tip": "p",
+    "t": "Off, se pare ca a avut loc o eroare iar mesajul nu a putut fi trimis. Te rugam sa incerci din nou sau ne poti scrie la adresa de email iancamuzeul@yahoo.ro."
+   },
+   {
+    "tip": "h",
+    "t": "DESPRE MUZEU"
+   },
+   {
+    "tip": "h",
+    "t": "DE INTERES PUBLIC"
+   },
+   {
+    "tip": "h",
+    "t": "VIZITEAZĂ"
+   },
+   {
+    "tip": "h",
+    "t": "Accesibilitate"
+   }
+  ],
+  "dati-un-leu": [
+   {
+    "tip": "p",
+    "t": "BILETE ONLINE"
+   },
+   {
+    "tip": "img",
+    "t": "/Resources/images/1leu-pt-muzeu-366bdc40-a684f1ef.jpeg"
+   },
+   {
+    "tip": "img",
+    "t": "/Resources/images/Screenshot%202021-01-06%20at%2017.50.09.png"
+   },
+   {
+    "tip": "img",
+    "t": "/Resources/images/Screenshot-2021-04-19-at-16.20.09.png"
+   },
+   {
+    "tip": "p",
+    "t": "3,5% DIN IMPOZITUL PE VENIT"
+   },
+   {
+    "tip": "p",
+    "t": "Istoria și cultura orașului Ianca trăiesc și sunt susținute prin activitatea Muzeului Ianca. Sponsorizările și mecanismul de redirecționare a 3,5% din impozitul pe venit ajută muzeul nostru să-și continue activitatea. Descarcă și completează formularul 230 sau adaugă online la Declarația Unică Asociația \"Muzeul\" Ianca ca beneficiar al celor 3,5% din impozitul pe venit."
+   },
+   {
+    "tip": "p",
+    "t": "Contactează-ne pentru detalii."
+   },
+   {
+    "tip": "h",
+    "t": "DESPRE MUZEU"
+   },
+   {
+    "tip": "h",
+    "t": "DE INTERES PUBLIC"
+   },
+   {
+    "tip": "h",
+    "t": "VIZITEAZĂ"
+   },
+   {
+    "tip": "h",
+    "t": "Accesibilitate"
+   }
+  ],
+  "acreditare-muzeul-ianca": [
+   {
+    "tip": "p",
+    "t": "BILETE ONLINE"
+   },
+   {
+    "tip": "h",
+    "t": "Acreditarea Muzeului Ianca"
+   },
+   {
+    "tip": "h",
+    "t": "DESPRE MUZEU"
+   },
+   {
+    "tip": "h",
+    "t": "DE INTERES PUBLIC"
+   },
+   {
+    "tip": "h",
+    "t": "VIZITEAZĂ"
+   },
+   {
+    "tip": "h",
+    "t": "Accesibilitate"
+   }
+  ]
+ },
+ "sketchfab": "https://sketchfab.com/playlists/embed?collection=33ff92f30f0949f094d1c449583e4077&autostart=0"
+}

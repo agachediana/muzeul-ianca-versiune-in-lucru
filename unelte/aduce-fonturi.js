@@ -2,7 +2,8 @@
   Aduce fonturile (Google Fonts) si GSAP pe serverul site-ului, ca pagina
   sa nu mai trimita nimic la Google sau jsDelivr cand o deschide cineva.
 
-  - fonturile: Bodoni Moda, Playfair Display (italic), Source Sans 3,
+  - fonturile: Bodoni Moda, Playfair Display (italic), Source Sans 3 si
+    Marck Script (scrisul de mana din notitele de pe pagini),
     doar literele latine (cu diacriticele romanesti), in media/fonts,
     iar regulile @font-face in media/css/fonts.css
   - GSAP 3.12.5 (gsap, ScrollTrigger, Flip) in media/js/vendor
@@ -15,7 +16,7 @@ const media = process.argv[2];
 if (!media) { console.log('folosire: node aduce-fonturi.js <folder-media-tema>'); process.exit(1); }
 
 const fontUrl = 'https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..700'
-  + '&family=Playfair+Display:ital,wght@1,700;1,800&family=Source+Sans+3:wght@400;600;700&display=swap';
+  + '&family=Playfair+Display:ital,wght@1,700;1,800&family=Source+Sans+3:wght@400;600;700&family=Marck+Script&display=swap';
 const gsap = ['gsap.min.js', 'ScrollTrigger.min.js', 'Flip.min.js'];
 
 (async () => {

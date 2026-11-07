@@ -4,7 +4,8 @@
     - creeaza pagina "Vizită și bilete" (alias vizita), goala, si o pune in meniu
       dupa Știri și evenimente
     - Tur virtual foloseste aspectul tur, Galerii foto, Etnografie, Științe si Artă
-      folosesc aspectul galerie, Știri foloseste aspectul gazeta
+      folosesc aspectul galerie, Știri foloseste aspectul gazeta, iar Contact,
+      Corpurile muzeului si Istoric muzeu au aspectele contact, corpuri si istoric
     - face folderele pentru poze: images/muzeu/galerii/etnografie, stiinte, arta
   Se poate rula de mai multe ori, ce exista deja nu se mai creeaza.
 
@@ -52,7 +53,7 @@ if (!$vizita) {
 }
 
 // aspectul temei pentru fiecare pagina: in setarile articolului si in linkul din meniu
-$aspecte = [$vizita => 'vizita', 54 => 'tur', 55 => 'galerie', 16 => 'galerie', 18 => 'galerie', 20 => 'galerie'];
+$aspecte = [$vizita => 'vizita', 54 => 'tur', 55 => 'galerie', 16 => 'galerie', 18 => 'galerie', 20 => 'galerie', 22 => 'contact', 8 => 'corpuri', 14 => 'istoric'];
 foreach ($aspecte as $id => $aspect) {
 	$attribs = json_decode((string) $one("SELECT attribs FROM #__content WHERE id = $id"), true) ?: [];
 	$attribs['article_layout'] = 'muzeulianca:' . $aspect;
