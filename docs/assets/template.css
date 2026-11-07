@@ -1930,18 +1930,24 @@ html[data-gray] :is(.site-top, main, .footer, .radio, .ai-fab) { filter: graysca
 .corp { position: relative; scroll-margin-top: calc(var(--header-h) + var(--topbar-h, 40px) + 20px); }
 .corp__letter { position: absolute; right: 0; top: -.4em; font: italic 800 clamp(8rem, 20vw, 16rem)/1 var(--font-title); color: var(--accent); opacity: .07; pointer-events: none; }
 .corp__grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
-.corp:nth-child(even) .corp__grid .tour__view { order: 2; }
+.corp:nth-child(even) .corp__grid .corp__media { order: 2; }
 .corp__text { color: var(--ink-soft); }
-.corp__strip { list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin: 28px 0 0; padding: 0; }
-.corp__strip a { display: block; aspect-ratio: 1; overflow: hidden; }
+/* sala si pozele corpului stau impreuna in stanga; pe ecran mare raman langa text cand derulezi */
+.corp__media { display: grid; gap: 12px; }
+@media (min-width: 901px) { .corp__media { position: sticky; top: calc(var(--header-h) + var(--topbar-h, 40px) + 16px); } }
+.corp__strip { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; }
+.corp__strip a { display: block; aspect-ratio: 4 / 3; overflow: hidden; }
 .corp__strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease-out), filter 1.8s var(--ease-out) .2s; }
 .corp__strip a:hover img { transform: scale(1.08); }
-.corp__strip-more a { display: grid; place-items: center; height: 100%; padding: 12px; background: var(--burgundy-900); color: var(--cream-50); text-align: center; font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.corp__strip-more svg { width: 18px; height: 18px; }
+.corp__strip-more a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; height: 100%; padding: 12px; background: var(--burgundy-900); color: var(--cream-100); text-align: center; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: background var(--dur); }
+.corp__strip-more a:hover { background: var(--burgundy-700); color: var(--cream-50); }
+.corp__strip-more strong { font: italic 800 2rem/1 var(--font-title); letter-spacing: 0; color: #e3b866; text-transform: none; }
+.corp__strip-more svg { width: 18px; height: 18px; transition: transform var(--dur) var(--ease-out); }
+.corp__strip-more a:hover svg { transform: translateX(4px); }
 @media (max-width: 900px) {
   .corps-toc { grid-template-columns: 1fr 1fr; }
   .corp__grid { grid-template-columns: 1fr; }
-  .corp:nth-child(even) .corp__grid .tour__view { order: 0; }
+  .corp:nth-child(even) .corp__grid .corp__media { order: 0; }
   .corp__strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
@@ -2078,3 +2084,17 @@ html[data-motion="reduce"] .split .w > span { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) { .pv-card__btn { animation: none; } }
 html[data-motion="reduce"] .pv-card__btn { animation: none; }
+/*
+   Firul de navigare de sus (Acasă / Despre / pagina)
+   mic, discret, cu o broderie mica intre pasi
+*/
+.crumbs { padding: 24px 0 0; font-size: calc(.82rem * var(--fs-scale)); }
+.crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin: 0; padding: 0; list-style: none; }
+.crumbs li { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-muted); }
+.crumbs li + li::before { content: ""; width: 8px; height: 8px; background: currentColor; opacity: .45; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l4 4-4 4-4-4z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l4 4-4 4-4-4z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.crumbs a { color: var(--ink-soft); text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size var(--dur) var(--ease-out), color var(--dur-fast); }
+.crumbs a:hover, .crumbs a:focus-visible { color: var(--accent); background-size: 100% 1px; }
+.crumbs [aria-current] { color: var(--accent); font-weight: 600; }
+/* sub fir, antetul paginii incepe mai aproape */
+.crumbs + * .evp-head, .crumbs + .evp-head, .crumbs + .page-head { padding-top: clamp(24px, 3vw, 40px); }
+@media (max-width: 640px) { .crumbs { padding-top: 16px; } }
