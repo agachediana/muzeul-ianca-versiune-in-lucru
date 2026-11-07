@@ -5,7 +5,9 @@
   Cate un card pentru fiecare corp al muzeului (partials/sectiuni.php). Fotografia
   sălii se misca usor dupa mouse sau deget, ca privita printr-o fereastra (vezi
   initTour din template.js). Turul 360 se incarca doar cand apesi "Intră în sală",
-  din linkul pus in setarile temei (tabul Vizită și tur). Fara link, cardul arata
+  din linkul pus in setarile temei (tabul Vizită și tur), si se deschide mare,
+  pe tot ecranul, cu X pentru inchidere. Venind de pe Acasa (usile, #tour-0...),
+  turul corpului ales se deschide singur. Fara link, cardul arata
   "Tur 360° în curând". Textul articolului, daca exista, apare sub titlu.
 */
 
@@ -47,7 +49,7 @@ if (!trim((string) $item->metadesc)) {
 			$url = trim((string) $params->get('tur' . ($i + 1)));
 			$img = Uri::root(true) . '/' . $s['img'];
 			?>
-			<section class="tour reveal<?php echo $i % 2 ? ' tour--flip' : ''; ?>" aria-labelledby="tour-<?php echo $i; ?>">
+			<section class="tour reveal<?php echo $i % 2 ? ' tour--flip' : ''; ?>" id="tour-<?php echo $i; ?>" aria-labelledby="tour-t-<?php echo $i; ?>">
 				<div class="tour__view" data-tour-view<?php echo $url ? ' data-tour="' . $e($url) . '"' : ''; ?>>
 					<div class="tour__pan"><img src="<?php echo $e($img); ?>"<?php echo $size($img); ?> alt="" loading="<?php echo $i ? 'lazy' : 'eager'; ?>" draggable="false"></div>
 					<span class="tour__compass" aria-hidden="true"><svg><use href="#i-360"/></svg></span>
@@ -60,7 +62,7 @@ if (!trim((string) $item->metadesc)) {
 				</div>
 				<div class="tour__body">
 					<p class="tour__corp">Corpul <?php echo $e($s['corp']); ?></p>
-					<h2 class="tour__title" id="tour-<?php echo $i; ?>"><?php echo $e($s['titlu']); ?></h2>
+					<h2 class="tour__title" id="tour-t-<?php echo $i; ?>"><?php echo $e($s['titlu']); ?></h2>
 					<p class="tour__text"><?php echo $e($s['text']); ?></p>
 				</div>
 			</section>

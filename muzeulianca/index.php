@@ -65,6 +65,8 @@ $ownHead = !$isHome && $app->get('muzeulianca.ownHead', false);
 <html lang="<?php echo $e($htmlLang); ?>" dir="<?php echo $this->direction; ?>" class="no-js">
 <head>
 	<script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }</script>
+	<?php // alegerile de accesibilitate se pun inainte sa se deseneze pagina, ca sa nu clipeasca ?>
+	<script>try { ['contrast', 'links', 'readable', 'spacing', 'motion', 'cursor', 'guide', 'focus', 'gray'].forEach(function (k) { var v = localStorage.getItem('mi-' + k); if (v) document.documentElement.setAttribute('data-' + k, v); }); var f = localStorage.getItem('mi-fs'); if (f) document.documentElement.style.setProperty('--fs-scale', f); } catch (e) {}</script>
 	<jdoc:include type="metas" />
 	<jdoc:include type="styles" />
 	<jdoc:include type="scripts" />
@@ -85,12 +87,9 @@ $ownHead = !$isHome && $app->get('muzeulianca.ownHead', false);
 			<span><svg><use href="#i-phone"/></svg><a href="<?php echo $e($telLink); ?>"><?php echo $e($telefon); ?></a></span>
 		</div>
 		<div class="topbar__actions">
-			<div class="a11y" role="group" aria-label="Accesibilitate">
-				<button type="button" data-a11y="dec" aria-label="Micșorează textul">A−</button>
-				<span class="a11y__size" data-a11y-size aria-live="polite">100%</span>
-				<button type="button" data-a11y="inc" aria-label="Mărește textul">A+</button>
-				<button type="button" data-a11y="contrast" aria-pressed="false" aria-label="Contrast ridicat"><svg><use href="#i-contrast"/></svg></button>
-				<button type="button" data-a11y="links" aria-pressed="false" aria-label="Subliniază linkurile"><svg><use href="#i-link"/></svg></button>
+			<div class="a11y">
+				<button type="button" class="a11y__open" aria-expanded="false" aria-controls="a11y-panel" data-a11y-open><svg aria-hidden="true"><use href="#i-a11y"/></svg><span>Accesibilitate</span></button>
+				<button type="button" class="a11y__open" data-radio-start><svg aria-hidden="true"><use href="#i-sound"/></svg><span>Ascultă</span></button>
 			</div>
 			<?php if ($bilete) : ?>
 				<a class="topbar__tickets" href="<?php echo $e($bilete); ?>" target="_blank" rel="noopener">Bilete online</a>
@@ -240,6 +239,71 @@ $linkList = static function (array $links) use ($e) {
 	</div>
 	<p class="footer__wordmark" aria-hidden="true"><?php echo $e($museumName); ?></p>
 </footer>
+
+<!--
+  Panoul de accesibilitate (vezi initA11y din template.js). Optiunile urmaresc
+  criteriile WCAG 2.1 nivel AA cerute de OUG 112/2018 si Legea 232/2022:
+  marirea textului (1.4.4), contrastul (1.4.3), spatierea textului (1.4.12),
+  oprirea animatiilor (2.2.2), focusul vizibil (2.4.7). Alegerile raman in browser.
+-->
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11y-title" hidden>
+	<div class="a11y-panel__head">
+		<h2 id="a11y-title">Accesibilitate</h2>
+		<button type="button" class="a11y-panel__close" data-a11y-close aria-label="Închide panoul de accesibilitate"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+	</div>
+	<p class="a11y-panel__intro">Alegerile se păstrează în acest browser, pe toate paginile.</p>
+
+	<div class="a11y-size">
+		<span id="a11y-size-label">Mărimea textului</span>
+		<div class="a11y-size__btns" role="group" aria-labelledby="a11y-size-label">
+			<button type="button" data-a11y="dec" aria-label="Micșorează textul">A−</button>
+			<span class="a11y__size" data-a11y-size aria-live="polite">100%</span>
+			<button type="button" data-a11y="inc" aria-label="Mărește textul">A+</button>
+		</div>
+	</div>
+
+	<div class="a11y-grid">
+		<button type="button" class="a11y-opt" data-a11y="contrast" aria-pressed="false"><svg aria-hidden="true"><use href="#i-contrast"/></svg>Contrast ridicat</button>
+		<button type="button" class="a11y-opt" data-a11y="links" aria-pressed="false"><svg aria-hidden="true"><use href="#i-link"/></svg>Subliniază linkurile</button>
+		<button type="button" class="a11y-opt" data-a11y="readable" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">Aa</span>Font ușor de citit</button>
+		<button type="button" class="a11y-opt" data-a11y="spacing" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">↕</span>Spațiere mărită</button>
+		<button type="button" class="a11y-opt" data-a11y="motion" aria-pressed="false"><svg aria-hidden="true"><use href="#i-pause"/></svg>Oprește animațiile</button>
+		<button type="button" class="a11y-opt" data-a11y="cursor" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">➤</span>Cursor mare</button>
+		<button type="button" class="a11y-opt" data-a11y="guide" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">▭</span>Ghid de citire</button>
+		<button type="button" class="a11y-opt" data-a11y="focus" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">◎</span>Evidențiază elementul activ</button>
+		<button type="button" class="a11y-opt" data-a11y="gray" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">◐</span>Tonuri de gri</button>
+	</div>
+
+	<div class="a11y-audio">
+		<button type="button" class="btn a11y-audio__play" data-radio-start><svg aria-hidden="true"><use href="#i-sound"/></svg>Citește pagina cu voce tare</button>
+		<button type="button" class="a11y-opt a11y-opt--wide" data-a11y="autoread" aria-pressed="true">Ghidul pornește singur după 30 de secunde fără activitate</button>
+	</div>
+
+	<div class="a11y-panel__foot">
+		<button type="button" class="link-arrow" data-a11y="reset"><svg aria-hidden="true"><use href="#i-reset"/></svg>Resetează tot</button>	</div>
+</div>
+<div class="reading-guide" aria-hidden="true"></div>
+
+<!--
+  Ghidul audio, ca un radio de epoca: citeste pagina in romana cu vocea
+  browserului (fara servicii externe). Acul arata cat s-a citit.
+  Porneste singur dupa 30 de secunde fara activitate (vezi initRadio).
+  Sagetile sar la bucata de dinainte sau la cea care urmeaza.
+-->
+<div class="radio" data-radio hidden role="region" aria-label="Ghid audio">
+	<span class="radio__grille" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+	<div class="radio__info">
+		<p class="radio__title">Povestea paginii</p>
+		<p class="radio__now" data-radio-now aria-live="polite"></p>
+		<div class="radio__dial" aria-hidden="true"><span class="radio__scale"></span><span class="radio__needle"></span></div>
+	</div>
+	<div class="radio__btns">
+		<button type="button" class="radio__btn radio__btn--step" data-radio-prev aria-label="Citește ce e înainte"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+		<button type="button" class="radio__btn" data-radio-toggle aria-label="Pauză"><svg aria-hidden="true"><use href="#i-pause2"/></svg></button>
+		<button type="button" class="radio__btn radio__btn--step" data-radio-next aria-label="Citește ce urmează"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+		<button type="button" class="radio__btn" data-radio-stop aria-label="Oprește și închide ghidul"><svg aria-hidden="true"><use href="#i-stop"/></svg></button>
+	</div>
+</div>
 
 <button class="ai-fab" type="button" aria-expanded="false" aria-controls="ai-panel"><svg><use href="#i-chat"/></svg>Întreabă muzeul</button>
 <div class="ai-panel" id="ai-panel" role="dialog" aria-labelledby="ai-title">

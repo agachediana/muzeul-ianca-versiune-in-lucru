@@ -69,7 +69,7 @@ $datetime = static fn ($it) => $it->start->format($it->monthOnly ? 'Y-m' : 'Y-m-
 // cardul unui eveniment
 $card = static function ($it, bool $wide = false, int $d = 0) use ($e, $nr, $num, $datetime, $size) {
 	ob_start(); ?>
-	<li class="evc reveal<?php echo $wide ? ' evc--wide' : ''; ?>" style="--d:<?php echo $d % 4; ?>" data-status="<?php echo $it->status; ?>">
+	<li class="evc reveal<?php echo $wide ? ' evc--wide' : ''; ?>" style="--d:<?php echo $d % 4; ?>" data-status="<?php echo $it->status; ?>" data-ym="<?php echo $it->start->format('Y-m'); ?>">
 		<a class="evc__link" href="<?php echo $e($it->link); ?>">
 			<span class="evc__img<?php echo $it->image ? '' : ' ev-noimg'; ?>">
 				<?php if ($it->image) : ?><img src="<?php echo $e($it->image); ?>"<?php echo $size($it->image); ?> alt="" loading="lazy" decoding="async"><?php endif; ?>
@@ -157,6 +157,38 @@ $filters = [
 				<?php endforeach; ?>
 			</div>
 			<p class="sr-only" aria-live="polite" data-evp-note></p>
+			<?php
+			// "Sari la": anii si lunile cu evenimente, pentru telefon si tableta (vezi initJump din template.js)
+			$luniScurt = ['ian', 'feb', 'mar', 'apr', 'mai', 'iun', 'iul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+			$harta = [];
+			foreach ($ev['all'] as $it) {
+				$harta[$it->start->format('Y')][(int) $it->start->format('n')] = true;
+			}
+			krsort($harta);
+			?>
+			<?php if ($harta) : ?>
+				<div class="evp-jump" data-evp-jump>
+					<button type="button" class="evp-jump__toggle" aria-expanded="false" aria-controls="evp-jump-panel" data-jump-toggle><svg aria-hidden="true"><use href="#i-cal"/></svg>Sari la an și lună</button>
+					<div class="evp-jump__panel" id="evp-jump-panel" hidden>
+						<div class="evp-jump__years" role="group" aria-label="Anul">
+							<?php foreach (array_keys($harta) as $k => $an) : ?>
+								<button type="button" class="evp-jump__year" data-jump-year="<?php echo $an; ?>" aria-pressed="<?php echo $k === 0 ? 'true' : 'false'; ?>"><?php echo $an; ?></button>
+							<?php endforeach; ?>
+						</div>
+						<?php foreach ($harta as $an => $luni) : ?>
+							<div class="evp-jump__months" data-jump-months="<?php echo $an; ?>" role="group" aria-label="Lunile din <?php echo $an; ?>"<?php echo $an === array_key_first($harta) ? '' : ' hidden'; ?>>
+								<?php foreach ($luniScurt as $l => $nume) : ?>
+									<?php if (isset($luni[$l + 1])) : ?>
+										<button type="button" class="evp-jump__month" data-jump-to="<?php echo $an . '-' . str_pad((string) ($l + 1), 2, '0', STR_PAD_LEFT); ?>" aria-label="<?php echo $e($lunaLung[$l] . ' ' . $an); ?>"><?php echo $nume; ?></button>
+									<?php else : ?>
+										<span class="evp-jump__month is-off" aria-hidden="true"><?php echo $nume; ?></span>
+									<?php endif; ?>
+								<?php endforeach; ?>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 

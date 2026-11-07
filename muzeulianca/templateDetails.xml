@@ -63,6 +63,7 @@
 				<field name="tur2" type="url" default="" label="Tur 360°: Corpul B (Biserica, Armata, Școala)" />
 				<field name="tur3" type="url" default="" label="Tur 360°: Corpul C (Casa țărănească)" />
 				<field name="tur4" type="url" default="" label="Tur 360°: Corpul D (Depozitul de unelte)" />
+				<field name="sketchfab" type="url" default="" label="Colecția de scanări 3D (Sketchfab, linkul de încorporare)" description="Apare pe Galerii foto, la Scanări 3D, și se încarcă doar la clic." />
 			</fieldset>
 			<fieldset name="identitate" label="Date de identificare" description="Apar in subsolul fiecarei pagini (Legea 365/2002, art. 5). Campurile goale nu se afiseaza.">
 				<field name="denumireOficiala" type="text" default="Asociația cultural-istorică „Muzeul” Ianca" label="Denumirea exactă a asociației" />

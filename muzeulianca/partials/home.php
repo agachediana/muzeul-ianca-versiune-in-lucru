@@ -125,6 +125,8 @@ $menuLink = static function (string $alias) use ($app) {
 };
 $evenimenteUrl = $params->get('evenimenteUrl', '') ?: $menuLink('evenimente');
 $istoricUrl    = $menuLink('istoric');
+// Despre muzeu duce la pagina asociatiei (scurtul istoric duce la Istoric muzeu)
+$asociatieUrl  = $menuLink('asociatia');
 
 
 $renderEvent = static function ($ev, bool $featured, int $delay) use ($e, $size) {
@@ -284,7 +286,61 @@ $renderEvent = static function ($ev, bool $featured, int $delay) use ($e, $size)
 
 <div class="stitch" aria-hidden="true"></div>
 
-<!-- despre muzeu -->
+<?php
+/*
+  Colectiile: catalogul si albumele foto, cu numarul de obiecte sau poze si
+  prima poza din fiecare folder ca imagine a cardului
+*/
+$folderPoze = static function (string $f): array {
+	$l = glob(JPATH_ROOT . '/images/muzeu/' . $f . '/*.{jpg,jpeg,png,webp}', GLOB_BRACE) ?: [];
+	natcasesort($l);
+
+	return array_values($l);
+};
+$randuri    = static fn (string $f) => is_file(JPATH_ROOT . '/images/muzeu/' . $f) ? count(file(JPATH_ROOT . '/images/muzeu/' . $f, FILE_SKIP_EMPTY_LINES)) : 0;
+$albumePoze = array_merge(...array_map($folderPoze, array_map(static fn ($d) => 'albume/' . basename($d), glob(JPATH_ROOT . '/images/muzeu/albume/*', GLOB_ONLYDIR) ?: [])) ?: [[]]);
+$colectii   = array_values(array_filter([
+	['titlu' => 'Etnografie', 'nota' => 'ștergare, scoarțe, unelte', 'nr' => $randuri('galerii/etnografie/inventar.txt'), 'ce' => 'obiecte', 'poze' => $folderPoze('galerii/etnografie'), 'link' => $menuLink('etnografie')],
+	['titlu' => 'Artă', 'nota' => 'tablourile Georgetei Crainic', 'nr' => $randuri('galerii/arta/inventar.txt'), 'ce' => 'obiecte', 'poze' => $folderPoze('galerii/arta'), 'link' => $menuLink('arta')],
+	['titlu' => 'Albumele foto', 'nota' => 'sală cu sală, pe corpuri', 'nr' => count($albumePoze), 'ce' => 'fotografii', 'poze' => $albumePoze, 'link' => $menuLink('galerii-foto')],
+	['titlu' => 'Scanări 3D', 'nota' => 'obiecte de întors pe toate părțile', 'nr' => count($folderPoze('scanari-3d')), 'ce' => 'obiecte', 'poze' => $folderPoze('scanari-3d'), 'link' => $menuLink('galerii-foto')],
+], static fn ($c) => $c['nr'] > 0 && $c['link']));
+$fisierUrl = static fn (string $f) => Uri::root(true) . '/' . str_replace('%2F', '/', rawurlencode(ltrim(str_replace([JPATH_ROOT, '\\'], ['', '/'], $f), '/')));
+?>
+<?php if ($colectii) : ?>
+	<!-- colectiile muzeului: carduri care se inclina usor dupa mouse -->
+	<section class="section collections" aria-labelledby="colectii-titlu">
+		<div class="wrap">
+			<div class="section__head">
+				<div>
+					<p class="eyebrow">Colecțiile</p>
+					<h2 id="colectii-titlu" class="split">Ce păstrează muzeul</h2>
+				</div>
+				<p class="hand-note reveal" style="--d:2">obiecte strânse din casă în casă</p>
+			</div>
+			<div class="coll-grid">
+				<?php foreach ($colectii as $k => $c) : ?>
+					<?php $coperta = $c['poze'][(int) floor(count($c['poze']) / 3)] ?? ($c['poze'][0] ?? ''); ?>
+					<a class="coll reveal" style="--d:<?php echo $k; ?>" href="<?php echo $e($c['link']); ?>" data-tilt>
+						<span class="coll__img develop"><?php if ($coperta) : ?><img src="<?php echo $e($fisierUrl($coperta)); ?>"<?php echo $size($fisierUrl($coperta)); ?> alt="" loading="lazy"><?php endif; ?></span>
+						<span class="coll__body">
+							<span class="coll__nr"><span data-count="<?php echo $c['nr']; ?>"><?php echo $c['nr']; ?></span> <?php echo $e($c['ce']); ?></span>
+							<span class="coll__title"><?php echo $e($c['titlu']); ?></span>
+							<span class="coll__note"><?php echo $e($c['nota']); ?></span>
+							<span class="coll__more">Vedeți colecția <svg><use href="#i-arrow"/></svg></span>
+						</span>
+					</a>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+<!--
+  despre muzeu, impreuna cu cifrele muzeului: poza se dezvaluie de sus in jos,
+  sigiliul "din 1999" se roteste incet, titlul urca pe cuvinte, nota de mana se
+  scrie, broderia se coase, iar cifrele cresc cand apar pe ecran
+-->
 <?php if ($this->countModules('home-prezentare')) : ?>
 	<jdoc:include type="modules" name="home-prezentare" style="none" />
 <?php else : ?>
@@ -293,18 +349,28 @@ $renderEvent = static function ($ev, bool $featured, int $delay) use ($e, $size)
 			<div class="intro">
 				<div class="intro__media reveal">
 					<figure class="reveal-img"><img src="<?php echo $e($img('images/muzeu/prezentare.jpg')); ?>"<?php echo $size($img('images/muzeu/prezentare.jpg')); ?> alt="Instrumente muzicale vechi și costum popular în secția de etnografie" loading="lazy"></figure>
+					<svg class="intro__seal" viewBox="0 0 120 120" aria-hidden="true">
+						<defs><path id="seal-path" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
+						<circle cx="60" cy="60" r="58" />
+						<text><textPath href="#seal-path">Muzeul Ianca · deschis în 1999 · Câmpia Brăilei ·</textPath></text>
+						<text class="intro__seal-year" x="60" y="68" text-anchor="middle">1999</text>
+					</svg>
 				</div>
 				<div class="intro__text">
-					<h2 class="reveal">Despre muzeu</h2>
+					<p class="eyebrow">Muzeul în cifre</p>
+					<h2 class="split">Despre muzeu</h2>
+					<p class="hand-note">adunat cu răbdare, casă cu casă</p>
+					<div class="stitch-sm" aria-hidden="true"></div>
 					<p class="lead reveal" style="--d:1">Deschis la 1 decembrie 1999 de prof. Ion M. Bărbuceanu, muzeul păstrează obiecte de uz casnic, unelte, costume populare, documente de istorie locală și o colecție de istoria aviației.</p>
-					<div class="stats reveal" style="--d:2">
-						<div class="stat"><span class="stat__num" data-count="<?php echo $aniActivitate; ?>"><?php echo $aniActivitate; ?></span><span class="stat__label">ani de activitate</span></div>
-						<div class="stat"><span class="stat__num" data-count="4">4</span><span class="stat__label">corpuri de clădire</span></div>
-						<div class="stat"><span class="stat__num" data-count="25">25</span><span class="stat__label">tablouri Georgeta Crainic</span></div>
-					</div>
+					<dl class="about-figs">
+						<div class="figure reveal" style="--d:2"><dt>ani de activitate</dt><dd data-count="<?php echo $aniActivitate; ?>"><?php echo $aniActivitate; ?></dd></div>
+						<div class="figure reveal" style="--d:3"><dt>corpuri de clădire</dt><dd data-count="4">4</dd></div>
+						<div class="figure reveal" style="--d:4"><dt>tablouri Georgeta Crainic</dt><dd data-count="25">25</dd></div>
+						<div class="figure reveal" style="--d:5"><dt>evenimente în arhivă</dt><dd data-count="<?php echo count($evData['all']); ?>"><?php echo count($evData['all']); ?></dd></div>
+					</dl>
+					<?php if ($asociatieUrl) : ?><a class="link-arrow reveal" style="--d:6" href="<?php echo $e($asociatieUrl); ?>">Asociația „Muzeul” Ianca <svg width="16" height="16"><use href="#i-arrow"/></svg></a><?php endif; ?>
 				</div>
 			</div>
-
 		</div>
 	</section>
 <?php endif; ?>
@@ -362,6 +428,32 @@ $renderEvent = static function ($ev, bool $featured, int $delay) use ($e, $size)
 	</section>
 <?php endif; ?>
 
+<?php if ($turUrl = $menuLink('tur-virtual')) : ?>
+	<!-- banda turului virtual: cele patru corpuri, ca niste usi care se deschid la hover -->
+	<section class="tour-band" aria-labelledby="tur-titlu">
+		<div class="wrap tour-band__grid">
+			<div class="tour-band__text">
+				<p class="eyebrow">Tur virtual 360°</p>
+				<h2 id="tur-titlu" class="split">Intrați în muzeu de oriunde</h2>
+				<p class="hand-note">patru corpuri, patru plimbări</p>
+				<a class="btn btn--ghost" href="<?php echo $e($turUrl); ?>">Pornește turul <svg><use href="#i-arrow"/></svg></a>
+			</div>
+			<ul class="tour-band__doors">
+				<?php foreach ($sectiuni as $i => $s) : ?>
+					<li class="door reveal" style="--d:<?php echo $i; ?>">
+						<a href="<?php echo $e($turUrl); ?>#tour-<?php echo $i; ?>-acasa">
+							<span class="door__img"><img src="<?php echo $e($img($s['img'])); ?>"<?php echo $size($img($s['img'])); ?> alt="" loading="lazy"></span>
+							<span class="door__leaf" aria-hidden="true"></span>
+							<span class="door__letter"><small>Corpul</small><?php echo $e($s['corp']); ?></span>
+							<span class="door__name"><?php echo $e($s['titlu']); ?></span>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</section>
+<?php endif; ?>
+
 <!-- vizita si contact -->
 <?php if ($this->countModules('home-vizita')) : ?>
 	<jdoc:include type="modules" name="home-vizita" style="none" />
@@ -370,6 +462,8 @@ $renderEvent = static function ($ev, bool $featured, int $delay) use ($e, $size)
 		<div class="wrap visit">
 			<div class="visit__card reveal">
 				<h2>Vizitează muzeul</h2>
+				<?php $orarJs = array_map(static fn ($z) => ['zi' => $z['zi'], 'de' => $z['deschis'], 'la' => $z['inchis']], (require __DIR__ . '/orar.php')($params)); ?>
+				<p class="vz-status vz-status--small" data-status data-orar="<?php echo $e(json_encode($orarJs, JSON_UNESCAPED_UNICODE)); ?>"><span class="vz-status__dot" aria-hidden="true"></span><span data-status-text><?php echo $e($params->get('program')); ?></span></p>
 				<div class="visit__rows">
 					<div class="visit__row"><svg><use href="#i-clock"/></svg><div><strong>Program</strong><?php echo $e($params->get('program')); ?></div></div>
 					<div class="visit__row"><svg><use href="#i-pin"/></svg><div><strong>Adresă</strong><?php echo $e($params->get('adresa')); ?></div></div>
