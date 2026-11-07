@@ -40,12 +40,8 @@ $size = require __DIR__ . '/img-size.php';
 $corpuri     = $app->getMenu()->getItems('alias', 'corpurile-muzeului', true);
 $corpuriLink = $corpuri ? Route::_('index.php?Itemid=' . $corpuri->id) : '#';
 
-$sectiuni = [
-	['titlu' => 'Artă și expoziții temporare',               'text' => 'Secția de artă, biblioteca și expoziția dedicată Marii Uniri.',              'img' => 'images/muzeu/sectiuni/arta.jpg',     'link' => $corpuriLink],
-	['titlu' => 'Biserica, Armata, Școala și Viața Satului', 'text' => 'Piese de uz curent, unelte, costume populare și scoarțe.',                  'img' => 'images/muzeu/sectiuni/biserica.jpg', 'link' => $corpuriLink],
-	['titlu' => 'Casa țărănească',                           'text' => 'Casă strămutată din satul Oprișenești, refăcută cu sprijinul Muzeului Brăilei.', 'img' => 'images/muzeu/sectiuni/casa.jpg',     'link' => $corpuriLink],
-	['titlu' => 'Depozitul de unelte',                       'text' => 'Căruțe tradiționale pictate, cu motive specifice regiunii.',                'img' => 'images/muzeu/sectiuni/unelte.jpg',   'link' => $corpuriLink],
-];
+// corpurile muzeului (partials/sectiuni.php), toate duc la pagina Corpurile muzeului
+$sectiuni = array_map(static fn ($s) => $s + ['link' => $corpuriLink], require __DIR__ . '/sectiuni.php');
 
 $repere = [
 	['an' => '1995', 'titlu' => 'Primul pas',          'text' => 'Consiliul Local aprobă deschiderea unui muzeu în localul Școlii nr. 1.'],
@@ -381,17 +377,7 @@ $renderEvent = static function ($ev, bool $featured, int $delay) use ($e, $size)
 				</div>
 				<?php if ($bilete) : ?><a class="btn" href="<?php echo $e($bilete); ?>" target="_blank" rel="noopener">Cumpără bilete <svg><use href="#i-arrow"/></svg></a><?php endif; ?>
 			</div>
-			<?php // harta Google se incarca doar la click, ca pana atunci sa nu plece nicio cerere spre Google ?>
-			<?php $mapQ = rawurlencode((string) $params->get('mapQuery')); ?>
-			<div class="visit__map reveal" style="--d:1" data-map="https://www.google.com/maps?q=<?php echo $mapQ; ?>&amp;output=embed">
-				<div class="map-gate">
-					<span class="map-gate__pin" aria-hidden="true"><svg><use href="#i-pin"/></svg></span>
-					<p class="map-gate__title">Te așteptăm la muzeu</p>
-					<?php if ($params->get('adresa')) : ?><p class="map-gate__addr"><?php echo $e($params->get('adresa')); ?></p><?php endif; ?>
-					<button type="button" class="btn map-gate__btn" data-map-load><span data-map-label>Vreau să văd locația</span> <svg><use href="#i-arrow"/></svg></button>
-					<p class="map-gate__note">Harta Google apare doar după ce apeși butonul. Poți să o deschizi și direct în <a href="https://www.google.com/maps/search/?api=1&amp;query=<?php echo $mapQ; ?>" target="_blank" rel="noopener">Google Maps</a>.</p>
-				</div>
-			</div>
+			<?php require __DIR__ . '/harta.php'; ?>
 		</div>
 	</section>
 <?php endif; ?>

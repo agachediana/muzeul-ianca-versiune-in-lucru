@@ -450,7 +450,7 @@
   */
   function initReveal() {
     var els = Array.prototype.filter.call(
-      document.querySelectorAll('.reveal, .reveal-img, .develop, .draw, [data-count]'),
+      document.querySelectorAll('.reveal, .reveal-img, .develop, .draw, .press, [data-count]'),
       function (el) { return !el.classList.contains('is-in'); }
     );
     // la miscare redusa elementele apar tot la derulare, dar doar prin estompare (vezi CSS)
@@ -696,6 +696,174 @@
   }
 
   /*
+     Pagina Vizita si bilete
+     daca muzeul e deschis acum (dupa ora Romaniei, oricare ar fi ora vizitatorului),
+     ziua de azi marcata in program si cotorul biletului care se rupe la clic
+  */
+  function initVisit() {
+    var status = document.querySelector('[data-status]');
+    var days = document.querySelector('[data-days]');
+    var ticket = document.querySelector('[data-ticket]');
+    var orar = [];
+    try { orar = JSON.parse(status ? status.getAttribute('data-orar') : '[]'); } catch (err) { orar = []; }
+
+    // ziua (0 = luni) si minutul din zi, in ora Romaniei
+    var acum = function () {
+      var p = {};
+      new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Bucharest', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+        .formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
+      return { zi: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(p.weekday), min: +p.hour * 60 + +p.minute };
+    };
+    var minute = function (s) { var a = s.split(':'); return +a[0] * 60 + +a[1]; };
+
+    var update = function () {
+      if (!orar.length) return;
+      var t = acum();
+      var azi = orar[t.zi];
+      if (status) {
+        var text = status.querySelector('[data-status-text]');
+        var deschis = azi && azi.de && t.min >= minute(azi.de) && t.min < minute(azi.la);
+        var mesaj;
+        if (deschis) {
+          mesaj = 'Deschis acum · până la ' + azi.la;
+        } else if (azi && azi.de && t.min < minute(azi.de)) {
+          mesaj = 'Închis acum · deschidem azi la ' + azi.de;
+        } else {
+          // urmatoarea zi cu program
+          for (var k = 1; k <= 7; k++) {
+            var z = orar[(t.zi + k) % 7];
+            if (z && z.de) { mesaj = 'Închis acum · deschidem ' + (k === 1 ? 'mâine' : z.zi.toLowerCase()) + ' la ' + z.de; break; }
+          }
+        }
+        if (mesaj) text.textContent = mesaj;
+        status.classList.toggle('is-open', !!deschis);
+        status.classList.toggle('is-closed', !deschis);
+      }
+      if (days) {
+        var rows = days.querySelectorAll('[data-day]');
+        var row = rows[t.zi];
+        rows.forEach(function (r) { r.classList.toggle('is-today', r === row); });
+        if (row) {
+          var mark = days.querySelector('.vz-days__mark');
+          mark.style.height = row.offsetHeight + 'px';
+          mark.style.setProperty('--y', row.offsetTop + 'px');
+          days.classList.add('has-today');
+        }
+      }
+    };
+    update();
+    setInterval(update, 60000);
+    window.addEventListener('resize', update);
+
+    if (ticket) {
+      var link = ticket.querySelector('[data-ticket-link]');
+      link.addEventListener('click', function () {
+        ticket.classList.add('is-torn');
+        setTimeout(function () { ticket.classList.remove('is-torn'); }, 2600);
+      });
+    }
+  }
+
+  /*
+     Pagina Tur virtual
+     fotografia salii se misca dupa mouse (pe calculator) sau cand o tragi cu
+     degetul (pe telefon), ca privita printr-o fereastra. Turul 360 se incarca
+     doar dupa clic pe "Intra in sala", ca pana atunci sa nu plece nicio cerere.
+  */
+  function initTour() {
+    document.querySelectorAll('[data-tour-view]').forEach(function (view) {
+      var set = function (x, y) {
+        view.style.setProperty('--px', Math.max(-1, Math.min(1, x)).toFixed(3));
+        view.style.setProperty('--py', Math.max(-1, Math.min(1, y)).toFixed(3));
+      };
+      var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+      var drag = null;
+
+      view.addEventListener('pointermove', function (e) {
+        if (view.classList.contains('is-loaded')) return;
+        var r = view.getBoundingClientRect();
+        if (drag) {
+          set(drag.x - (e.clientX - drag.sx) / r.width * 2, drag.y - (e.clientY - drag.sy) / r.height * 2);
+        } else if (fine.matches && !reduceMotion()) {
+          set((e.clientX - r.left) / r.width * 2 - 1, (e.clientY - r.top) / r.height * 2 - 1);
+        }
+      });
+      view.addEventListener('pointerleave', function () { if (!drag) set(0, 0); });
+      // tras cu degetul sau cu mouse-ul apasat
+      view.addEventListener('pointerdown', function (e) {
+        if (e.target.closest('button, a') || view.classList.contains('is-loaded')) return;
+        drag = {
+          sx: e.clientX, sy: e.clientY,
+          x: parseFloat(view.style.getPropertyValue('--px')) || 0,
+          y: parseFloat(view.style.getPropertyValue('--py')) || 0
+        };
+        view.classList.add('is-dragging');
+      });
+      var stop = function () { drag = null; view.classList.remove('is-dragging'); };
+      window.addEventListener('pointerup', stop);
+      window.addEventListener('pointercancel', stop);
+
+      var go = view.querySelector('[data-tour-go]');
+      if (!go) return;
+      go.addEventListener('click', function () {
+        var label = go.querySelector('[data-tour-label]');
+        var frame = document.createElement('iframe');
+        var done = false;
+        var reveal = function () { if (!done) { done = true; view.classList.add('is-loaded'); } };
+        if (label) label.textContent = 'Se încarcă sala…';
+        go.disabled = true;
+        frame.title = 'Tur virtual: ' + (view.parentNode.querySelector('.tour__title') || {}).textContent;
+        frame.setAttribute('allowfullscreen', '');
+        frame.setAttribute('allow', 'fullscreen; xr-spatial-tracking; gyroscope; accelerometer');
+        frame.addEventListener('load', reveal);
+        setTimeout(reveal, 8000);
+        frame.src = view.getAttribute('data-tour');
+        view.appendChild(frame);
+      });
+    });
+  }
+
+  /*
+     Galeriile foto: filtrele de pe pagina cu toate pozele.
+     Pozele ramase se rearanjeaza animat (GSAP Flip), iar numarul se schimba.
+  */
+  function initGallery() {
+    var page = document.querySelector('[data-gallery]');
+    if (!page) return;
+    var btns = [].slice.call(page.querySelectorAll('[data-gal-filter]'));
+    var items = [].slice.call(page.querySelectorAll('.gal-item'));
+    var count = page.querySelector('[data-gal-count]');
+    var empty = page.querySelector('[data-gal-empty]');
+    if (!btns.length) return;
+    var gsap = window.gsap, Flip = window.Flip;
+    if (gsap && Flip) gsap.registerPlugin(Flip);
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.getAttribute('data-gal-filter');
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        var state = gsap && Flip && !reduceMotion() ? Flip.getState(items) : null;
+        var n = 0;
+        items.forEach(function (it) {
+          var on = f === 'toate' || it.getAttribute('data-galerie') === f;
+          it.hidden = !on;
+          if (on) n++;
+        });
+        if (count) count.textContent = n === 1 ? '1 fotografie' : n + (n % 100 >= 20 || (n % 100 === 0 && n) ? ' de' : '') + ' fotografii';
+        if (empty) empty.hidden = n > 0;
+        initReveal();
+        if (state) {
+          Flip.from(state, {
+            duration: 0.6, ease: 'power3.inOut', absolute: true,
+            onEnter: function (els) { return gsap.fromTo(els, { autoAlpha: 0, scale: 0.92 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'power2.out' }); },
+            onLeave: function (els) { return gsap.to(els, { autoAlpha: 0, scale: 0.92, duration: 0.3 }); }
+          });
+        }
+      });
+    });
+  }
+
+  /*
      Harta de pe Acasa se incarca doar cand vizitatorul apasa "Vreau sa vad locatia",
      ca pana atunci sa nu plece nicio cerere spre Google.
      Panoul ramane pana se incarca harta, apoi harta apare incet peste el.
@@ -749,14 +917,16 @@
      (stanga, dreapta, Esc) si glisare pe telefon
   */
   function initLightbox() {
-    var links = [].slice.call(document.querySelectorAll('[data-lightbox], .ev-galerie a'));
-    if (!links.length || !window.HTMLDialogElement) return;
+    var all = [].slice.call(document.querySelectorAll('[data-lightbox], .ev-galerie a'));
+    if (!all.length || !window.HTMLDialogElement) return;
     var gsap = window.gsap;
+    // la galerii, sagetile trec doar prin pozele lasate de filtru
+    var links = all;
     var single = links.length < 2;
 
     var dlg = document.createElement('dialog');
     dlg.className = 'lightbox';
-    dlg.setAttribute('aria-label', 'Fotografiile evenimentului');
+    dlg.setAttribute('aria-label', 'Fotografii');
     dlg.innerHTML =
       '<figure class="lightbox__fig"><img class="lightbox__img" alt="" draggable="false"><figcaption class="lightbox__count" aria-live="polite"></figcaption></figure>' +
       '<button type="button" class="lightbox__btn lightbox__close" aria-label="Închide"><svg><use href="#i-x"/></svg></button>' +
@@ -776,7 +946,8 @@
       var inner = a.querySelector('img');
       img.src = a.getAttribute('href');
       img.alt = inner ? inner.alt : '';
-      count.textContent = single ? '' : (i + 1) + ' / ' + links.length;
+      var cap = a.getAttribute('data-caption');
+      count.textContent = (cap ? cap + (single ? '' : ' · ') : '') + (single ? '' : (i + 1) + ' / ' + links.length);
       return img.decode ? img.decode().catch(function () {}) : Promise.resolve();
     };
     var show = function (n, dir) {
@@ -793,11 +964,14 @@
       });
     };
 
-    links.forEach(function (a, n) {
+    all.forEach(function (a) {
       a.addEventListener('click', function (e) {
         e.preventDefault();
+        links = all.filter(function (x) { return !x.closest('[hidden]'); });
+        single = links.length < 2;
+        prev.hidden = next.hidden = single;
         if (gsap) gsap.set(img, { clearProps: 'opacity,visibility,transform' });
-        show(n);
+        show(links.indexOf(a));
         root.classList.add('lb-open');
         dlg.showModal();
       });
@@ -913,6 +1087,9 @@
     initCountdown();
     initEvents();
     initEventText();
+    initVisit();
+    initTour();
+    initGallery();
     initMapGate();
     initLightbox();
     initAi();

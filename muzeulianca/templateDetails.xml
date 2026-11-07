@@ -57,6 +57,13 @@
 				<field name="youtube" type="url" default="https://www.youtube.com/channel/UCLBgqLUfyg9zFQsDvL5UjUA" label="YouTube" />
 				<field name="mapQuery" type="text" default="Muzeul Ianca, Strada Gării 9, Ianca" label="Adresă pentru hartă (Google Maps)" />
 			</fieldset>
+			<fieldset name="vizita" label="Vizită și tur" description="Programul pe zile apare pe pagina Vizită și bilete, unde se calculeaza si daca muzeul e deschis acum. Un rand pentru fiecare zi, de exemplu: Marți: 10:00-14:00 sau Luni: închis.">
+				<field name="orar" type="textarea" rows="7" filter="raw" default="Luni: închis&#10;Marți: 10:00-14:00&#10;Miercuri: 10:00-14:00&#10;Joi: 10:00-14:00&#10;Vineri: 10:00-14:00&#10;Sâmbătă: 10:00-14:00&#10;Duminică: 10:00-14:00" label="Program pe zile" />
+				<field name="tur1" type="url" default="" label="Tur 360°: Corpul A (Artă și expoziții temporare)" description="Linkul turului virtual. Gol = pe pagina Tur virtual apare „în curând”." />
+				<field name="tur2" type="url" default="" label="Tur 360°: Corpul B (Biserica, Armata, Școala)" />
+				<field name="tur3" type="url" default="" label="Tur 360°: Corpul C (Casa țărănească)" />
+				<field name="tur4" type="url" default="" label="Tur 360°: Corpul D (Depozitul de unelte)" />
+			</fieldset>
 			<fieldset name="identitate" label="Date de identificare" description="Apar in subsolul fiecarei pagini (Legea 365/2002, art. 5). Campurile goale nu se afiseaza.">
 				<field name="denumireOficiala" type="text" default="Asociația cultural-istorică „Muzeul” Ianca" label="Denumirea exactă a asociației" />
 				<field name="sediu" type="text" default="" label="Sediul (adresa oficială)" />
