@@ -365,7 +365,14 @@ $fisierUrl = static fn (string $f) => Uri::root(true) . '/' . str_replace('%2F',
 					<dl class="about-figs">
 						<div class="figure reveal" style="--d:2"><dt>ani de activitate</dt><dd data-count="<?php echo $aniActivitate; ?>"><?php echo $aniActivitate; ?></dd></div>
 						<div class="figure reveal" style="--d:3"><dt>corpuri de clădire</dt><dd data-count="4">4</dd></div>
-						<div class="figure reveal" style="--d:4"><dt>tablouri Georgeta Crainic</dt><dd data-count="25">25</dd></div>
+						<?php
+						// exponatele din catalogul selectiv: cate un rand in fiecare inventar.txt (Etnografie, Artă, Științe)
+						$exponate = 0;
+						foreach (glob(JPATH_ROOT . '/images/muzeu/galerii/*/inventar.txt') ?: [] as $inv) {
+							$exponate += count(array_filter(file($inv, FILE_IGNORE_NEW_LINES), static fn ($r) => trim($r) !== ''));
+						}
+						?>
+						<div class="figure reveal" style="--d:4"><dt>exponate în catalog</dt><dd data-count="<?php echo $exponate; ?>"><?php echo $exponate; ?></dd></div>
 						<div class="figure reveal" style="--d:5"><dt>evenimente în arhivă</dt><dd data-count="<?php echo count($evData['all']); ?>"><?php echo count($evData['all']); ?></dd></div>
 					</dl>
 					<?php if ($asociatieUrl) : ?><a class="link-arrow reveal" style="--d:6" href="<?php echo $e($asociatieUrl); ?>">Asociația „Muzeul” Ianca <svg width="16" height="16"><use href="#i-arrow"/></svg></a><?php endif; ?>

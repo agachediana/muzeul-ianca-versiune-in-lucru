@@ -121,6 +121,35 @@ $ownHead = !$isHome && $app->get('muzeulianca.ownHead', false);
 <main id="main">
 	<jdoc:include type="message" />
 
+	<?php
+	/*
+	  Firul de navigare (Acasă / Despre / Asociația), pe toate paginile in afara de Acasa.
+	  Vine din drumul pe care il stie Joomla (meniul si categoriile); ultimul pas e
+	  pagina curenta, fara link. Elementele de meniu fara pagina (ex. Despre) apar fara link.
+	*/
+	if (!$isHome) :
+		$crumbs = array_values(array_filter($app->getPathway()->getPathway(), static fn ($c) => trim((string) $c->name) !== ''));
+		?>
+		<nav class="crumbs" aria-label="Ești aici">
+			<div class="wrap">
+				<ol itemscope itemtype="https://schema.org/BreadcrumbList">
+					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="<?php echo $e($homeUrl); ?>"><span itemprop="name">Acasă</span></a><meta itemprop="position" content="1"></li>
+					<?php foreach ($crumbs as $k => $c) : ?>
+						<?php $last = $k === count($crumbs) - 1; ?>
+						<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"<?php echo $last ? ' aria-current="page"' : ''; ?>>
+							<?php if (!$last && $c->link) : ?>
+								<a itemprop="item" href="<?php echo $e(Route::_($c->link)); ?>"><span itemprop="name"><?php echo $e($c->name); ?></span></a>
+							<?php else : ?>
+								<span itemprop="name"><?php echo $e($c->name); ?></span>
+							<?php endif; ?>
+							<meta itemprop="position" content="<?php echo $k + 2; ?>">
+						</li>
+					<?php endforeach; ?>
+				</ol>
+			</div>
+		</nav>
+	<?php endif; ?>
+
 	<?php if ($isHome) : ?>
 		<?php require __DIR__ . '/partials/home.php'; ?>
 		<?php if ($params->get('homeShowComponent', 0)) : ?>
@@ -129,7 +158,6 @@ $ownHead = !$isHome && $app->get('muzeulianca.ownHead', false);
 	<?php elseif ($ownHead) : ?>
 		<jdoc:include type="component" />
 	<?php else : ?>
-		<?php // fara fir de navigare (Acasa / ...), logo-ul si meniul duc oricum acasa ?>
 		<div class="page-head">
 			<div class="wrap">
 				<h1 class="reveal"><?php echo $e($active ? $active->title : $this->getTitle()); ?></h1>

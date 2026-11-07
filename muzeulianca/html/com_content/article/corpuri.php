@@ -54,6 +54,17 @@ $pozeCorp = static function (string $corp) use ($albume): array {
 
 	return array_slice($out, 0, 5);
 };
+// cate fotografii are corpul in toate albumele lui (pentru ultimul patrat din grila)
+$nrPoze = static function (string $corp) use ($albume): int {
+	$n = 0;
+	foreach (glob(JPATH_ROOT . '/images/muzeu/albume/*', GLOB_ONLYDIR) ?: [] as $d) {
+		if (strtoupper(($albume[basename($d)]['corp'] ?? basename($d)[0])) === $corp) {
+			$n += count(glob($d . '/*.{jpg,jpeg,png,webp}', GLOB_BRACE) ?: []);
+		}
+	}
+
+	return $n;
+};
 
 if (!trim((string) $item->metadesc)) {
 	$this->document->setDescription('Cele patru corpuri ale Muzeului Ianca: secția de artă, biserica, armata și școala, casa țărănească și depozitul de unelte, cu tur virtual 360°.');
@@ -89,13 +100,24 @@ if (!trim((string) $item->metadesc)) {
 			<section class="corp" id="corp-<?php echo strtolower($s['corp']); ?>" aria-labelledby="corp-t-<?php echo $i; ?>">
 				<span class="corp__letter" aria-hidden="true"><?php echo $e($s['corp']); ?></span>
 				<div class="corp__grid">
-					<div class="tour__view reveal" data-tour-view<?php echo $url ? ' data-tour="' . $e($url) . '"' : ''; ?>>
-						<div class="tour__pan"><img src="<?php echo $e($img); ?>"<?php echo $size($img); ?> alt="" loading="<?php echo $i ? 'lazy' : 'eager'; ?>" draggable="false"></div>
-						<span class="tour__compass" aria-hidden="true"><svg><use href="#i-360"/></svg></span>
-						<?php if ($url) : ?>
-							<button type="button" class="tour__go" data-tour-go><span data-tour-label>Intră în sală</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-						<?php else : ?>
-							<span class="tour__soon">Tur 360° în curând</span>
+					<!-- in stanga: sala (cu turul) si sub ea pozele corpului, langa text -->
+					<div class="corp__media">
+						<div class="tour__view reveal" data-tour-view<?php echo $url ? ' data-tour="' . $e($url) . '"' : ''; ?>>
+							<div class="tour__pan"><img src="<?php echo $e($img); ?>"<?php echo $size($img); ?> alt="" loading="<?php echo $i ? 'lazy' : 'eager'; ?>" draggable="false"></div>
+							<span class="tour__compass" aria-hidden="true"><svg><use href="#i-360"/></svg></span>
+							<?php if ($url) : ?>
+								<button type="button" class="tour__go" data-tour-go><span data-tour-label>Intră în sală</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+							<?php else : ?>
+								<span class="tour__soon">Tur 360° în curând</span>
+							<?php endif; ?>
+						</div>
+						<?php if ($poze) : ?>
+							<ul class="corp__strip">
+								<?php foreach ($poze as $k => $p) : ?>
+									<li class="reveal" style="--d:<?php echo $k + 1; ?>"><a class="develop" href="<?php echo $e($p); ?>" data-lightbox data-caption="<?php echo $e($s['titlu']); ?>"><img src="<?php echo $e($p); ?>"<?php echo $size($p); ?> alt="<?php echo $e($s['titlu'] . ', fotografia ' . ($k + 1)); ?>" loading="lazy"></a></li>
+								<?php endforeach; ?>
+								<?php if ($galLink) : ?><li class="corp__strip-more reveal" style="--d:6"><a href="<?php echo $e($galLink); ?>#gal-corp-<?php echo $e($s['corp']); ?>"><strong><?php echo $e($nrPoze($s['corp'])); ?></strong>fotografii în galerie <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li><?php endif; ?>
+							</ul>
 						<?php endif; ?>
 					</div>
 					<div class="corp__body">
@@ -104,14 +126,6 @@ if (!trim((string) $item->metadesc)) {
 						<div class="corp__text item-page__body"><?php echo $t['html']; ?></div>
 					</div>
 				</div>
-				<?php if ($poze) : ?>
-					<ul class="corp__strip">
-						<?php foreach ($poze as $k => $p) : ?>
-							<li class="reveal" style="--d:<?php echo $k; ?>"><a class="develop" href="<?php echo $e($p); ?>" data-lightbox data-caption="<?php echo $e($s['titlu']); ?>"><img src="<?php echo $e($p); ?>"<?php echo $size($p); ?> alt="<?php echo $e($s['titlu'] . ', fotografia ' . ($k + 1)); ?>" loading="lazy"></a></li>
-						<?php endforeach; ?>
-						<?php if ($galLink) : ?><li class="corp__strip-more reveal" style="--d:5"><a href="<?php echo $e($galLink); ?>">Toate albumele <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li><?php endif; ?>
-					</ul>
-				<?php endif; ?>
 			</section>
 		<?php endforeach; ?>
 	</div>
