@@ -3,9 +3,10 @@
 <head>
 	<meta name="robots" content="noindex, nofollow">
 	<script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }</script>
+		<script>try { ['contrast', 'links', 'readable', 'spacing', 'motion', 'cursor', 'guide', 'focus', 'gray'].forEach(function (k) { var v = localStorage.getItem('mi-' + k); if (v) document.documentElement.setAttribute('data-' + k, v); }); var f = localStorage.getItem('mi-fs'); if (f) document.documentElement.style.setProperty('--fs-scale', f); } catch (e) {}</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Muzeul Ianca din Câmpia Brăilei: etnografie, istorie locală și artă, evenimente, program de vizitare și bilete.">
+	<meta name="description" content="Povești ale locului: amintiri, scrisori și interviuri cu oamenii care au făcut Muzeul Ianca.">
 	<meta name="generator" content="Joomla! - Open Source Content Management">
 	<title>Povești ale locului - Muzeul Ianca</title>
 	<link href="povesti-ale-locului.html" rel="alternate" type="application/rss+xml" title="Povești ale locului - Muzeul Ianca">
@@ -27,7 +28,7 @@
 	<script src="assets/messages.min.js" type="module"></script>
 
 </head>
-<body class="is-page ">
+<body class="is-page has-own-head ">
 <div role="note" style="background:#3d0b14;color:#efe5d3;text-align:center;padding:8px 16px;font:600 .78rem/1.4 'Source Sans 3',system-ui,sans-serif;letter-spacing:.08em">Versiune de lucru · nu este site-ul oficial al Muzeului Ianca</div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -49,7 +50,12 @@
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></symbol>
   <symbol id="i-360" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="9.5" ry="4"/><path d="M12 3.5v4M9.5 18.5l2.5-2.5-2.5-2.5"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
-  <symbol id="i-reset"viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/></symbol>
+  <symbol id="i-a11y" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v4.5M12 14.5l-3.5 6M12 14.5l3.5 6"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-pause2" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5.5" width="3.8" height="13" rx="1"/><rect x="13.7" y="5.5" width="3.8" height="13" rx="1"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/></symbol>
 </svg>
 
 <a class="skip-link" href="#main">Sari la conținut</a>
@@ -64,12 +70,9 @@
 			<span><svg><use href="#i-phone"/></svg><a href="tel:+40723609033">0723 609 033</a></span>
 		</div>
 		<div class="topbar__actions">
-			<div class="a11y" role="group" aria-label="Accesibilitate">
-				<button type="button" data-a11y="dec" aria-label="Micșorează textul">A−</button>
-				<span class="a11y__size" data-a11y-size aria-live="polite">100%</span>
-				<button type="button" data-a11y="inc" aria-label="Mărește textul">A+</button>
-				<button type="button" data-a11y="contrast" aria-pressed="false" aria-label="Contrast ridicat"><svg><use href="#i-contrast"/></svg></button>
-				<button type="button" data-a11y="links" aria-pressed="false" aria-label="Subliniază linkurile"><svg><use href="#i-link"/></svg></button>
+			<div class="a11y">
+				<button type="button" class="a11y__open" aria-expanded="false" aria-controls="a11y-panel" data-a11y-open><svg aria-hidden="true"><use href="#i-a11y"/></svg><span>Accesibilitate</span></button>
+				<button type="button" class="a11y__open" data-radio-start><svg aria-hidden="true"><use href="#i-sound"/></svg><span>Ascultă</span></button>
 			</div>
 							<a class="topbar__tickets" href="https://muzeul-ianca.booktes.com/" target="_blank" rel="noopener">Bilete online</a>
 					</div>
@@ -121,29 +124,90 @@
 	<div id="system-message-container" aria-live="polite"></div>
 
 
-					<div class="page-head">
-			<div class="wrap">
-				<h1 class="reveal">Povești ale locului</h1>
-			</div>
+			<div class="pv">
+	<header class="evp-head">
+		<div class="wrap">
+			<p class="eyebrow">Amintiri și mărturii</p>
+			<h1 class="evp-head__title evp-head__title--long"><span>Povești ale locului</span></h1>
+			<p class="hand-note" aria-hidden="true">oamenii locului își spun povestea</p>
+			<div class="evp-head__meta">
+									<p class="evp-head__lead">Scrisori, interviuri și filme despre Muzeul Ianca și despre cei care l-au făcut: profesori, aviatori, preoți, muzeografi și oameni ai locului.</p>
+								<p class="evp-head__range">7 povești · 6 înregistrări video</p>			</div>
 		</div>
-		<div class="content">
-			<div class="wrap">
-				<div class="com-content-category-blog blog">
-    
-        
-    
-    
-                        <div class="alert alert-info">
-                <span class="icon-info-circle" aria-hidden="true"></span><span class="visually-hidden">Informație</span>
-                    Deocamdată nu sunt articole aici. Revino în curând.            </div>
-            
-    
-    
-    
-                </div>
+	</header>
 
-							</div>
-		</div>
+	<div class="wrap">
+		
+					<!-- o scrisoare, ca o foaie de hartie -->
+			<article class="pv-letter reveal">
+				<div class="pv-letter__paper">
+					<p class="pv-letter__tag">Scrisoare</p>
+					<h2 class="pv-letter__title"><a href="povesti-ale-locului-la-22-de-ani-de-la-infiintarea-muzeului.html">La 22 de ani de la înființarea muzeului</a></h2>
+					<p class="pv-letter__lead">Scrisoarea generalului de aviație (r) Constantin Gheorghe, comandantul unității de aviație de la Ianca între 1983 și 1987, la aniversarea muzeului.</p>											<p class="pv-letter__text">Călătoria nu are sens, până când nu ajungi la destinație. Abia atunci când partea activă a vieții mele s-a încheiat, m-am găsit în situația de a mă uita înapoi, pentru a rememora o parte din evenimentele care m-au marcat. Am lucrat la Ianca în perioada 1983-1987, fiind comandantul unității de aviație.</p>
+											<p class="pv-letter__text">Am găsit aici militari care m-au ajutat să-mi conturez personalitatea și cărora le port o mare prețuire; același sentiment îl am față de oamenii locului, pe care i-am cunoscut ca fiind hotărâți, destoinici și foarte curajoși.</p>
+										<p class="pv-letter__sign">Gl. av. (r) Constantin Gheorghe, București, 30 decembrie 2021</p>					<a class="link-arrow" href="povesti-ale-locului-la-22-de-ani-de-la-infiintarea-muzeului.html">Citește scrisoarea <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+				</div>
+									<figure class="pv-letter__img develop"><img src="assets/cladirea-muzeului.jpg" width="630" height="420" alt="" loading="lazy"></figure>
+							</article>
+		
+					<section class="pv-videos" aria-labelledby="pv-video">
+				<div class="pv-videos__head">
+					<h2 id="pv-video" class="pv-videos__title">Interviuri și filme</h2>
+					<p class="hand-note" aria-hidden="true">apasă pe poză și ascultă</p>
+				</div>
+				<ul class="pv-grid">
+											<li class="pv-card reveal" style="--d:0;--r:-1.6deg">
+							<button type="button" class="pv-card__play" data-video="https://turvirtual.muzeulianca.ro/media/video_6C7B2F4C_77B0_CA4F_41DD_5B38B354F0BF_en.mp4" data-video-title="Interviu cu dr. Brîndușa Ilie" aria-label="Pornește: Interviu cu dr. Brîndușa Ilie">
+								<img src="assets/dr-brindusa-ilie.jpg" width="1920" height="1080" alt="" loading="lazy">								<span class="pv-card__btn" aria-hidden="true"><svg width="26" height="26"><use href="#i-play"/></svg></span>
+							</button>
+							<h3 class="pv-card__title"><a href="povesti-ale-locului-interviu-dr-brindusa-ilie.html">Interviu cu dr. Brîndușa Ilie</a></h3>
+							<p class="pv-card__text">Dr. Brîndușa Ilie, muzeograf la Secția Etnografie a Muzeului Brăilei „Carol I”, a coordonat sprijinul de specialitate pentru casa țărănească strămutată în curtea...</p>						</li>
+											<li class="pv-card reveal" style="--d:1;--r:1.2deg">
+							<button type="button" class="pv-card__play" data-video="https://turvirtual.muzeulianca.ro/media/video_572AE40A_76D0_7DCB_41DC_3BF31B13A919_en.mp4" data-video-title="Interviu cu preotul paroh" aria-label="Pornește: Interviu cu preotul paroh">
+								<img src="assets/preotul-paroh.jpg" width="1920" height="1080" alt="" loading="lazy">								<span class="pv-card__btn" aria-hidden="true"><svg width="26" height="26"><use href="#i-play"/></svg></span>
+							</button>
+							<h3 class="pv-card__title"><a href="povesti-ale-locului-interviu-preotul-paroh.html">Interviu cu preotul paroh</a></h3>
+							<p class="pv-card__text">Preotul paroh din Ianca, filmat în fața casei țărănești a muzeului.</p>						</li>
+											<li class="pv-card reveal" style="--d:2;--r:-0.6deg">
+							<button type="button" class="pv-card__play" data-video="https://turvirtual.muzeulianca.ro/media/video_573F7DD0_76B3_CE57_41C9_CFF98B67CD14_en.mp4" data-video-title="Interviu cu col. Gaju" aria-label="Pornește: Interviu cu col. Gaju">
+								<img src="assets/col-gaju.jpg" width="1920" height="1080" alt="" loading="lazy">								<span class="pv-card__btn" aria-hidden="true"><svg width="26" height="26"><use href="#i-play"/></svg></span>
+							</button>
+							<h3 class="pv-card__title"><a href="povesti-ale-locului-interviu-col-gaju.html">Interviu cu col. Gaju</a></h3>
+							<p class="pv-card__text">Un interviu din turul virtual al Muzeului Ianca.</p>						</li>
+											<li class="pv-card reveal" style="--d:0;--r:1.8deg">
+							<button type="button" class="pv-card__play" data-video="https://turvirtual.muzeulianca.ro/media/video_107F3AF9_012D_DB71_4157_082241E6480A_en.mp4" data-video-title="Interviu cu comandorul (r) aviator Dorin Ilie" aria-label="Pornește: Interviu cu comandorul (r) aviator Dorin Ilie">
+								<img src="assets/comandor-dorin-ilie.jpg" width="1920" height="1080" alt="" loading="lazy">								<span class="pv-card__btn" aria-hidden="true"><svg width="26" height="26"><use href="#i-play"/></svg></span>
+							</button>
+							<h3 class="pv-card__title"><a href="povesti-ale-locului-interviu-comandor-dorin-ilie.html">Interviu cu comandorul (r) aviator Dorin Ilie</a></h3>
+							<p class="pv-card__text">Comandorul (r) aviator Dorin Ilie, fost comandant la Ianca și membru al Asociației „Muzeul” Ianca.</p>						</li>
+											<li class="pv-card reveal" style="--d:1;--r:-1.2deg">
+							<button type="button" class="pv-card__play" data-video="https://turvirtual.muzeulianca.ro/media/video_5FAC84CF_7D70_5E49_41C1_1174691096B2_en.mp4" data-video-title="Muzeul Ianca la TVR 3" aria-label="Pornește: Muzeul Ianca la TVR 3">
+								<img src="assets/tvr3-cantec-si-poveste.jpg" width="640" height="360" alt="" loading="lazy">								<span class="pv-card__btn" aria-hidden="true"><svg width="26" height="26"><use href="#i-play"/></svg></span>
+							</button>
+							<h3 class="pv-card__title"><a href="povesti-ale-locului-muzeul-ianca-la-tvr-3.html">Muzeul Ianca la TVR 3</a></h3>
+							<p class="pv-card__text">Prezentarea muzeului făcută de prof. Ion Bărbuceanu în emisiunea „Cântec și poveste” de la TVR 3.</p>						</li>
+											<li class="pv-card reveal" style="--d:2;--r:0.8deg">
+							<button type="button" class="pv-card__play" data-video="https://turvirtual.muzeulianca.ro/media/video_171F9188_012C_A99F_4123_F2CF3E1BDA20_en.mp4" data-video-title="Film: Muzeul Ianca și prof. Ion M. Bărbuceanu" aria-label="Pornește: Film: Muzeul Ianca și prof. Ion M. Bărbuceanu">
+								<img src="assets/film-ion-barbuceanu.jpg" width="369" height="208" alt="" loading="lazy">								<span class="pv-card__btn" aria-hidden="true"><svg width="26" height="26"><use href="#i-play"/></svg></span>
+							</button>
+							<h3 class="pv-card__title"><a href="povesti-ale-locului-film-muzeul-ianca-ion-barbuceanu.html">Film: Muzeul Ianca și prof. Ion M. Bărbuceanu</a></h3>
+							<p class="pv-card__text">Un film despre muzeu și despre fondatorul lui. Filmul e mare (aproape 1,2 GB) și pornește după ce apeși pe el.</p>						</li>
+									</ul>
+			</section>
+
+			<!-- fereastra in care pornesc videoclipurile -->
+			<dialog class="pv-player" data-video-player aria-labelledby="pv-player-title">
+				<div class="pv-player__box">
+					<div class="pv-player__bar">
+						<p id="pv-player-title" class="pv-player__title"></p>
+						<button type="button" class="pv-player__close" data-video-close aria-label="Închide videoclipul"><svg width="20" height="20"><use href="#i-x"/></svg></button>
+					</div>
+					<video controls playsinline preload="none"></video>
+				</div>
+			</dialog>
+			</div>
+</div>
+
 	</main>
 
 <footer class="footer">
@@ -178,7 +242,7 @@
 					<div><dt>Adresă</dt><dd>Str. Gării nr. 9, Ianca, jud. Brăila</dd></div>
 					<div><dt>Program</dt><dd>Marți – Duminică 10:00 – 14:00 · Luni închis</dd></div>
 					<div><dt>Telefon</dt><dd><a href="tel:+40723609033">0723 609 033</a></dd></div>
-									</dl>
+					<div><dt>E-mail</dt><dd><a href="mailto:iancamuzeul@yahoo.ro">iancamuzeul@yahoo.ro</a></dd></div>				</dl>
 				<div class="footer__social">
 					<a href="https://www.facebook.com/muzeuliancadinjudetulbraila/" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>					<a href="https://www.youtube.com/channel/UCLBgqLUfyg9zFQsDvL5UjUA" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>				</div>
 			</div>
@@ -196,11 +260,76 @@
 				</div>
 					</div>
 		<div class="footer__bottom">
-			<p class="footer__id">Asociația cultural-istorică „Muzeul” Ianca</p>			<span>© 2026 Toate drepturile rezervate | Muzeul Ianca</span>
+			<p class="footer__id">Asociația cultural-istorică „Muzeul” Ianca · E-mail: iancamuzeul@yahoo.ro</p>			<span>© 2026 Toate drepturile rezervate | Muzeul Ianca</span>
 		</div>
 	</div>
 	<p class="footer__wordmark" aria-hidden="true">Muzeul Ianca</p>
 </footer>
+
+<!--
+  Panoul de accesibilitate (vezi initA11y din template.js). Optiunile urmaresc
+  criteriile WCAG 2.1 nivel AA cerute de OUG 112/2018 si Legea 232/2022:
+  marirea textului (1.4.4), contrastul (1.4.3), spatierea textului (1.4.12),
+  oprirea animatiilor (2.2.2), focusul vizibil (2.4.7). Alegerile raman in browser.
+-->
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11y-title" hidden>
+	<div class="a11y-panel__head">
+		<h2 id="a11y-title">Accesibilitate</h2>
+		<button type="button" class="a11y-panel__close" data-a11y-close aria-label="Închide panoul de accesibilitate"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+	</div>
+	<p class="a11y-panel__intro">Alegerile se păstrează în acest browser, pe toate paginile.</p>
+
+	<div class="a11y-size">
+		<span id="a11y-size-label">Mărimea textului</span>
+		<div class="a11y-size__btns" role="group" aria-labelledby="a11y-size-label">
+			<button type="button" data-a11y="dec" aria-label="Micșorează textul">A−</button>
+			<span class="a11y__size" data-a11y-size aria-live="polite">100%</span>
+			<button type="button" data-a11y="inc" aria-label="Mărește textul">A+</button>
+		</div>
+	</div>
+
+	<div class="a11y-grid">
+		<button type="button" class="a11y-opt" data-a11y="contrast" aria-pressed="false"><svg aria-hidden="true"><use href="#i-contrast"/></svg>Contrast ridicat</button>
+		<button type="button" class="a11y-opt" data-a11y="links" aria-pressed="false"><svg aria-hidden="true"><use href="#i-link"/></svg>Subliniază linkurile</button>
+		<button type="button" class="a11y-opt" data-a11y="readable" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">Aa</span>Font ușor de citit</button>
+		<button type="button" class="a11y-opt" data-a11y="spacing" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">↕</span>Spațiere mărită</button>
+		<button type="button" class="a11y-opt" data-a11y="motion" aria-pressed="false"><svg aria-hidden="true"><use href="#i-pause"/></svg>Oprește animațiile</button>
+		<button type="button" class="a11y-opt" data-a11y="cursor" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">➤</span>Cursor mare</button>
+		<button type="button" class="a11y-opt" data-a11y="guide" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">▭</span>Ghid de citire</button>
+		<button type="button" class="a11y-opt" data-a11y="focus" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">◎</span>Evidențiază elementul activ</button>
+		<button type="button" class="a11y-opt" data-a11y="gray" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">◐</span>Tonuri de gri</button>
+	</div>
+
+	<div class="a11y-audio">
+		<button type="button" class="btn a11y-audio__play" data-radio-start><svg aria-hidden="true"><use href="#i-sound"/></svg>Citește pagina cu voce tare</button>
+		<button type="button" class="a11y-opt a11y-opt--wide" data-a11y="autoread" aria-pressed="true">Ghidul pornește singur după 30 de secunde fără activitate</button>
+	</div>
+
+	<div class="a11y-panel__foot">
+		<button type="button" class="link-arrow" data-a11y="reset"><svg aria-hidden="true"><use href="#i-reset"/></svg>Resetează tot</button>	</div>
+</div>
+<div class="reading-guide" aria-hidden="true"></div>
+
+<!--
+  Ghidul audio, ca un radio de epoca: citeste pagina in romana cu vocea
+  browserului (fara servicii externe). Acul arata cat s-a citit.
+  Porneste singur dupa 30 de secunde fara activitate (vezi initRadio).
+  Sagetile sar la bucata de dinainte sau la cea care urmeaza.
+-->
+<div class="radio" data-radio hidden role="region" aria-label="Ghid audio">
+	<span class="radio__grille" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+	<div class="radio__info">
+		<p class="radio__title">Povestea paginii</p>
+		<p class="radio__now" data-radio-now aria-live="polite"></p>
+		<div class="radio__dial" aria-hidden="true"><span class="radio__scale"></span><span class="radio__needle"></span></div>
+	</div>
+	<div class="radio__btns">
+		<button type="button" class="radio__btn radio__btn--step" data-radio-prev aria-label="Citește ce e înainte"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+		<button type="button" class="radio__btn" data-radio-toggle aria-label="Pauză"><svg aria-hidden="true"><use href="#i-pause2"/></svg></button>
+		<button type="button" class="radio__btn radio__btn--step" data-radio-next aria-label="Citește ce urmează"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+		<button type="button" class="radio__btn" data-radio-stop aria-label="Oprește și închide ghidul"><svg aria-hidden="true"><use href="#i-stop"/></svg></button>
+	</div>
+</div>
 
 <button class="ai-fab" type="button" aria-expanded="false" aria-controls="ai-panel"><svg><use href="#i-chat"/></svg>Întreabă muzeul</button>
 <div class="ai-panel" id="ai-panel" role="dialog" aria-labelledby="ai-title">

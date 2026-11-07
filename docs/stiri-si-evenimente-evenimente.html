@@ -3,6 +3,7 @@
 <head>
 	<meta name="robots" content="noindex, nofollow">
 	<script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }</script>
+		<script>try { ['contrast', 'links', 'readable', 'spacing', 'motion', 'cursor', 'guide', 'focus', 'gray'].forEach(function (k) { var v = localStorage.getItem('mi-' + k); if (v) document.documentElement.setAttribute('data-' + k, v); }); var f = localStorage.getItem('mi-fs'); if (f) document.documentElement.style.setProperty('--fs-scale', f); } catch (e) {}</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Lecții de istorie, școli de vară, expoziții, lansări de carte și sărbători ale comunității: evenimentele realizate și cele care urmează la Muzeul Ianca.">
@@ -50,7 +51,12 @@
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></symbol>
   <symbol id="i-360" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="9.5" ry="4"/><path d="M12 3.5v4M9.5 18.5l2.5-2.5-2.5-2.5"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
-  <symbol id="i-reset"viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/></symbol>
+  <symbol id="i-a11y" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v4.5M12 14.5l-3.5 6M12 14.5l3.5 6"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-pause2" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5.5" width="3.8" height="13" rx="1"/><rect x="13.7" y="5.5" width="3.8" height="13" rx="1"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/></symbol>
 </svg>
 
 <a class="skip-link" href="#main">Sari la conținut</a>
@@ -65,12 +71,9 @@
 			<span><svg><use href="#i-phone"/></svg><a href="tel:+40723609033">0723 609 033</a></span>
 		</div>
 		<div class="topbar__actions">
-			<div class="a11y" role="group" aria-label="Accesibilitate">
-				<button type="button" data-a11y="dec" aria-label="Micșorează textul">A−</button>
-				<span class="a11y__size" data-a11y-size aria-live="polite">100%</span>
-				<button type="button" data-a11y="inc" aria-label="Mărește textul">A+</button>
-				<button type="button" data-a11y="contrast" aria-pressed="false" aria-label="Contrast ridicat"><svg><use href="#i-contrast"/></svg></button>
-				<button type="button" data-a11y="links" aria-pressed="false" aria-label="Subliniază linkurile"><svg><use href="#i-link"/></svg></button>
+			<div class="a11y">
+				<button type="button" class="a11y__open" aria-expanded="false" aria-controls="a11y-panel" data-a11y-open><svg aria-hidden="true"><use href="#i-a11y"/></svg><span>Accesibilitate</span></button>
+				<button type="button" class="a11y__open" data-radio-start><svg aria-hidden="true"><use href="#i-sound"/></svg><span>Ascultă</span></button>
 			</div>
 							<a class="topbar__tickets" href="https://muzeul-ianca.booktes.com/" target="_blank" rel="noopener">Bilete online</a>
 					</div>
@@ -163,7 +166,104 @@
 									<button type="button" class="tabs__btn" data-filter="trecut" aria-pressed="false">Realizate<span class="tabs__count">30</span></button>
 							</div>
 			<p class="sr-only" aria-live="polite" data-evp-note></p>
-		</div>
+										<div class="evp-jump" data-evp-jump>
+					<button type="button" class="evp-jump__toggle" aria-expanded="false" aria-controls="evp-jump-panel" data-jump-toggle><svg aria-hidden="true"><use href="#i-cal"/></svg>Sari la an și lună</button>
+					<div class="evp-jump__panel" id="evp-jump-panel" hidden>
+						<div class="evp-jump__years" role="group" aria-label="Anul">
+															<button type="button" class="evp-jump__year" data-jump-year="2020" aria-pressed="true">2020</button>
+															<button type="button" class="evp-jump__year" data-jump-year="2019" aria-pressed="false">2019</button>
+															<button type="button" class="evp-jump__year" data-jump-year="2018" aria-pressed="false">2018</button>
+															<button type="button" class="evp-jump__year" data-jump-year="2017" aria-pressed="false">2017</button>
+															<button type="button" class="evp-jump__year" data-jump-year="2016" aria-pressed="false">2016</button>
+															<button type="button" class="evp-jump__year" data-jump-year="2015" aria-pressed="false">2015</button>
+													</div>
+													<div class="evp-jump__months" data-jump-months="2020" role="group" aria-label="Lunile din 2020">
+																											<button type="button" class="evp-jump__month" data-jump-to="2020-01" aria-label="ianuarie 2020">ian</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">feb</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">mar</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">apr</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">mai</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">iun</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">iul</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">aug</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">sep</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">oct</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">nov</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">dec</span>
+																								</div>
+													<div class="evp-jump__months" data-jump-months="2019" role="group" aria-label="Lunile din 2019" hidden>
+																											<button type="button" class="evp-jump__month" data-jump-to="2019-01" aria-label="ianuarie 2019">ian</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">feb</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2019-03" aria-label="martie 2019">mar</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">apr</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2019-05" aria-label="mai 2019">mai</button>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2019-06" aria-label="iunie 2019">iun</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">iul</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2019-08" aria-label="august 2019">aug</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">sep</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2019-10" aria-label="octombrie 2019">oct</button>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2019-11" aria-label="noiembrie 2019">nov</button>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2019-12" aria-label="decembrie 2019">dec</button>
+																								</div>
+													<div class="evp-jump__months" data-jump-months="2018" role="group" aria-label="Lunile din 2018" hidden>
+																											<button type="button" class="evp-jump__month" data-jump-to="2018-01" aria-label="ianuarie 2018">ian</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">feb</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2018-03" aria-label="martie 2018">mar</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">apr</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2018-05" aria-label="mai 2018">mai</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">iun</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2018-07" aria-label="iulie 2018">iul</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">aug</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">sep</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">oct</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2018-11" aria-label="noiembrie 2018">nov</button>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2018-12" aria-label="decembrie 2018">dec</button>
+																								</div>
+													<div class="evp-jump__months" data-jump-months="2017" role="group" aria-label="Lunile din 2017" hidden>
+																											<span class="evp-jump__month is-off" aria-hidden="true">ian</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">feb</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">mar</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">apr</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">mai</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">iun</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2017-07" aria-label="iulie 2017">iul</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">aug</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">sep</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2017-10" aria-label="octombrie 2017">oct</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">nov</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2017-12" aria-label="decembrie 2017">dec</button>
+																								</div>
+													<div class="evp-jump__months" data-jump-months="2016" role="group" aria-label="Lunile din 2016" hidden>
+																											<button type="button" class="evp-jump__month" data-jump-to="2016-01" aria-label="ianuarie 2016">ian</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">feb</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">mar</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">apr</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">mai</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">iun</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2016-07" aria-label="iulie 2016">iul</button>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2016-08" aria-label="august 2016">aug</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">sep</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">oct</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2016-11" aria-label="noiembrie 2016">nov</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">dec</span>
+																								</div>
+													<div class="evp-jump__months" data-jump-months="2015" role="group" aria-label="Lunile din 2015" hidden>
+																											<span class="evp-jump__month is-off" aria-hidden="true">ian</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">feb</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">mar</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2015-04" aria-label="aprilie 2015">apr</button>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2015-05" aria-label="mai 2015">mai</button>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">iun</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">iul</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">aug</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">sep</span>
+																																				<span class="evp-jump__month is-off" aria-hidden="true">oct</span>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2015-11" aria-label="noiembrie 2015">nov</button>
+																																				<button type="button" class="evp-jump__month" data-jump-to="2015-12" aria-label="decembrie 2015">dec</button>
+																								</div>
+											</div>
+				</div>
+					</div>
 	</div>
 
 	<div class="wrap evp-groups">
@@ -216,7 +316,7 @@
 													<section class="evp-year" id="an-2020" data-year="2020" aria-label="Evenimente din 2020">
 								<h3 class="evp-year__num" aria-hidden="true">2020</h3>
 								<ul class="evc-grid">
-										<li class="evc reveal" style="--d:0" data-status="trecut">
+										<li class="evc reveal" style="--d:0" data-status="trecut" data-ym="2020-01">
 		<a class="evc__link" href="eveniment-24-ianuarie-la-muzeul-ianca-unirea-principatelor-romane.html">
 			<span class="evc__img">
 				<img src="assets/24-ianuarie-la-muzeul-ianca-unirea-principatelor-romane.jpg" width="871" height="457" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 30</span>
@@ -233,7 +333,7 @@
 													<section class="evp-year" id="an-2019" data-year="2019" aria-label="Evenimente din 2019">
 								<h3 class="evp-year__num" aria-hidden="true">2019</h3>
 								<ul class="evc-grid">
-										<li class="evc reveal" style="--d:0" data-status="trecut">
+										<li class="evc reveal" style="--d:0" data-status="trecut" data-ym="2019-12">
 		<a class="evc__link" href="eveniment-mos-craciun-la-muzeul-ianca.html">
 			<span class="evc__img ev-noimg">
 								<span class="evc__nr" aria-hidden="true">N° 29</span>
@@ -245,7 +345,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:1" data-status="trecut">
+		<li class="evc reveal" style="--d:1" data-status="trecut" data-ym="2019-11">
 		<a class="evc__link" href="eveniment-muzeul-ianca-la-ceas-aniversar.html">
 			<span class="evc__img">
 				<img src="assets/cladirea-muzeului.jpg" width="630" height="420" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 28</span>
@@ -257,7 +357,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal evc--wide" style="--d:2" data-status="trecut">
+		<li class="evc reveal evc--wide" style="--d:2" data-status="trecut" data-ym="2019-11">
 		<a class="evc__link" href="eveniment-lansare-de-carte-la-muzeul-ianca.html">
 			<span class="evc__img">
 				<img src="assets/lansare-de-carte.jpg" width="1400" height="931" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 27</span>
@@ -269,7 +369,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:3" data-status="trecut">
+		<li class="evc reveal" style="--d:3" data-status="trecut" data-ym="2019-11">
 		<a class="evc__link" href="eveniment-muzeul-ianca-promotor-al-traditiei-locale.html">
 			<span class="evc__img">
 				<img src="assets/muzeul-ianca-promotor-al-traditiei-locale.jpg" width="1000" height="1397" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 26</span>
@@ -281,7 +381,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:0" data-status="trecut">
+		<li class="evc reveal" style="--d:0" data-status="trecut" data-ym="2019-10">
 		<a class="evc__link" href="eveniment-ips-casian-in-vizita-la-muzeul-ianca.html">
 			<span class="evc__img">
 				<img src="assets/casa-taraneasca-razboi.jpg" width="1200" height="800" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 25</span>
@@ -293,7 +393,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:1" data-status="trecut">
+		<li class="evc reveal" style="--d:1" data-status="trecut" data-ym="2019-08">
 		<a class="evc__link" href="eveniment-scoala-de-vara-traditia-la-ianca-lucruri-vechi-la-vremuri-no.html">
 			<span class="evc__img">
 				<img src="assets/scoala-de-vara-traditia-la-ianca-lucruri-vechi-la-vremuri-no.jpg" width="750" height="450" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 24</span>
@@ -305,7 +405,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:2" data-status="trecut">
+		<li class="evc reveal" style="--d:2" data-status="trecut" data-ym="2019-08">
 		<a class="evc__link" href="eveniment-vremuri-de-altadata-la-aniversarea-a-20-de-ani-a-muzeului.html">
 			<span class="evc__img">
 				<img src="assets/vremuri-de-altadata-la-aniversarea-a-20-de-ani-a-muzeului.jpg" width="900" height="1273" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 23</span>
@@ -317,7 +417,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:3" data-status="trecut">
+		<li class="evc reveal" style="--d:3" data-status="trecut" data-ym="2019-06">
 		<a class="evc__link" href="eveniment-ziua-eroilor-alaturi-de-muzeul-ianca.html">
 			<span class="evc__img">
 				<img src="assets/ziua-eroilor-alaturi-de-muzeul-ianca.jpg" width="1200" height="900" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 22</span>
@@ -329,7 +429,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:0" data-status="trecut">
+		<li class="evc reveal" style="--d:0" data-status="trecut" data-ym="2019-05">
 		<a class="evc__link" href="eveniment-noaptea-muzeelor-la-muzeul-ianca.html">
 			<span class="evc__img ev-noimg">
 								<span class="evc__nr" aria-hidden="true">N° 21</span>
@@ -341,7 +441,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:1" data-status="trecut">
+		<li class="evc reveal" style="--d:1" data-status="trecut" data-ym="2019-03">
 		<a class="evc__link" href="eveniment-stejari-pentru-eroi.html">
 			<span class="evc__img">
 				<img src="assets/stejari-pentru-eroi.jpg" width="1200" height="675" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 20</span>
@@ -353,7 +453,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:2" data-status="trecut">
+		<li class="evc reveal" style="--d:2" data-status="trecut" data-ym="2019-01">
 		<a class="evc__link" href="eveniment-mica-unire-marcata-la-muzeul-ianca.html">
 			<span class="evc__img ev-noimg">
 								<span class="evc__nr" aria-hidden="true">N° 19</span>
@@ -370,7 +470,7 @@
 													<section class="evp-year" id="an-2018" data-year="2018" aria-label="Evenimente din 2018">
 								<h3 class="evp-year__num" aria-hidden="true">2018</h3>
 								<ul class="evc-grid">
-										<li class="evc reveal" style="--d:0" data-status="trecut">
+										<li class="evc reveal" style="--d:0" data-status="trecut" data-ym="2018-12">
 		<a class="evc__link" href="eveniment-datini-traditii-si-obiceiuri-de-craciun.html">
 			<span class="evc__img ev-noimg">
 								<span class="evc__nr" aria-hidden="true">N° 18</span>
@@ -382,7 +482,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:1" data-status="trecut">
+		<li class="evc reveal" style="--d:1" data-status="trecut" data-ym="2018-11">
 		<a class="evc__link" href="eveniment-proiectul-ianca-centenar-unire-si-recunostinta.html">
 			<span class="evc__img">
 				<img src="assets/proiectul-ianca-centenar-unire-si-recunostinta.jpg" width="620" height="877" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 17</span>
@@ -394,7 +494,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal evc--wide" style="--d:2" data-status="trecut">
+		<li class="evc reveal evc--wide" style="--d:2" data-status="trecut" data-ym="2018-07">
 		<a class="evc__link" href="eveniment-scoala-de-vara-de-la-micii-sanitari-la-regina-maria-mama-ran.html">
 			<span class="evc__img">
 				<img src="assets/scoala-de-vara-de-la-micii-sanitari-la-regina-maria-mama-ran.jpg" width="750" height="450" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 16</span>
@@ -406,7 +506,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:3" data-status="trecut">
+		<li class="evc reveal" style="--d:3" data-status="trecut" data-ym="2018-05">
 		<a class="evc__link" href="eveniment-noaptea-europeana-a-muzeelor-la-ianca.html">
 			<span class="evc__img ev-noimg">
 								<span class="evc__nr" aria-hidden="true">N° 15</span>
@@ -418,7 +518,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:0" data-status="trecut">
+		<li class="evc reveal" style="--d:0" data-status="trecut" data-ym="2018-03">
 		<a class="evc__link" href="eveniment-lectie-despre-eroul-brailean-stan-poetas-din-primul-razboi-m.html">
 			<span class="evc__img">
 				<img src="assets/lectie-despre-eroul-brailean-stan-poetas-din-primul-razboi-m.jpg" width="750" height="500" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 14</span>
@@ -430,7 +530,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:1" data-status="trecut">
+		<li class="evc reveal" style="--d:1" data-status="trecut" data-ym="2018-01">
 		<a class="evc__link" href="eveniment-omagierea-unirii-lui-cuza-de-la-mica-la-marea-unire.html">
 			<span class="evc__img">
 				<img src="assets/omagierea-unirii-lui-cuza-de-la-mica-la-marea-unire.jpg" width="900" height="675" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 13</span>
@@ -447,7 +547,7 @@
 													<section class="evp-year" id="an-2017" data-year="2017" aria-label="Evenimente din 2017">
 								<h3 class="evp-year__num" aria-hidden="true">2017</h3>
 								<ul class="evc-grid">
-										<li class="evc reveal evc--wide" style="--d:0" data-status="trecut">
+										<li class="evc reveal evc--wide" style="--d:0" data-status="trecut" data-ym="2017-12">
 		<a class="evc__link" href="eveniment-expozitie-cu-obiecte-donate-de-casa-regala.html">
 			<span class="evc__img">
 				<img src="assets/expozitie-cu-obiecte-donate-de-casa-regala.jpg" width="750" height="500" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 12</span>
@@ -459,7 +559,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:1" data-status="trecut">
+		<li class="evc reveal" style="--d:1" data-status="trecut" data-ym="2017-10">
 		<a class="evc__link" href="eveniment-expozitie-militara-la-muzeul-ianca.html">
 			<span class="evc__img">
 				<img src="assets/expozitie-militara-la-muzeul-ianca.jpg" width="900" height="1273" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 11</span>
@@ -471,7 +571,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:2" data-status="trecut">
+		<li class="evc reveal" style="--d:2" data-status="trecut" data-ym="2017-07">
 		<a class="evc__link" href="eveniment-scoala-de-vara-editia-a-x-a-ianca-eroica.html">
 			<span class="evc__img">
 				<img src="assets/scoala-de-vara-editia-a-x-a-ianca-eroica.jpg" width="1400" height="934" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 10</span>
@@ -488,7 +588,7 @@
 													<section class="evp-year" id="an-2016" data-year="2016" aria-label="Evenimente din 2016">
 								<h3 class="evp-year__num" aria-hidden="true">2016</h3>
 								<ul class="evc-grid">
-										<li class="evc reveal evc--wide" style="--d:0" data-status="trecut">
+										<li class="evc reveal evc--wide" style="--d:0" data-status="trecut" data-ym="2016-11">
 		<a class="evc__link" href="eveniment-eroii-satelor-noastre-povestiri-de-razboi.html">
 			<span class="evc__img">
 				<img src="assets/eroii-satelor-noastre-povestiri-de-razboi.jpg" width="750" height="450" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 09</span>
@@ -500,7 +600,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:1" data-status="trecut">
+		<li class="evc reveal" style="--d:1" data-status="trecut" data-ym="2016-11">
 		<a class="evc__link" href="eveniment-expozitie-pionieri-ai-aeronauticii-din-spatiul-brailean.html">
 			<span class="evc__img">
 				<img src="assets/expozitie-pionieri-ai-aeronauticii-din-spatiul-brailean.jpg" width="1000" height="1415" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 08</span>
@@ -512,7 +612,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:2" data-status="trecut">
+		<li class="evc reveal" style="--d:2" data-status="trecut" data-ym="2016-08">
 		<a class="evc__link" href="eveniment-muzeul-ianca-isi-mareste-biblioteca.html">
 			<span class="evc__img">
 				<img src="assets/muzeul-ianca-isi-mareste-biblioteca-2.jpg" width="1400" height="934" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 07</span>
@@ -524,7 +624,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:3" data-status="trecut">
+		<li class="evc reveal" style="--d:3" data-status="trecut" data-ym="2016-07">
 		<a class="evc__link" href="eveniment-scoala-de-vara-la-muzeul-ianca.html">
 			<span class="evc__img">
 				<img src="assets/scoala-de-vara-la-muzeul-ianca.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 06</span>
@@ -536,7 +636,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:0" data-status="trecut">
+		<li class="evc reveal" style="--d:0" data-status="trecut" data-ym="2016-01">
 		<a class="evc__link" href="eveniment-mica-unire-la-muzeul-ianca.html">
 			<span class="evc__img ev-noimg">
 								<span class="evc__nr" aria-hidden="true">N° 05</span>
@@ -553,7 +653,7 @@
 													<section class="evp-year" id="an-2015" data-year="2015" aria-label="Evenimente din 2015">
 								<h3 class="evp-year__num" aria-hidden="true">2015</h3>
 								<ul class="evc-grid">
-										<li class="evc reveal evc--wide" style="--d:0" data-status="trecut">
+										<li class="evc reveal evc--wide" style="--d:0" data-status="trecut" data-ym="2015-12">
 		<a class="evc__link" href="eveniment-in-memoriam-georgeta-crainic.html">
 			<span class="evc__img">
 				<img src="assets/in-memoriam-georgeta-crainic.jpg" width="1400" height="934" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 04</span>
@@ -565,7 +665,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:1" data-status="trecut">
+		<li class="evc reveal" style="--d:1" data-status="trecut" data-ym="2015-11">
 		<a class="evc__link" href="eveniment-ziua-nationala-la-muzeul-ianca.html">
 			<span class="evc__img">
 				<img src="assets/ziua-nationala-la-muzeul-ianca.jpg" width="1400" height="788" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 03</span>
@@ -577,7 +677,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:2" data-status="trecut">
+		<li class="evc reveal" style="--d:2" data-status="trecut" data-ym="2015-05">
 		<a class="evc__link" href="eveniment-ziua-eroilor-celebrata-la-muzeul-ianca.html">
 			<span class="evc__img ev-noimg">
 								<span class="evc__nr" aria-hidden="true">N° 02</span>
@@ -589,7 +689,7 @@
 			</span>
 		</a>
 	</li>
-		<li class="evc reveal" style="--d:3" data-status="trecut">
+		<li class="evc reveal" style="--d:3" data-status="trecut" data-ym="2015-04">
 		<a class="evc__link" href="eveniment-lectie-de-istorie-si-de-incondeiat-oua.html">
 			<span class="evc__img">
 				<img src="assets/lectie-de-istorie-si-de-incondeiat-oua.jpg" width="750" height="450" alt="" loading="lazy" decoding="async">				<span class="evc__nr" aria-hidden="true">N° 01</span>
@@ -643,7 +743,7 @@
 					<div><dt>Adresă</dt><dd>Str. Gării nr. 9, Ianca, jud. Brăila</dd></div>
 					<div><dt>Program</dt><dd>Marți – Duminică 10:00 – 14:00 · Luni închis</dd></div>
 					<div><dt>Telefon</dt><dd><a href="tel:+40723609033">0723 609 033</a></dd></div>
-									</dl>
+					<div><dt>E-mail</dt><dd><a href="mailto:iancamuzeul@yahoo.ro">iancamuzeul@yahoo.ro</a></dd></div>				</dl>
 				<div class="footer__social">
 					<a href="https://www.facebook.com/muzeuliancadinjudetulbraila/" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>					<a href="https://www.youtube.com/channel/UCLBgqLUfyg9zFQsDvL5UjUA" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>				</div>
 			</div>
@@ -661,11 +761,76 @@
 				</div>
 					</div>
 		<div class="footer__bottom">
-			<p class="footer__id">Asociația cultural-istorică „Muzeul” Ianca</p>			<span>© 2026 Toate drepturile rezervate | Muzeul Ianca</span>
+			<p class="footer__id">Asociația cultural-istorică „Muzeul” Ianca · E-mail: iancamuzeul@yahoo.ro</p>			<span>© 2026 Toate drepturile rezervate | Muzeul Ianca</span>
 		</div>
 	</div>
 	<p class="footer__wordmark" aria-hidden="true">Muzeul Ianca</p>
 </footer>
+
+<!--
+  Panoul de accesibilitate (vezi initA11y din template.js). Optiunile urmaresc
+  criteriile WCAG 2.1 nivel AA cerute de OUG 112/2018 si Legea 232/2022:
+  marirea textului (1.4.4), contrastul (1.4.3), spatierea textului (1.4.12),
+  oprirea animatiilor (2.2.2), focusul vizibil (2.4.7). Alegerile raman in browser.
+-->
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11y-title" hidden>
+	<div class="a11y-panel__head">
+		<h2 id="a11y-title">Accesibilitate</h2>
+		<button type="button" class="a11y-panel__close" data-a11y-close aria-label="Închide panoul de accesibilitate"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+	</div>
+	<p class="a11y-panel__intro">Alegerile se păstrează în acest browser, pe toate paginile.</p>
+
+	<div class="a11y-size">
+		<span id="a11y-size-label">Mărimea textului</span>
+		<div class="a11y-size__btns" role="group" aria-labelledby="a11y-size-label">
+			<button type="button" data-a11y="dec" aria-label="Micșorează textul">A−</button>
+			<span class="a11y__size" data-a11y-size aria-live="polite">100%</span>
+			<button type="button" data-a11y="inc" aria-label="Mărește textul">A+</button>
+		</div>
+	</div>
+
+	<div class="a11y-grid">
+		<button type="button" class="a11y-opt" data-a11y="contrast" aria-pressed="false"><svg aria-hidden="true"><use href="#i-contrast"/></svg>Contrast ridicat</button>
+		<button type="button" class="a11y-opt" data-a11y="links" aria-pressed="false"><svg aria-hidden="true"><use href="#i-link"/></svg>Subliniază linkurile</button>
+		<button type="button" class="a11y-opt" data-a11y="readable" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">Aa</span>Font ușor de citit</button>
+		<button type="button" class="a11y-opt" data-a11y="spacing" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">↕</span>Spațiere mărită</button>
+		<button type="button" class="a11y-opt" data-a11y="motion" aria-pressed="false"><svg aria-hidden="true"><use href="#i-pause"/></svg>Oprește animațiile</button>
+		<button type="button" class="a11y-opt" data-a11y="cursor" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">➤</span>Cursor mare</button>
+		<button type="button" class="a11y-opt" data-a11y="guide" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">▭</span>Ghid de citire</button>
+		<button type="button" class="a11y-opt" data-a11y="focus" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">◎</span>Evidențiază elementul activ</button>
+		<button type="button" class="a11y-opt" data-a11y="gray" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">◐</span>Tonuri de gri</button>
+	</div>
+
+	<div class="a11y-audio">
+		<button type="button" class="btn a11y-audio__play" data-radio-start><svg aria-hidden="true"><use href="#i-sound"/></svg>Citește pagina cu voce tare</button>
+		<button type="button" class="a11y-opt a11y-opt--wide" data-a11y="autoread" aria-pressed="true">Ghidul pornește singur după 30 de secunde fără activitate</button>
+	</div>
+
+	<div class="a11y-panel__foot">
+		<button type="button" class="link-arrow" data-a11y="reset"><svg aria-hidden="true"><use href="#i-reset"/></svg>Resetează tot</button>	</div>
+</div>
+<div class="reading-guide" aria-hidden="true"></div>
+
+<!--
+  Ghidul audio, ca un radio de epoca: citeste pagina in romana cu vocea
+  browserului (fara servicii externe). Acul arata cat s-a citit.
+  Porneste singur dupa 30 de secunde fara activitate (vezi initRadio).
+  Sagetile sar la bucata de dinainte sau la cea care urmeaza.
+-->
+<div class="radio" data-radio hidden role="region" aria-label="Ghid audio">
+	<span class="radio__grille" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+	<div class="radio__info">
+		<p class="radio__title">Povestea paginii</p>
+		<p class="radio__now" data-radio-now aria-live="polite"></p>
+		<div class="radio__dial" aria-hidden="true"><span class="radio__scale"></span><span class="radio__needle"></span></div>
+	</div>
+	<div class="radio__btns">
+		<button type="button" class="radio__btn radio__btn--step" data-radio-prev aria-label="Citește ce e înainte"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+		<button type="button" class="radio__btn" data-radio-toggle aria-label="Pauză"><svg aria-hidden="true"><use href="#i-pause2"/></svg></button>
+		<button type="button" class="radio__btn radio__btn--step" data-radio-next aria-label="Citește ce urmează"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+		<button type="button" class="radio__btn" data-radio-stop aria-label="Oprește și închide ghidul"><svg aria-hidden="true"><use href="#i-stop"/></svg></button>
+	</div>
+</div>
 
 <button class="ai-fab" type="button" aria-expanded="false" aria-controls="ai-panel"><svg><use href="#i-chat"/></svg>Întreabă muzeul</button>
 <div class="ai-panel" id="ai-panel" role="dialog" aria-labelledby="ai-title">

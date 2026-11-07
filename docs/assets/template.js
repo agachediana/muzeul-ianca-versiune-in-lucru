@@ -33,17 +33,21 @@
 
   // miscarea redusa din sistem: raman felinarul si aparitiile prin estompare,
   // dispar doar paralaxa si scenele legate de derulare
+  // "Opreste animatiile" din panoul de accesibilitate opreste si ce porneste din scripturi
   var reduceMotion = function () {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return root.getAttribute('data-motion') === 'reduce' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   };
 
   /*
-     Bara de accesibilitate
-     marimea textului (3 trepte in jos si 3 in sus), contrast ridicat si linkuri
-     subliniate. Alegerile raman salvate in browser. Se mareste doar textul din
-     continut, nu si meniul sau titlul mare.
+     Panoul de accesibilitate
+     marimea textului (3 trepte in jos si 3 in sus) si optiunile care se pornesc
+     si se opresc: contrast, linkuri subliniate, font usor de citit, spatiere
+     marita, fara animatii, cursor mare, ghid de citire, focus evidentiat,
+     tonuri de gri si pornirea singura a ghidului audio. Fiecare alegere e un
+     atribut pe <html> (data-contrast, data-links...) si ramane salvata in browser.
   */
   var SIZES = [0.8, 0.87, 0.93, 1, 1.1, 1.2, 1.3];
+  var OPTIONS = { contrast: 'high', links: 'underline', readable: 'on', spacing: 'on', motion: 'reduce', cursor: 'on', guide: 'on', focus: 'on', gray: 'on' };
 
   function initA11y() {
     var step = SIZES.indexOf(parseFloat(store.get('fs')));
@@ -51,36 +55,63 @@
     var label = document.querySelector('[data-a11y-size]');
     var dec = document.querySelector('[data-a11y="dec"]');
     var inc = document.querySelector('[data-a11y="inc"]');
+    var panel = document.getElementById('a11y-panel');
+    var opener = document.querySelector('[data-a11y-open]');
+    var guide = document.querySelector('.reading-guide');
 
     var apply = function () {
       root.style.setProperty('--fs-scale', SIZES[step]);
       if (label) label.textContent = Math.round(SIZES[step] * 100) + '%';
       if (dec) dec.setAttribute('aria-disabled', step === 0 ? 'true' : 'false');
       if (inc) inc.setAttribute('aria-disabled', step === SIZES.length - 1 ? 'true' : 'false');
-      ['contrast', 'links'].forEach(function (k) {
+      Object.keys(OPTIONS).forEach(function (k) {
         var v = store.get(k);
         if (v) root.setAttribute('data-' + k, v); else root.removeAttribute('data-' + k);
-        var btn = document.querySelector('[data-a11y="' + k + '"]');
-        if (btn) btn.setAttribute('aria-pressed', v ? 'true' : 'false');
+        document.querySelectorAll('[data-a11y="' + k + '"]').forEach(function (b) { b.setAttribute('aria-pressed', v ? 'true' : 'false'); });
       });
+      // ghidul audio porneste singur, daca nu a fost oprit din panou
+      document.querySelectorAll('[data-a11y="autoread"]').forEach(function (b) { b.setAttribute('aria-pressed', store.get('autoread') === 'off' ? 'false' : 'true'); });
     };
     apply();
 
+    // panoul se deschide din bara de sus si se inchide cu Esc, cu X sau cu clic in afara lui
+    var open = function (on) {
+      if (!panel || !opener) return;
+      panel.hidden = !on;
+      opener.setAttribute('aria-expanded', on ? 'true' : 'false');
+      if (on) panel.querySelector('button').focus(); else opener.focus({ preventScroll: true });
+    };
+    if (opener) opener.addEventListener('click', function () { open(panel.hidden); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && panel && !panel.hidden) open(false); });
+    document.addEventListener('pointerdown', function (e) {
+      if (panel && !panel.hidden && !panel.contains(e.target) && !opener.contains(e.target)) { panel.hidden = true; opener.setAttribute('aria-expanded', 'false'); }
+    });
+
     document.addEventListener('click', function (e) {
+      if (e.target.closest('[data-a11y-close]')) { open(false); return; }
       var btn = e.target.closest('[data-a11y]');
       if (!btn) return;
       var act = btn.getAttribute('data-a11y');
       if (act === 'inc') step = Math.min(SIZES.length - 1, step + 1);
       else if (act === 'dec') step = Math.max(0, step - 1);
-      else {
-        var on = { contrast: 'high', links: 'underline' }[act];
-        store.set(act, store.get(act) ? '' : on);
-      }
+      else if (act === 'autoread') store.set('autoread', store.get('autoread') === 'off' ? 'on' : 'off');
+      else if (act === 'reset') {
+        step = SIZES.indexOf(1);
+        Object.keys(OPTIONS).forEach(function (k) { store.set(k, ''); });
+        store.set('autoread', 'on');
+      } else if (OPTIONS[act]) store.set(act, store.get(act) ? '' : OPTIONS[act]);
       store.set('fs', SIZES[step]);
       apply();
       // pozitiile animatiilor depind de inaltimea textului, deci se recalculeaza
       if (window.ScrollTrigger) window.ScrollTrigger.refresh();
     });
+
+    // ghidul de citire: o banda luminoasa care urmareste mouse-ul sau degetul
+    if (guide) {
+      document.addEventListener('pointermove', function (e) {
+        if (root.hasAttribute('data-guide')) guide.style.transform = 'translateY(' + (e.clientY - 22) + 'px)';
+      }, { passive: true });
+    }
   }
 
   /*
@@ -450,7 +481,7 @@
   */
   function initReveal() {
     var els = Array.prototype.filter.call(
-      document.querySelectorAll('.reveal, .reveal-img, .develop, .draw, .press, [data-count]'),
+      document.querySelectorAll('.reveal, .reveal-img, .develop, .draw, .press, .split, .stitch-sm, .hand-note, [data-count]'),
       function (el) { return !el.classList.contains('is-in'); }
     );
     // la miscare redusa elementele apar tot la derulare, dar doar prin estompare (vezi CSS)
@@ -475,16 +506,28 @@
 
   function countUp(el) {
     var end = parseInt(el.getAttribute('data-count'), 10) || 0;
-    var dur = 1800, t0 = null;
-    var fmt = function (n) { return n.toLocaleString('ro-RO'); };
+    // anii (data-plain) nu primesc punct de mii si pornesc de mai aproape, ca un calendar care se da inainte
+    var plain = el.hasAttribute('data-plain');
+    var start = plain ? end - 60 : 0;
+    var dur = 2400, t0 = null;
+    // numaratoarea nu misca nimic pe ecran, asa ca se opreste doar din butonul "Opreste animatiile"
+    if (root.getAttribute('data-motion') === 'reduce') { el.textContent = plain ? end : end.toLocaleString('ro-RO'); return; }
+    var fmt = function (n) { return plain ? String(n) : n.toLocaleString('ro-RO'); };
     var step = function (t) {
       if (!t0) t0 = t;
       var p = Math.min(1, (t - t0) / dur);
-      var e = 1 - Math.pow(1 - p, 4);
-      el.textContent = fmt(Math.round(end * e));
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(start + (end - start) * e));
       if (p < 1) requestAnimationFrame(step);
     };
-    requestAnimationFrame(step);
+    /*
+       numaratoarea porneste de la zero si asteapta ca cifra sa apara pe ecran
+       (cardul ei vine cu intarziere, vezi --d), ca sa se vada cum urca pana la numarul bun
+    */
+    el.textContent = fmt(start);
+    var box = el.closest('.reveal');
+    var d = box ? parseFloat(getComputedStyle(box).getPropertyValue('--d')) || 0 : 0;
+    setTimeout(function () { requestAnimationFrame(step); }, box ? d * 90 + 350 : 0);
   }
 
   /*
@@ -701,11 +744,12 @@
      ziua de azi marcata in program si cotorul biletului care se rupe la clic
   */
   function initVisit() {
-    var status = document.querySelector('[data-status]');
+    // doar elementul cu programul (cardurile de evenimente au si ele data-status)
+    var status = document.querySelector('[data-status][data-orar]');
     var days = document.querySelector('[data-days]');
     var ticket = document.querySelector('[data-ticket]');
     var orar = [];
-    try { orar = JSON.parse(status ? status.getAttribute('data-orar') : '[]'); } catch (err) { orar = []; }
+    try { orar = JSON.parse(status ? status.getAttribute('data-orar') : '[]') || []; } catch (err) { orar = []; }
 
     // ziua (0 = luni) si minutul din zi, in ora Romaniei
     var acum = function () {
@@ -805,60 +849,580 @@
 
       var go = view.querySelector('[data-tour-go]');
       if (!go) return;
+      // turul se deschide mare, pe tot ecranul, crescand din fotografia salii
       go.addEventListener('click', function () {
-        var label = go.querySelector('[data-tour-label]');
-        var frame = document.createElement('iframe');
-        var done = false;
-        var reveal = function () { if (!done) { done = true; view.classList.add('is-loaded'); } };
-        if (label) label.textContent = 'Se încarcă sala…';
-        go.disabled = true;
-        frame.title = 'Tur virtual: ' + (view.parentNode.querySelector('.tour__title') || {}).textContent;
-        frame.setAttribute('allowfullscreen', '');
-        frame.setAttribute('allow', 'fullscreen; xr-spatial-tracking; gyroscope; accelerometer');
-        frame.addEventListener('load', reveal);
-        setTimeout(reveal, 8000);
-        frame.src = view.getAttribute('data-tour');
-        view.appendChild(frame);
+        var box = view.closest('.tour, .corp');
+        var t = box && box.querySelector('.tour__title');
+        var corp = box && box.querySelector('.tour__corp');
+        openViewer(view.getAttribute('data-tour'), (corp ? corp.textContent.trim() + ' · ' : '') + (t ? t.textContent.trim() : 'Tur virtual'), view, go);
+      });
+    });
+
+    /*
+       venind de pe Acasa (usile duc la #tour-0-acasa ... #tour-3-acasa), turul
+       corpului ales porneste singur, iar la inchidere te intoarce pe Acasa,
+       la usi, nu ramai pe pagina Tur virtual
+    */
+    var m = /^#tour-(\d)(-acasa)?$/.exec(location.hash);
+    var target = m && document.getElementById('tour-' + m[1]);
+    var btn = target && target.querySelector('[data-tour-go]');
+    if (btn) {
+      target.scrollIntoView({ block: 'center' });
+      if (m[2]) {
+        var acasa = document.querySelector('.header .brand');
+        var fromHome = document.referrer && acasa && document.referrer.split('#')[0] === acasa.href.split('#')[0];
+        viewerBack = function () {
+          // inapoi in istoric pastreaza locul de pe Acasa; altfel deschidem Acasa la usi
+          if (fromHome && history.length > 1) history.back();
+          else if (acasa) location.href = acasa.href.split('#')[0] + '#tur-titlu';
+        };
+      }
+      setTimeout(function () { btn.click(); }, reduceMotion() ? 0 : 500);
+    }
+  }
+
+  /*
+     Fereastra mare, pe tot ecranul, pentru turul virtual si obiectele 3D.
+     Creste din elementul apasat (poza salii, miniatura obiectului) si se
+     strange inapoi in el la inchidere (X, Esc sau clic pe "Inapoi la pagina").
+     Continutul (iframe) se incarca doar acum si se scoate la inchidere,
+     ca sa nu mai consume nimic cat timp fereastra e inchisa.
+  */
+  var viewer = null;
+  // cand e setata, inchiderea ferestrei te duce inapoi pe pagina de unde ai venit (Acasa)
+  var viewerBack = null;
+  function openViewer(src, title, from, opener) {
+    if (!window.HTMLDialogElement) { window.open(src, '_blank', 'noopener'); return; }
+    var gsap = window.gsap;
+    if (!viewer) {
+      viewer = document.createElement('dialog');
+      viewer.className = 'viewer';
+      viewer.setAttribute('aria-labelledby', 'viewer-title');
+      viewer.innerHTML = '<div class="viewer__bar"><p class="viewer__title" id="viewer-title"></p>'
+        + '<span class="viewer__hint">Trage cu mouse-ul sau cu degetul ca să te uiți în jur</span>'
+        + '<button type="button" class="viewer__close" aria-label="Închide și întoarce-te la pagină"><span>Închide</span><svg aria-hidden="true"><use href="#i-x"/></svg></button></div>'
+        + '<div class="viewer__stage"><p class="viewer__load"><span class="viewer__spin" aria-hidden="true"></span>Se încarcă…</p></div>';
+      document.body.appendChild(viewer);
+      viewer.querySelector('.viewer__close').addEventListener('click', closeViewer);
+      // Esc: inchidem tot noi, cu animatie
+      viewer.addEventListener('cancel', function (e) { e.preventDefault(); closeViewer(); });
+    }
+    var stage = viewer.querySelector('.viewer__stage');
+    var old = stage.querySelector('iframe');
+    if (old) old.remove();
+    viewer.classList.remove('is-loaded');
+    viewer.querySelector('.viewer__title').textContent = title || '';
+    viewer.querySelector('.viewer__close span').textContent = viewerBack ? 'Înapoi la Acasă' : 'Închide';
+    viewer._from = from;
+    viewer._opener = opener || from;
+
+    var frame = document.createElement('iframe');
+    frame.title = title || 'Fereastră mare';
+    frame.setAttribute('allowfullscreen', '');
+    frame.setAttribute('allow', 'autoplay; fullscreen; xr-spatial-tracking; gyroscope; accelerometer');
+    var loaded = function () { viewer.classList.add('is-loaded'); };
+    frame.addEventListener('load', loaded);
+    setTimeout(loaded, 9000);
+    frame.src = src;
+    stage.appendChild(frame);
+
+    document.documentElement.classList.add('has-viewer');
+    viewer.showModal();
+    viewer.querySelector('.viewer__close').focus({ preventScroll: true });
+    if (gsap && from && !reduceMotion()) {
+      gsap.fromTo(viewer, { clipPath: clipOf(from) }, { clipPath: 'inset(0px 0px 0px 0px round 0px)', duration: 0.8, ease: 'power3.inOut', clearProps: 'clipPath' });
+      gsap.fromTo(viewer.querySelector('.viewer__bar'), { yPercent: -100, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.6, delay: 0.45, ease: 'power3.out' });
+    }
+  }
+  /*
+     Obiectele scanate 3D de la Galerii foto: la clic se deschide doar modelul
+     obiectului, in fereastra mare. Ca sa porneasca mai repede: legatura cu
+     Sketchfab se pregateste cand mouse-ul ajunge pe card, modelul porneste
+     singur, fara ecranul de start, iar texturile sunt mai mici pe telefon.
+  */
+  function initModels() {
+    var cards = document.querySelectorAll('[data-model]');
+    if (!cards.length) return;
+    var warm = false;
+    var preconnect = function () {
+      if (warm) return;
+      warm = true;
+      ['https://sketchfab.com', 'https://static.sketchfab.com', 'https://media.sketchfab.com'].forEach(function (h) {
+        var l = document.createElement('link');
+        l.rel = 'preconnect';
+        l.href = h;
+        l.crossOrigin = '';
+        document.head.appendChild(l);
+      });
+    };
+    var small = window.matchMedia('(max-width: 760px)').matches;
+    cards.forEach(function (card) {
+      card.addEventListener('pointerenter', preconnect);
+      card.addEventListener('focus', preconnect);
+      card.addEventListener('click', function () {
+        preconnect();
+        var url = 'https://sketchfab.com/models/' + card.getAttribute('data-model') + '/embed'
+          + '?autostart=1&dnt=1&ui_theme=dark&ui_infos=0&ui_watermark_link=0&ui_hint=2&ui_help=0&ui_settings=0&ui_vr=0'
+          + '&max_texture_size=' + (small ? 1024 : 2048);
+        openViewer(url, card.getAttribute('data-model-title') + ' · scanare 3D', card.querySelector('.gal-3d__img') || card, card);
+      });
+    });
+  }
+
+  // dreptunghiul unui element, ca decupaj pentru fereastra (de aici creste)
+  function clipOf(el) {
+    var r = el.getBoundingClientRect();
+    var w = document.documentElement.clientWidth, h = window.innerHeight;
+    return 'inset(' + Math.max(0, r.top) + 'px ' + Math.max(0, w - r.right) + 'px ' + Math.max(0, h - r.bottom) + 'px ' + Math.max(0, r.left) + 'px round 16px)';
+  }
+  function closeViewer() {
+    if (!viewer || !viewer.open) return;
+    if (viewerBack) {
+      var back = viewerBack;
+      viewerBack = null;
+      var fr = viewer.querySelector('iframe');
+      if (fr) fr.remove();
+      back();
+      return;
+    }
+    var gsap = window.gsap;
+    var done = function () {
+      var f = viewer.querySelector('iframe');
+      if (f) f.remove();
+      viewer.close();
+      viewer.style.clipPath = '';
+      document.documentElement.classList.remove('has-viewer');
+      if (viewer._opener) viewer._opener.focus({ preventScroll: true });
+    };
+    var from = viewer._from;
+    if (gsap && from && !reduceMotion() && from.getClientRects().length) {
+      gsap.to(viewer, { clipPath: clipOf(from), duration: 0.6, ease: 'power3.inOut', onComplete: done });
+    } else {
+      done();
+    }
+  }
+
+  /*
+     Galeriile foto
+     filtrele pe corpuri (sectiunile ramase se rearanjeaza animat, cu GSAP Flip),
+     "Arata toate" la albumele mari si colectia 3D care se incarca la clic
+  */
+  function initGallery() {
+    var page = document.querySelector('[data-gallery]');
+    if (!page) return;
+    var gsap = window.gsap, Flip = window.Flip;
+    if (gsap && Flip) gsap.registerPlugin(Flip);
+
+    page.querySelectorAll('[data-album-more]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var album = btn.closest('[data-album]');
+        var more = [].slice.call(album.querySelectorAll('[data-more]'));
+        more.forEach(function (li, k) { li.hidden = false; li.style.setProperty('--d', k % 6); });
+        initReveal();
+        if (gsap && !reduceMotion()) gsap.from(more, { autoAlpha: 0, y: 24, duration: 0.6, stagger: 0.04, ease: 'power3.out', clearProps: 'all' });
+        btn.remove();
+        if (more[0]) more[0].querySelector('a').focus({ preventScroll: true });
+      });
+    });
+
+    var btns = [].slice.call(page.querySelectorAll('[data-gal-filter]'));
+    var secs = [].slice.call(page.querySelectorAll('.gal-corp'));
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.getAttribute('data-gal-filter');
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        var state = gsap && Flip && !reduceMotion() ? Flip.getState(secs) : null;
+        secs.forEach(function (s) { s.hidden = !(f === 'toate' || s.getAttribute('data-corp') === f); });
+        initReveal();
+        if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+        if (state) {
+          Flip.from(state, {
+            duration: 0.55, ease: 'power3.inOut',
+            onEnter: function (els) { return gsap.fromTo(els, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out' }); }
+          });
+        }
       });
     });
   }
 
   /*
-     Galeriile foto: filtrele de pe pagina cu toate pozele.
-     Pozele ramase se rearanjeaza animat (GSAP Flip), iar numarul se schimba.
+     Continut de pe alte site-uri (colectia 3D, de exemplu) care se incarca doar la clic,
+     la fel ca harta: pana atunci nu pleaca nicio cerere
   */
-  function initGallery() {
-    var page = document.querySelector('[data-gallery]');
-    if (!page) return;
-    var btns = [].slice.call(page.querySelectorAll('[data-gal-filter]'));
-    var items = [].slice.call(page.querySelectorAll('.gal-item'));
-    var count = page.querySelector('[data-gal-count]');
-    var empty = page.querySelector('[data-gal-empty]');
-    if (!btns.length) return;
-    var gsap = window.gsap, Flip = window.Flip;
-    if (gsap && Flip) gsap.registerPlugin(Flip);
-
-    btns.forEach(function (btn) {
+  function initEmbeds() {
+    document.querySelectorAll('[data-embed]').forEach(function (box) {
+      var btn = box.querySelector('[data-embed-load]');
+      if (!btn) return;
       btn.addEventListener('click', function () {
-        var f = btn.getAttribute('data-gal-filter');
-        btns.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-        var state = gsap && Flip && !reduceMotion() ? Flip.getState(items) : null;
-        var n = 0;
-        items.forEach(function (it) {
-          var on = f === 'toate' || it.getAttribute('data-galerie') === f;
-          it.hidden = !on;
-          if (on) n++;
-        });
-        if (count) count.textContent = n === 1 ? '1 fotografie' : n + (n % 100 >= 20 || (n % 100 === 0 && n) ? ' de' : '') + ' fotografii';
-        if (empty) empty.hidden = n > 0;
-        initReveal();
-        if (state) {
-          Flip.from(state, {
-            duration: 0.6, ease: 'power3.inOut', absolute: true,
-            onEnter: function (els) { return gsap.fromTo(els, { autoAlpha: 0, scale: 0.92 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'power2.out' }); },
-            onLeave: function (els) { return gsap.to(els, { autoAlpha: 0, scale: 0.92, duration: 0.3 }); }
-          });
+        var label = btn.querySelector('[data-embed-label]');
+        var frame = document.createElement('iframe');
+        if (label) label.textContent = 'Se încarcă…';
+        btn.disabled = true;
+        frame.title = 'Colecția de scanări 3D a muzeului';
+        frame.setAttribute('allowfullscreen', '');
+        frame.setAttribute('allow', 'fullscreen; xr-spatial-tracking; gyroscope; accelerometer');
+        frame.addEventListener('load', function () { box.classList.add('is-loaded'); });
+        setTimeout(function () { box.classList.add('is-loaded'); }, 7000);
+        frame.src = box.getAttribute('data-embed');
+        box.appendChild(frame);
+      });
+    });
+  }
+
+  /*
+     Titlurile cu clasa split urca pe cuvinte cand apar pe ecran,
+     iar cardurile cu data-tilt se inclina putin dupa mouse
+  */
+  function initSplit() {
+    document.querySelectorAll('.split').forEach(function (h) {
+      if (h.querySelector('.w')) return;
+      var words = h.textContent.trim().split(/\s+/);
+      h.setAttribute('aria-label', h.textContent.trim());
+      h.innerHTML = words.map(function (w, i) {
+        return '<span class="w" aria-hidden="true"><span style="--i:' + i + '">' + w.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</span></span>';
+      }).join(' ');
+    });
+  }
+
+  function initTilt() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    document.querySelectorAll('[data-tilt]').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        if (reduceMotion()) return;
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.setProperty('--rx', (-y * 7).toFixed(2) + 'deg');
+        card.style.setProperty('--ry', (x * 9).toFixed(2) + 'deg');
+        card.style.setProperty('--gx', ((x + 0.5) * 100).toFixed(1) + '%');
+        card.style.setProperty('--gy', ((y + 0.5) * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
+  /*
+     Pagina Istoric: firul cusut al liniei timpului se umple pe masura ce
+     derulezi, iar fiecare an se aprinde cand ajunge la mijlocul ecranului
+  */
+  function initChrono() {
+    var box = document.querySelector('[data-chrono]');
+    if (!box) return;
+    var items = [].slice.call(box.querySelectorAll('.chrono__item'));
+    var ticking = false;
+    var update = function () {
+      var r = box.getBoundingClientRect();
+      var mid = window.innerHeight * 0.55;
+      var p = Math.max(0, Math.min(1, (mid - r.top) / r.height));
+      box.style.setProperty('--p', reduceMotion() ? 1 : p.toFixed(4));
+      items.forEach(function (it) { it.classList.toggle('is-on', reduceMotion() || it.getBoundingClientRect().top < mid); });
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  /*
+     Pagina Evenimente, pe telefon si tableta: "Sari la an si luna".
+     Alegi anul, apoi luna (cele fara evenimente sunt stinse), iar pagina
+     coboara direct la primul eveniment din luna aleasa, care clipeste scurt.
+  */
+  function initJump() {
+    var box = document.querySelector('[data-evp-jump]');
+    if (!box) return;
+    var toggle = box.querySelector('[data-jump-toggle]');
+    var panel = box.querySelector('.evp-jump__panel');
+    var open = function (on) {
+      panel.hidden = !on;
+      toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
+      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    };
+    toggle.addEventListener('click', function () { open(panel.hidden); });
+    box.querySelectorAll('[data-jump-year]').forEach(function (y) {
+      y.addEventListener('click', function () {
+        var an = y.getAttribute('data-jump-year');
+        box.querySelectorAll('[data-jump-year]').forEach(function (b) { b.setAttribute('aria-pressed', b === y ? 'true' : 'false'); });
+        box.querySelectorAll('[data-jump-months]').forEach(function (m) { m.hidden = m.getAttribute('data-jump-months') !== an; });
+      });
+    });
+    box.querySelectorAll('[data-jump-to]').forEach(function (m) {
+      m.addEventListener('click', function () {
+        var ym = m.getAttribute('data-jump-to');
+        // daca filtrul ascunde grupa evenimentului, se trece pe "Toate"
+        var card = document.querySelector('.evc[data-ym="' + ym + '"]');
+        if (card && card.closest('[hidden]')) {
+          var all = document.querySelector('[data-filter="toate"]');
+          if (all) all.click();
         }
+        open(false);
+        setTimeout(function () {
+          card = [].slice.call(document.querySelectorAll('.evc[data-ym="' + ym + '"]')).filter(function (c) { return !c.closest('[hidden]'); })[0];
+          if (!card) return;
+          var bar = document.querySelector('[data-evp-bar]');
+          var top = card.getBoundingClientRect().top + window.scrollY - 67 - (bar ? bar.offsetHeight : 0) - (parseFloat(getComputedStyle(root).getPropertyValue('--topbar-h')) || 0) - 16;
+          window.scrollTo({ top: top, behavior: reduceMotion() ? 'auto' : 'smooth' });
+          card.classList.add('is-in', 'is-flash');
+          setTimeout(function () { card.classList.remove('is-flash'); }, 1800);
+          var link = card.querySelector('a');
+          if (link) link.focus({ preventScroll: true });
+        }, 450);
+      });
+    });
+  }
+
+  /*
+     Ghidul audio, ca un radio de epoca
+     citeste in romana textul din continutul paginii (titluri, paragrafe, liste),
+     cu vocea romaneasca a browserului, fara servicii externe. Fragmentul citit
+     se evidentiaza, iar acul radioului arata cat s-a citit.
+     Porneste singur dupa 30 de secunde fara activitate (se poate opri din
+     panoul de accesibilitate), dar doar dupa ce vizitatorul a apasat macar
+     o data ceva pe pagina, pentru ca browserele nu lasa sunetul sa porneasca altfel.
+  */
+  function initRadio() {
+    var radio = document.querySelector('[data-radio]');
+    var synth = window.speechSynthesis;
+    var starts = document.querySelectorAll('[data-radio-start]');
+    if (!radio || !synth || !window.SpeechSynthesisUtterance) {
+      starts.forEach(function (b) { b.hidden = true; });
+      return;
+    }
+    var now = radio.querySelector('[data-radio-now]');
+    var toggle = radio.querySelector('[data-radio-toggle]');
+    var IDLE = 30000;
+    var voice = null, queue = [], pos = 0, said = 0, playing = false, paused = false, current = null, autoDone = false, activated = false, last = Date.now();
+
+    var pickVoice = function () {
+      var vs = synth.getVoices();
+      voice = vs.filter(function (v) { return /^ro/i.test(v.lang); }).sort(function (a, b) { return /natural|online/i.test(b.name) - /natural|online/i.test(a.name); })[0] || null;
+    };
+    pickVoice();
+    if (synth.addEventListener) synth.addEventListener('voiceschanged', pickVoice);
+
+    /*
+       Bucatile de citit: tot textul vizibil din continut, in ordine.
+       Se iau toate bucatile de text (si cele din carduri, butoane-link, div-uri),
+       se strang pe blocul in care stau (paragraf, titlu, card...) si se impart pe propozitii.
+       Blocul e cel care se evidentiaza cand e citit.
+    */
+    var SKIP = '[aria-hidden="true"], [hidden], nav, .sr-only, dialog, .radio, .map-gate, .evp-jump, .gal-filter, script, style, noscript, svg, button, select, .skip-link';
+    var blockOf = function (node) {
+      var el = node.parentElement;
+      while (el && el.id !== 'main') {
+        var d = getComputedStyle(el).display;
+        if (d !== 'inline' && d !== 'contents') return el;
+        el = el.parentElement;
+      }
+      return el;
+    };
+    var collect = function () {
+      var main = document.getElementById('main');
+      var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+        acceptNode: function (n) {
+          if (!/\S/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+          var p = n.parentElement;
+          if (!p || p.closest(SKIP) || !p.getClientRects().length) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      var groups = [], n, last = null;
+      while ((n = walker.nextNode())) {
+        var b = blockOf(n);
+        if (last && last.el === b) last.text += n.nodeValue;
+        else { last = { el: b, text: n.nodeValue }; groups.push(last); }
+      }
+      var out = [];
+      groups.forEach(function (g) {
+        var el = g.el;
+        var t = g.text.replace(/\s+/g, ' ').trim();
+        if (t.length < 2) return;
+        (t.match(/[^.!?…]+[.!?…]*\s*/g) || [t]).reduce(function (acc, s) {
+          if (acc.length && (acc[acc.length - 1] + s).length < 220) acc[acc.length - 1] += s; else acc.push(s);
+          return acc;
+        }, []).forEach(function (s) { out.push({ el: el, text: s.trim() }); });
+      });
+      return out;
+    };
+
+    var mark = function (el) {
+      if (current && current !== el) current.classList.remove('is-reading');
+      current = el;
+      if (!el) return;
+      el.classList.add('is-reading');
+      // daca ce se citeste a iesit din ecran, pagina il aduce la mijloc
+      var r = el.getBoundingClientRect();
+      if (r.bottom < 90 || r.top > window.innerHeight - 40) el.scrollIntoView({ block: 'center', behavior: reduceMotion() ? 'auto' : 'smooth' });
+    };
+    var setNeedle = function () { radio.style.setProperty('--p', queue.length ? (pos / queue.length).toFixed(3) : 0); };
+    var setPlaying = function (on) {
+      playing = on;
+      radio.classList.toggle('is-playing', on && !paused);
+      toggle.setAttribute('aria-label', on && !paused ? 'Pauză' : 'Continuă');
+      toggle.querySelector('use').setAttribute('href', on && !paused ? '#i-pause2' : '#i-play');
+    };
+
+    var speakNext = function () {
+      if (!playing || paused) return;
+      if (pos >= queue.length) { stop(false); now.textContent = 'Am terminat de citit pagina.'; return; }
+      var bit = queue[pos];
+      var u = new SpeechSynthesisUtterance(bit.text);
+      // fiecare rostire are numarul ei, ca una oprita de sageti sa nu mute locul
+      var id = ++said;
+      u.lang = 'ro-RO';
+      if (voice) u.voice = voice;
+      u.rate = 0.95;
+      u.onend = function () { if (id === said && playing && !paused) { pos++; setNeedle(); speakNext(); } };
+      u.onerror = function (ev) { if (id === said && ev.error !== 'interrupted' && ev.error !== 'canceled') { pos++; speakNext(); } };
+      mark(bit.el);
+      now.textContent = bit.text.length > 90 ? bit.text.slice(0, 88) + '…' : bit.text;
+      synth.speak(u);
+    };
+
+    // porneste de la primul fragment vizibil pe ecran, ca sa citeasca ce vezi
+    var start = function (fromView) {
+      synth.cancel();
+      queue = collect();
+      pos = 0;
+      if (fromView) {
+        for (var i = 0; i < queue.length; i++) {
+          if (queue[i].el.getBoundingClientRect().bottom > 80) { pos = i; break; }
+        }
+      }
+      radio.hidden = false;
+      paused = false;
+      setPlaying(true);
+      setNeedle();
+      if (!voice) now.textContent = 'Browserul nu are o voce românească instalată; citesc cu vocea lui implicită.';
+      speakNext();
+    };
+    var stop = function (hide) {
+      setPlaying(false);
+      paused = false;
+      synth.cancel();
+      mark(null);
+      if (hide) radio.hidden = true;
+    };
+
+    starts.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var p = document.getElementById('a11y-panel');
+        if (p && !p.hidden && p.contains(b)) document.querySelector('[data-a11y-close]').click();
+        start(true);
+      });
+    });
+    toggle.addEventListener('click', function () {
+      if (!playing) { start(true); return; }
+      paused = !paused;
+      if (paused) { synth.cancel(); setPlaying(true); }
+      else { setPlaying(true); speakNext(); }
+    });
+    radio.querySelector('[data-radio-stop]').addEventListener('click', function () { stop(true); });
+
+    /*
+       Sagetile: sar la blocul de dinainte (paragraf, titlu, card) sau la cel care
+       urmeaza, si il citesc de la inceput.
+    */
+    var firstOf = function (i) {
+      while (i > 0 && queue[i - 1].el === queue[i].el) i--;
+      return i;
+    };
+    var jump = function (dir) {
+      if (!queue.length) { start(true); return; }
+      var i = Math.min(pos, queue.length - 1);
+      var el = queue[i].el;
+      if (dir > 0) {
+        while (i < queue.length && queue[i].el === el) i++;
+      } else {
+        i = firstOf(i);
+        if (i > 0) i = firstOf(i - 1);
+      }
+      pos = Math.max(0, Math.min(queue.length, i));
+      synth.cancel();
+      paused = false;
+      setPlaying(true);
+      setNeedle();
+      speakNext();
+    };
+    radio.querySelector('[data-radio-prev]').addEventListener('click', function () { jump(-1); });
+    radio.querySelector('[data-radio-next]').addEventListener('click', function () { jump(1); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && playing) stop(false); });
+    window.addEventListener('pagehide', function () { synth.cancel(); });
+
+    // pornirea singura dupa 30 de secunde fara activitate
+    var activity = function (e) {
+      last = Date.now();
+      if (e && (e.type === 'pointerdown' || e.type === 'keydown')) activated = true;
+    };
+    ['pointerdown', 'keydown', 'pointermove', 'wheel', 'scroll', 'touchstart'].forEach(function (t) {
+      window.addEventListener(t, activity, { passive: true });
+    });
+    setInterval(function () {
+      if (autoDone || playing || !activated || document.hidden || store.get('autoread') === 'off') return;
+      if (document.querySelector('dialog[open]') || !document.getElementById('a11y-panel').hidden) return;
+      if (Date.now() - last >= IDLE) { autoDone = true; start(true); }
+    }, 1000);
+  }
+
+  /*
+     Videoclipurile de la Povesti ale locului. Pe pagina povestilor, clic pe poza
+     deschide videoclipul intr-o fereastra; la inchidere se opreste.
+     Pe pagina unei povesti, linkul "Vezi interviul" devine player chiar acolo,
+     cu poza articolului drept coperta. Videoclipul se incarca abia la clic.
+  */
+  function initVideo() {
+    var player = document.querySelector('[data-video-player]');
+    if (player && player.showModal) {
+      var video = player.querySelector('video');
+      var title = player.querySelector('.pv-player__title');
+      var opener = null;
+      var close = function () { video.pause(); if (player.open) player.close(); };
+      document.querySelectorAll('[data-video]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          opener = b;
+          title.textContent = b.getAttribute('data-video-title') || '';
+          var img = b.querySelector('img');
+          video.poster = img ? img.currentSrc || img.src : '';
+          video.src = b.getAttribute('data-video');
+          player.showModal();
+          var p = video.play();
+          if (p && p.catch) p.catch(function () {});
+        });
+      });
+      player.querySelector('[data-video-close]').addEventListener('click', close);
+      player.addEventListener('click', function (e) { if (e.target === player) close(); });
+      player.addEventListener('close', function () {
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+        if (opener) opener.focus();
+      });
+    }
+
+    document.querySelectorAll('.item-page a.video-link').forEach(function (a) {
+      var page = a.closest('.item-page');
+      var fig = page.querySelector('.item-image');
+      var img = fig ? fig.querySelector('img') : null;
+      var box = document.createElement('div');
+      box.className = 'video-box';
+      box.innerHTML = '<button type="button" class="video-box__play"><span class="pv-card__btn" aria-hidden="true"><svg width="26" height="26"><use href="#i-play"/></svg></span><span class="video-box__label"></span></button>';
+      var btn = box.firstChild;
+      btn.querySelector('.video-box__label').textContent = a.textContent;
+      if (img) btn.insertBefore(img.cloneNode(), btn.firstChild);
+      if (fig) fig.hidden = true;
+      a.parentNode.replaceChild(box, a);
+      btn.addEventListener('click', function () {
+        var v = document.createElement('video');
+        v.controls = true;
+        v.playsInline = true;
+        v.src = a.href;
+        if (img) v.poster = img.src;
+        box.replaceChild(v, btn);
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+        v.focus();
       });
     });
   }
@@ -1075,6 +1639,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initA11y();
+    initSplit();
     introHero();
     initHeader();
     initTopbar();
@@ -1090,6 +1655,13 @@
     initVisit();
     initTour();
     initGallery();
+    initModels();
+    initEmbeds();
+    initTilt();
+    initJump();
+    initChrono();
+    initRadio();
+    initVideo();
     initMapGate();
     initLightbox();
     initAi();

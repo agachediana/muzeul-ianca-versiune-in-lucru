@@ -3,6 +3,7 @@
 <head>
 	<meta name="robots" content="noindex, nofollow">
 	<script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }</script>
+		<script>try { ['contrast', 'links', 'readable', 'spacing', 'motion', 'cursor', 'guide', 'focus', 'gray'].forEach(function (k) { var v = localStorage.getItem('mi-' + k); if (v) document.documentElement.setAttribute('data-' + k, v); }); var f = localStorage.getItem('mi-fs'); if (f) document.documentElement.style.setProperty('--fs-scale', f); } catch (e) {}</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Muzeul Ianca din Câmpia Brăilei: etnografie, istorie locală și artă, evenimente, program de vizitare și bilete.">
@@ -49,7 +50,12 @@
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></symbol>
   <symbol id="i-360" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="9.5" ry="4"/><path d="M12 3.5v4M9.5 18.5l2.5-2.5-2.5-2.5"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
-  <symbol id="i-reset"viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/></symbol>
+  <symbol id="i-a11y" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v4.5M12 14.5l-3.5 6M12 14.5l3.5 6"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-pause2" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5.5" width="3.8" height="13" rx="1"/><rect x="13.7" y="5.5" width="3.8" height="13" rx="1"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/></symbol>
 </svg>
 
 <a class="skip-link" href="#main">Sari la conținut</a>
@@ -64,12 +70,9 @@
 			<span><svg><use href="#i-phone"/></svg><a href="tel:+40723609033">0723 609 033</a></span>
 		</div>
 		<div class="topbar__actions">
-			<div class="a11y" role="group" aria-label="Accesibilitate">
-				<button type="button" data-a11y="dec" aria-label="Micșorează textul">A−</button>
-				<span class="a11y__size" data-a11y-size aria-live="polite">100%</span>
-				<button type="button" data-a11y="inc" aria-label="Mărește textul">A+</button>
-				<button type="button" data-a11y="contrast" aria-pressed="false" aria-label="Contrast ridicat"><svg><use href="#i-contrast"/></svg></button>
-				<button type="button" data-a11y="links" aria-pressed="false" aria-label="Subliniază linkurile"><svg><use href="#i-link"/></svg></button>
+			<div class="a11y">
+				<button type="button" class="a11y__open" aria-expanded="false" aria-controls="a11y-panel" data-a11y-open><svg aria-hidden="true"><use href="#i-a11y"/></svg><span>Accesibilitate</span></button>
+				<button type="button" class="a11y__open" data-radio-start><svg aria-hidden="true"><use href="#i-sound"/></svg><span>Ascultă</span></button>
 			</div>
 							<a class="topbar__tickets" href="https://muzeul-ianca.booktes.com/" target="_blank" rel="noopener">Bilete online</a>
 					</div>
@@ -213,24 +216,88 @@
 
 <div class="stitch" aria-hidden="true"></div>
 
-<!-- despre muzeu -->
+	<!-- colectiile muzeului: carduri care se inclina usor dupa mouse -->
+	<section class="section collections" aria-labelledby="colectii-titlu">
+		<div class="wrap">
+			<div class="section__head">
+				<div>
+					<p class="eyebrow">Colecțiile</p>
+					<h2 id="colectii-titlu" class="split">Ce păstrează muzeul</h2>
+				</div>
+				<p class="hand-note reveal" style="--d:2">obiecte strânse din casă în casă</p>
+			</div>
+			<div class="coll-grid">
+														<a class="coll reveal" style="--d:0" href="muzeul-in-imagini-galerii-foto-etnografie.html" data-tilt>
+						<span class="coll__img develop"><img src="assets/10-vioara.jpg" width="1600" height="1067" alt="" loading="lazy"></span>
+						<span class="coll__body">
+							<span class="coll__nr"><span data-count="192">192</span> obiecte</span>
+							<span class="coll__title">Etnografie</span>
+							<span class="coll__note">ștergare, scoarțe, unelte</span>
+							<span class="coll__more">Vedeți colecția <svg><use href="#i-arrow"/></svg></span>
+						</span>
+					</a>
+														<a class="coll reveal" style="--d:1" href="muzeul-in-imagini-galerii-foto-arta.html" data-tilt>
+						<span class="coll__img develop"><img src="assets/06-profiluri-in-stanca.jpg" width="1000" height="1441" alt="" loading="lazy"></span>
+						<span class="coll__body">
+							<span class="coll__nr"><span data-count="30">30</span> obiecte</span>
+							<span class="coll__title">Artă</span>
+							<span class="coll__note">tablourile Georgetei Crainic</span>
+							<span class="coll__more">Vedeți colecția <svg><use href="#i-arrow"/></svg></span>
+						</span>
+					</a>
+														<a class="coll reveal" style="--d:2" href="muzeul-in-imagini-galerii-foto.html" data-tilt>
+						<span class="coll__img develop"><img src="assets/08.jpg" width="1920" height="1080" alt="" loading="lazy"></span>
+						<span class="coll__body">
+							<span class="coll__nr"><span data-count="170">170</span> fotografii</span>
+							<span class="coll__title">Albumele foto</span>
+							<span class="coll__note">sală cu sală, pe corpuri</span>
+							<span class="coll__more">Vedeți colecția <svg><use href="#i-arrow"/></svg></span>
+						</span>
+					</a>
+														<a class="coll reveal" style="--d:3" href="muzeul-in-imagini-galerii-foto.html" data-tilt>
+						<span class="coll__img develop"><img src="assets/11-galeata-mica-apa.jpg" width="720" height="405" alt="" loading="lazy"></span>
+						<span class="coll__body">
+							<span class="coll__nr"><span data-count="31">31</span> obiecte</span>
+							<span class="coll__title">Scanări 3D</span>
+							<span class="coll__note">obiecte de întors pe toate părțile</span>
+							<span class="coll__more">Vedeți colecția <svg><use href="#i-arrow"/></svg></span>
+						</span>
+					</a>
+							</div>
+		</div>
+	</section>
+
+<!--
+  despre muzeu, impreuna cu cifrele muzeului: poza se dezvaluie de sus in jos,
+  sigiliul "din 1999" se roteste incet, titlul urca pe cuvinte, nota de mana se
+  scrie, broderia se coase, iar cifrele cresc cand apar pe ecran
+-->
 	<section class="section about-section" id="despre">
 		<div class="wrap">
 			<div class="intro">
 				<div class="intro__media reveal">
 					<figure class="reveal-img"><img src="assets/prezentare.jpg" width="640" height="960" alt="Instrumente muzicale vechi și costum popular în secția de etnografie" loading="lazy"></figure>
+					<svg class="intro__seal" viewBox="0 0 120 120" aria-hidden="true">
+						<defs><path id="seal-path" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
+						<circle cx="60" cy="60" r="58" />
+						<text><textPath href="#seal-path">Muzeul Ianca · deschis în 1999 · Câmpia Brăilei ·</textPath></text>
+						<text class="intro__seal-year" x="60" y="68" text-anchor="middle">1999</text>
+					</svg>
 				</div>
 				<div class="intro__text">
-					<h2 class="reveal">Despre muzeu</h2>
+					<p class="eyebrow">Muzeul în cifre</p>
+					<h2 class="split">Despre muzeu</h2>
+					<p class="hand-note">adunat cu răbdare, casă cu casă</p>
+					<div class="stitch-sm" aria-hidden="true"></div>
 					<p class="lead reveal" style="--d:1">Deschis la 1 decembrie 1999 de prof. Ion M. Bărbuceanu, muzeul păstrează obiecte de uz casnic, unelte, costume populare, documente de istorie locală și o colecție de istoria aviației.</p>
-					<div class="stats reveal" style="--d:2">
-						<div class="stat"><span class="stat__num" data-count="26">26</span><span class="stat__label">ani de activitate</span></div>
-						<div class="stat"><span class="stat__num" data-count="4">4</span><span class="stat__label">corpuri de clădire</span></div>
-						<div class="stat"><span class="stat__num" data-count="25">25</span><span class="stat__label">tablouri Georgeta Crainic</span></div>
-					</div>
-				</div>
+					<dl class="about-figs">
+						<div class="figure reveal" style="--d:2"><dt>ani de activitate</dt><dd data-count="26">26</dd></div>
+						<div class="figure reveal" style="--d:3"><dt>corpuri de clădire</dt><dd data-count="4">4</dd></div>
+						<div class="figure reveal" style="--d:4"><dt>tablouri Georgeta Crainic</dt><dd data-count="25">25</dd></div>
+						<div class="figure reveal" style="--d:5"><dt>evenimente în arhivă</dt><dd data-count="30">30</dd></div>
+					</dl>
+					<a class="link-arrow reveal" style="--d:6" href="despre-asociatia.html">Asociația „Muzeul” Ianca <svg width="16" height="16"><use href="#i-arrow"/></svg></a>				</div>
 			</div>
-
 		</div>
 	</section>
 
@@ -314,11 +381,58 @@
 		</div>
 	</section>
 
+	<!-- banda turului virtual: cele patru corpuri, ca niste usi care se deschid la hover -->
+	<section class="tour-band" aria-labelledby="tur-titlu">
+		<div class="wrap tour-band__grid">
+			<div class="tour-band__text">
+				<p class="eyebrow">Tur virtual 360°</p>
+				<h2 id="tur-titlu" class="split">Intrați în muzeu de oriunde</h2>
+				<p class="hand-note">patru corpuri, patru plimbări</p>
+				<a class="btn btn--ghost" href="muzeul-in-imagini-tur-virtual.html">Pornește turul <svg><use href="#i-arrow"/></svg></a>
+			</div>
+			<ul class="tour-band__doors">
+									<li class="door reveal" style="--d:0">
+						<a href="muzeul-in-imagini-tur-virtual.html#tour-0-acasa">
+							<span class="door__img"><img src="assets/arta.jpg" width="640" height="427" alt="" loading="lazy"></span>
+							<span class="door__leaf" aria-hidden="true"></span>
+							<span class="door__letter"><small>Corpul</small>A</span>
+							<span class="door__name">Artă și expoziții temporare</span>
+						</a>
+					</li>
+									<li class="door reveal" style="--d:1">
+						<a href="muzeul-in-imagini-tur-virtual.html#tour-1-acasa">
+							<span class="door__img"><img src="assets/biserica.jpg" width="640" height="360" alt="" loading="lazy"></span>
+							<span class="door__leaf" aria-hidden="true"></span>
+							<span class="door__letter"><small>Corpul</small>B</span>
+							<span class="door__name">Biserica, Armata, Școala și Viața Satului</span>
+						</a>
+					</li>
+									<li class="door reveal" style="--d:2">
+						<a href="muzeul-in-imagini-tur-virtual.html#tour-2-acasa">
+							<span class="door__img"><img src="assets/casa.jpg" width="640" height="427" alt="" loading="lazy"></span>
+							<span class="door__leaf" aria-hidden="true"></span>
+							<span class="door__letter"><small>Corpul</small>C</span>
+							<span class="door__name">Casa țărănească</span>
+						</a>
+					</li>
+									<li class="door reveal" style="--d:3">
+						<a href="muzeul-in-imagini-tur-virtual.html#tour-3-acasa">
+							<span class="door__img"><img src="assets/unelte.jpg" width="640" height="427" alt="" loading="lazy"></span>
+							<span class="door__leaf" aria-hidden="true"></span>
+							<span class="door__letter"><small>Corpul</small>D</span>
+							<span class="door__name">Depozitul de unelte</span>
+						</a>
+					</li>
+							</ul>
+		</div>
+	</section>
+
 <!-- vizita si contact -->
 	<section class="section" id="vizita">
 		<div class="wrap visit">
 			<div class="visit__card reveal">
 				<h2>Vizitează muzeul</h2>
+								<p class="vz-status vz-status--small" data-status data-orar="[{&quot;zi&quot;:&quot;Luni&quot;,&quot;de&quot;:null,&quot;la&quot;:null},{&quot;zi&quot;:&quot;Marți&quot;,&quot;de&quot;:&quot;10:00&quot;,&quot;la&quot;:&quot;14:00&quot;},{&quot;zi&quot;:&quot;Miercuri&quot;,&quot;de&quot;:&quot;10:00&quot;,&quot;la&quot;:&quot;14:00&quot;},{&quot;zi&quot;:&quot;Joi&quot;,&quot;de&quot;:&quot;10:00&quot;,&quot;la&quot;:&quot;14:00&quot;},{&quot;zi&quot;:&quot;Vineri&quot;,&quot;de&quot;:&quot;10:00&quot;,&quot;la&quot;:&quot;14:00&quot;},{&quot;zi&quot;:&quot;Sâmbătă&quot;,&quot;de&quot;:&quot;10:00&quot;,&quot;la&quot;:&quot;14:00&quot;},{&quot;zi&quot;:&quot;Duminică&quot;,&quot;de&quot;:&quot;10:00&quot;,&quot;la&quot;:&quot;14:00&quot;}]"><span class="vz-status__dot" aria-hidden="true"></span><span data-status-text>Marți – Duminică 10:00 – 14:00 · Luni închis</span></p>
 				<div class="visit__rows">
 					<div class="visit__row"><svg><use href="#i-clock"/></svg><div><strong>Program</strong>Marți – Duminică 10:00 – 14:00 · Luni închis</div></div>
 					<div class="visit__row"><svg><use href="#i-pin"/></svg><div><strong>Adresă</strong>Str. Gării nr. 9, Ianca, jud. Brăila</div></div>
@@ -369,7 +483,7 @@
 					<div><dt>Adresă</dt><dd>Str. Gării nr. 9, Ianca, jud. Brăila</dd></div>
 					<div><dt>Program</dt><dd>Marți – Duminică 10:00 – 14:00 · Luni închis</dd></div>
 					<div><dt>Telefon</dt><dd><a href="tel:+40723609033">0723 609 033</a></dd></div>
-									</dl>
+					<div><dt>E-mail</dt><dd><a href="mailto:iancamuzeul@yahoo.ro">iancamuzeul@yahoo.ro</a></dd></div>				</dl>
 				<div class="footer__social">
 					<a href="https://www.facebook.com/muzeuliancadinjudetulbraila/" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>					<a href="https://www.youtube.com/channel/UCLBgqLUfyg9zFQsDvL5UjUA" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>				</div>
 			</div>
@@ -387,11 +501,76 @@
 				</div>
 					</div>
 		<div class="footer__bottom">
-			<p class="footer__id">Asociația cultural-istorică „Muzeul” Ianca</p>			<span>© 2026 Toate drepturile rezervate | Muzeul Ianca</span>
+			<p class="footer__id">Asociația cultural-istorică „Muzeul” Ianca · E-mail: iancamuzeul@yahoo.ro</p>			<span>© 2026 Toate drepturile rezervate | Muzeul Ianca</span>
 		</div>
 	</div>
 	<p class="footer__wordmark" aria-hidden="true">Muzeul Ianca</p>
 </footer>
+
+<!--
+  Panoul de accesibilitate (vezi initA11y din template.js). Optiunile urmaresc
+  criteriile WCAG 2.1 nivel AA cerute de OUG 112/2018 si Legea 232/2022:
+  marirea textului (1.4.4), contrastul (1.4.3), spatierea textului (1.4.12),
+  oprirea animatiilor (2.2.2), focusul vizibil (2.4.7). Alegerile raman in browser.
+-->
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11y-title" hidden>
+	<div class="a11y-panel__head">
+		<h2 id="a11y-title">Accesibilitate</h2>
+		<button type="button" class="a11y-panel__close" data-a11y-close aria-label="Închide panoul de accesibilitate"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+	</div>
+	<p class="a11y-panel__intro">Alegerile se păstrează în acest browser, pe toate paginile.</p>
+
+	<div class="a11y-size">
+		<span id="a11y-size-label">Mărimea textului</span>
+		<div class="a11y-size__btns" role="group" aria-labelledby="a11y-size-label">
+			<button type="button" data-a11y="dec" aria-label="Micșorează textul">A−</button>
+			<span class="a11y__size" data-a11y-size aria-live="polite">100%</span>
+			<button type="button" data-a11y="inc" aria-label="Mărește textul">A+</button>
+		</div>
+	</div>
+
+	<div class="a11y-grid">
+		<button type="button" class="a11y-opt" data-a11y="contrast" aria-pressed="false"><svg aria-hidden="true"><use href="#i-contrast"/></svg>Contrast ridicat</button>
+		<button type="button" class="a11y-opt" data-a11y="links" aria-pressed="false"><svg aria-hidden="true"><use href="#i-link"/></svg>Subliniază linkurile</button>
+		<button type="button" class="a11y-opt" data-a11y="readable" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">Aa</span>Font ușor de citit</button>
+		<button type="button" class="a11y-opt" data-a11y="spacing" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">↕</span>Spațiere mărită</button>
+		<button type="button" class="a11y-opt" data-a11y="motion" aria-pressed="false"><svg aria-hidden="true"><use href="#i-pause"/></svg>Oprește animațiile</button>
+		<button type="button" class="a11y-opt" data-a11y="cursor" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">➤</span>Cursor mare</button>
+		<button type="button" class="a11y-opt" data-a11y="guide" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">▭</span>Ghid de citire</button>
+		<button type="button" class="a11y-opt" data-a11y="focus" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">◎</span>Evidențiază elementul activ</button>
+		<button type="button" class="a11y-opt" data-a11y="gray" aria-pressed="false"><span class="a11y-opt__ic" aria-hidden="true">◐</span>Tonuri de gri</button>
+	</div>
+
+	<div class="a11y-audio">
+		<button type="button" class="btn a11y-audio__play" data-radio-start><svg aria-hidden="true"><use href="#i-sound"/></svg>Citește pagina cu voce tare</button>
+		<button type="button" class="a11y-opt a11y-opt--wide" data-a11y="autoread" aria-pressed="true">Ghidul pornește singur după 30 de secunde fără activitate</button>
+	</div>
+
+	<div class="a11y-panel__foot">
+		<button type="button" class="link-arrow" data-a11y="reset"><svg aria-hidden="true"><use href="#i-reset"/></svg>Resetează tot</button>	</div>
+</div>
+<div class="reading-guide" aria-hidden="true"></div>
+
+<!--
+  Ghidul audio, ca un radio de epoca: citeste pagina in romana cu vocea
+  browserului (fara servicii externe). Acul arata cat s-a citit.
+  Porneste singur dupa 30 de secunde fara activitate (vezi initRadio).
+  Sagetile sar la bucata de dinainte sau la cea care urmeaza.
+-->
+<div class="radio" data-radio hidden role="region" aria-label="Ghid audio">
+	<span class="radio__grille" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+	<div class="radio__info">
+		<p class="radio__title">Povestea paginii</p>
+		<p class="radio__now" data-radio-now aria-live="polite"></p>
+		<div class="radio__dial" aria-hidden="true"><span class="radio__scale"></span><span class="radio__needle"></span></div>
+	</div>
+	<div class="radio__btns">
+		<button type="button" class="radio__btn radio__btn--step" data-radio-prev aria-label="Citește ce e înainte"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+		<button type="button" class="radio__btn" data-radio-toggle aria-label="Pauză"><svg aria-hidden="true"><use href="#i-pause2"/></svg></button>
+		<button type="button" class="radio__btn radio__btn--step" data-radio-next aria-label="Citește ce urmează"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+		<button type="button" class="radio__btn" data-radio-stop aria-label="Oprește și închide ghidul"><svg aria-hidden="true"><use href="#i-stop"/></svg></button>
+	</div>
+</div>
 
 <button class="ai-fab" type="button" aria-expanded="false" aria-controls="ai-panel"><svg><use href="#i-chat"/></svg>Întreabă muzeul</button>
 <div class="ai-panel" id="ai-panel" role="dialog" aria-labelledby="ai-title">
